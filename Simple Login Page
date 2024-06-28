@@ -1,3 +1,4 @@
+#V1
 name = input("Enter Username")
 if name == "lua":
     print(f"Welcome {name}")
@@ -9,3 +10,15 @@ if password == "12345":
     print(f"Welcome back, {name}")
 elif password != "12345":
     print("Access denied, wrong password")
+
+#V2
+name = input("Enter Username: ")
+if name == "lua":
+    password = input("Enter Password: ")
+    if password == "12345":
+        print(f"Welcome back, {name}")
+    elif password != "12345":
+        print("Access denied, wrong password")
+elif name != "lua":
+    print("Access denied, wrong username")
+    quit()
