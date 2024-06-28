@@ -1,0 +1,11 @@
+name = input("Enter Username")
+if name == "lua":
+    print(f"Welcome {name}")
+elif name != "lua":
+    print("Access denied, wrong username")
+    quit()
+password = input("Enter Password")
+if password == "12345":
+    print(f"Welcome back, {name}")
+elif password != "12345":
+    print("Access denied, wrong password")
