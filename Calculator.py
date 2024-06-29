@@ -1,3 +1,6 @@
+#simple calculator made by ExZhonya(Lua)
+#Will update later for better performance
+
 number1 = input("Enter first number: ")
 operation = input("Enter operation : ")
 number2 = input("Enter second number: ")
