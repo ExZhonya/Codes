@@ -1,4 +1,4 @@
-#Update to make x, × and ÷ available to use, as well 'plus', 'minus'
+#Update to make x, ×, ÷ and : available to use, as well 'plus', 'minus'
 number1 = input("Enter first number: ")
 operation = input("Enter operation : ")
 number2 = input("Enter second number: ")
