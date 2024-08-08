@@ -1,0 +1,27 @@
+name_register = " "
+password_register = " "
+
+def Register():
+    global name_register, password_register
+    name_register = input("Enter Name: ")
+    password_register = input("Enter Password: ")
+    print("Registration successful! Please log in.")
+    Login()
+
+def Login():
+    name_login = input("Enter Name: ")
+    if name_login == name_register:
+        password_login = input('Enter Password: ')
+        if password_login == password_register:
+            print(f"Welcome Back {name_login}")
+        else:
+            print("Incorrect Password")
+    else:
+        print("Wrong Username")
+
+# This is login/register
+confirm = input('New User? (yes/no): ')
+if confirm == 'yes':
+    Register()
+elif confirm == 'no':
+    Login()
