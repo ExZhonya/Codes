@@ -7,17 +7,17 @@ tie= 0
 while True:
     print('ROCK, PAPER, SCISSORS')
     print(f'{win} wins, {loss} losses, {tie} ties')
-    print('Enter your move: (r)ock, (p)aper, (s)cissors or (q)uit:')
+    print('Enter your move: rock, paper, scissors or quit:')
 
     player_guess= input('Input: ')
 
-    if player_guess == 'r':
+    if player_guess == 'rock':
         guess_id= 1
-    if player_guess == 'p':
+    if player_guess == 'paper':
         guess_id= 2
-    if player_guess == 's':
+    if player_guess == 'scissors':
         guess_id= 3
-    if player_guess == 'q':
+    if player_guess == 'quit':
         sys.exit('player exited the game.')
 
     print(f'{player_guess} versus...')
