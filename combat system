@@ -1,0 +1,107 @@
+import random
+
+defaultEnemyAction = 10
+battleTurn = "Player"
+enemyrealHP = 100
+youWinvalue = 0
+youLosevalue = 0
+playerrealHP = 100
+playerDmg = 0
+def clearscreen(): #Clears the screen 
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+    pass
+    
+def playerBlock(): #Not yet made, but a function when player chooses to block
+    pass
+    
+def playerDodge(): #Not yet made, but a function when player chooses to dodge
+    pass
+
+def playerFlee(): #Not yet made, but a function when player chooses to flee
+    pass
+
+def playerFight(): #A function when player chooses to attack
+    global enemyrealHP #Replaces the global enemyrealHP on the top of the code.
+    global playerDmg    #Replaces the value of the playerDmg on the top of the code.
+    playerDmg = random.randint(1, 15)
+    enemyrealHP = enemyrealHP - playerDmg
+    
+    
+def enemyResponse(): #Occurs anytime, but placed after the player does a move 
+    global enemyrealHP #Overwrites the current enemyrealHP 
+    global enemydamage #Overwrites the current enemydamage
+    enemyChoice = 3 #random.randint(1,4) a comment for now since im testing the dodge function
+    
+    if enemyChoice == 1:
+        enemydamage = random.randint(1,15)
+        print(f"\nYou took {enemydamage} from the Spider.")
+        playerrealHP = playerrealHP - enemydamage
+
+    if enemyChoice == 2:
+        enemyBlock = random.randint(1,15)
+        print(f"\nThe Spider blocked {enemyBlock} dmg.")
+        playerrealHP = playerrealHP - enemydamage
+
+    if enemyChoice == 3:
+        enemyDodgeChance = random.randint(1,15)
+        if enemyDodgeChance >10:
+            enemyrealHP = enemyrealHP + playerDmg
+            print("\nThe Spider dodged and took no dmg.")
+        elif enemyDodgeChance <10:
+            print(f"\nThe Spider tried to dodge, but failed, took {playerDmg}.")
+
+    if enemyChoice == 4:
+        enemydamage = random.randint(1,15)
+        print(f"\nYou took {enemydamage} from the Spider.")
+        playerrealHP = playerrealHP - enemydamage
+    
+
+def playercheck(): #Checks if the player's hp is 0
+    global youLosevalue
+    if playerrealHP <=0:
+        youLosevalue = 1
+
+def enemycheck(): #Checks if the enemy's hp is 0
+    global youWinvalue
+    if enemyrealHP <= 0:
+        youWinvalue = 1
+
+while True: #Creates an infinite loop for the game until you or the enemy wins
+    enemycheck()
+    if youWinvalue == 1: 
+        clearscreen()
+        print("You Win!!!")
+        break
+    playercheck()
+    if youLosevalue == 1:
+        clearscreen()
+        print("You Died! Try Again!!")
+        break 
+    
+    #Text Visual
+    print(f"Enemy: Spider")
+    print(f"HP: {enemyrealHP} AP: {defaultEnemyAction}")
+    print(f"\n{battleTurn}'s turn:")
+    print(f"[1]attack [2]block [3]dodge [4]4lee ")
+    playerChoice = input("What's your move? ")
+    
+    #Player Inputs 
+    if playerChoice == "1":
+        clearscreen()
+        playerFight()
+        enemyResponse()
+        continue
+    elif playerChoice == "2":
+        clearscreen()
+        playerBlock()
+        enemyResponse()
+        continue
+    elif playerChoice == '3':
+        clearscreen()
+        playerDodge()
+        enemyResponse()
+        continue
+    elif playerChoice == "4":
+        print("You Have Fleed")
+        break
+    
