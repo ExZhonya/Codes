@@ -3,6 +3,7 @@ import random
 defaultEnemyAction = 10
 battleTurn = "Player"
 enemyrealHP = 100
+enemyrealdamage = 1
 youWinvalue = 0
 youLosevalue = 0
 playerrealHP = 100
@@ -25,6 +26,10 @@ def playerFight(): #A function when player chooses to attack
     global playerDmg    #Replaces the value of the playerDmg on the top of the code.
     playerDmg = random.randint(1, 15)
     enemyrealHP = enemyrealHP - playerDmg
+
+def playerStatus(): #A function that occurs when the player chooses an action
+    if playerChoice in ["1", "2", "3"]:
+        print(f"\nYou have {playerrealHP} HP left. \n")
     
     
 def enemyResponse(): #Occurs anytime, but placed after the player does a move 
@@ -90,16 +95,19 @@ while True: #Creates an infinite loop for the game until you or the enemy wins
         clearscreen()
         playerFight()
         enemyResponse()
+        playerStatus()
         continue
     elif playerChoice == "2":
         clearscreen()
         playerBlock()
         enemyResponse()
+        playerStatus()
         continue
     elif playerChoice == '3':
         clearscreen()
         playerDodge()
         enemyResponse()
+        playerStatus()
         continue
     elif playerChoice == "4":
         print(" ")
