@@ -6,7 +6,7 @@ enemyrealHP = 100
 youWinvalue = 0
 youLosevalue = 0
 playerrealHP = 100
-playerDmg = 0
+playerDmg = 5
 def clearscreen(): #Clears the screen 
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
     pass
@@ -82,7 +82,7 @@ while True: #Creates an infinite loop for the game until you or the enemy wins
     print(f"Enemy: Spider")
     print(f"HP: {enemyrealHP} AP: {defaultEnemyAction}")
     print(f"\n{battleTurn}'s turn:")
-    print(f"[1]attack [2]block [3]dodge [4]4lee ")
+    print(f"[1]attack [2]block [3]dodge [4]flee ")
     playerChoice = input("What's your move? ")
     
     #Player Inputs 
@@ -103,6 +103,5 @@ while True: #Creates an infinite loop for the game until you or the enemy wins
         continue
     elif playerChoice == "4":
         print(" ")
-        print("You Have Fleed")
+        print("You Have Fled")
         break
-    
