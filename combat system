@@ -102,6 +102,6 @@ while True: #Creates an infinite loop for the game until you or the enemy wins
         enemyResponse()
         continue
     elif playerChoice == "4":
-        print("You Have Fleed")
+        print("You Have Fled")
         break
     
