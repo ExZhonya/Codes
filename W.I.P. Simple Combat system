@@ -24,10 +24,8 @@ def playerBlock(): # Partly made, need further fix for the print output
     global playerrealHP
     blockValue = random.randint(1, 15)  # Random block value
     print(f"\nYou blocked {blockValue} damage.")
-    
-    # Simulate the enemy's attack damage
+
     enemyDamage = random.randint(1, 15)
-    
     damageTaken = max(0, enemyDamage - blockValue)
     print(f"You took {damageTaken} damage after blocking.")
     
@@ -35,7 +33,6 @@ def playerBlock(): # Partly made, need further fix for the print output
 
 def playerDodge():
     global playerrealHP
-    
     playerdodgechance = random.randint(1, 15)
     
     if playerdodgechance > 10:
