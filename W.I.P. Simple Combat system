@@ -46,9 +46,6 @@ def playerDodge():
         print(f"\nYou failed to dodge and took {enemydamage} damage.")
 
 
-def playerFlee(): # Not yet made, but a function when player chooses to flee
-    pass
-
 def playerFight(): # A function when player chooses to attack
     global enemyrealHP # Replaces the global enemyrealHP on the top of the code.
     global playerDmg    # Replaces the value of the playerDmg on the top of the code.
