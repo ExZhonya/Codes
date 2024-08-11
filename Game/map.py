@@ -41,7 +41,7 @@ class map1:
     print('\n\n\n\n\n')
     print('-'*30)
     print("You're in the shop")
-    print("[1]Buy, [2()]Exit")
+    print("[1]Buy, [2]Exit")
     print('-'*30)
     choice = input()
     if choice == "1":
