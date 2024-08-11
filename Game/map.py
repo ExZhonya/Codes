@@ -7,17 +7,19 @@ class map1:
     print('\n\n\n\n\n')
     print('-'*30)
     print("You're in the village")
-    print("[1]Home, [2]Shop, [3]Blacksmith, [4]Grassland")
+    print("[1]Home, [2]Shop, [3]Blacksmith, [4]Grassland, [5]City")
     print('-'*30)
     choice = input()
     if choice == "1":
         map1.home()
     elif choice == "2":
-        map1.shop()
+        map1.vil_shop()
     elif choice == "3":
         map1.blacksmith()
     elif choice == "4":
         map1.grassland()
+    elif choice == "5":
+        map2.city()
 
  def home():
   while True:
@@ -34,7 +36,7 @@ class map1:
     elif choice == "3":
         map1.village()
 
- def shop():
+ def vil_shop():
   while True:
     print('\n\n\n\n\n')
     print('-'*30)
@@ -64,7 +66,7 @@ class map1:
         elif choice == "3":
             map1.vil_pot()
         elif choice == "4":
-            map1.village()
+            map1.vil_shop()
 
  def vil_weap():
     print('\n\n\n\n\n')
@@ -113,6 +115,25 @@ class map1:
     elif choice == "3":
         map1.village()
 
+ def vil_enh():
+    print('\n\n\n\n\n')
+    print('-'*30)
+    print("Coming Soon")
+    print('[1]Back')
+    print('-'*30)
+    choice = input()
+    if choice == "1":
+        map1.blacksmith()
+
+ def vil_craft():
+    print('\n\n\n\n\n')
+    print('-'*30)
+    print("Coming Soon")
+    print('[1]Back')
+    print('-'*30)
+    choice = input()
+    if choice == "1":
+        map1.blacksmith()
 
  def forest():
     while True:
@@ -202,13 +223,74 @@ class map2:
         if choice == "1":
             map1.village()
         elif choice == "2":
-            pass
+            map2.city_shop()
         elif choice == "3":
            pass
         elif choice == "4":
-            map1.dark_forest()
+            map2.dark_forest()
         elif choice == "5":
            map3.castle()
+
+    def city_shop():
+        print('\n\n\n\n\n')
+        print('-'*30)
+        print("You're in the City Shop")
+        print("[1]Buy, [2]Sell, [3]Exit")
+        print('-'*30)
+        choice = input()
+        if choice == "1":
+            map2.in_city_shop()
+        elif choice == "2":
+            pass
+        elif choice == "3":
+            map2.city()
+
+    def in_city_shop():
+        while True:
+            print('\n\n\n\n\n')
+            print('-'*30)
+            print("You're in the City Shop")
+            print('[1]Weapons, [2]Armor, [3]Potions, [4]Back')
+            print('-'*30)
+            choice = input()
+            if choice == "1":
+                map1.vil_weap()
+            elif choice == "2":
+                map1.vil_arm()
+            elif choice == "3":
+                map1.vil_pot()
+            elif choice == "4":
+                map1.village()
+
+    def city_weap():
+            print('\n\n\n\n\n')
+            print('-'*30)
+            print("Coming Soon")
+            print('[1]Back')
+            print('-'*30)
+            choice = input()
+            if choice == "1":
+                map1.in_city_shop()
+
+    def city_arm():
+            print('\n\n\n\n\n')
+            print('-'*30)
+            print("Coming Soon")
+            print('[1]Back')
+            print('-'*30)
+            choice = input()
+            if choice == "1":
+                map1.in_city_shop()
+
+    def city_pot():
+            print('\n\n\n\n\n')
+            print('-'*30)
+            print("Coming Soon")
+            print('[1]Back')
+            print('-'*30)
+            choice = input()
+            if choice == "1":
+                map1.in_city_shop()
 
     def dark_forest():
         while True:
@@ -251,18 +333,18 @@ class map3:
                 pass
             
 
-    def grassland():
+    def sewer():
      while True:
         print('\n\n\n\n\n')
         print('-'*30)
-        print("You're in the Grassland")
-        print("[1]Village [2]Forest")
+        print("You're in the Sewer")
+        print("[1]Go Back, [2]Go Deeper")
         print('-'*30)
         choice = input()
         if choice == "1":
-            map1.village()
+            map3.castle()
         elif choice == "2":
-            map1.forest()
+            pass
     
   
 while True:
