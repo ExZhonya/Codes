@@ -1,4 +1,5 @@
 #Creator: @ExZhonya
+import time
 
 class map1:
  def village():
@@ -42,11 +43,40 @@ class map1:
     print('-'*30)
     choice = input()
     if choice == "1":
-        pass
+        map1.village_shop()
     elif choice == "2":
         pass
     elif choice == "3":
         map1.village()
+
+ def village_shop():
+    while True:
+        print('\n\n\n\n\n')
+        print('-'*30)
+        print("You're in the village shop")
+        print('[1]Weapons, [2]Armor, [3]Potions, [4]Back')
+        print('-'*30)
+        choice = input()
+        if choice == "1":
+            map1.vil_weap()
+        elif choice == "2":
+            print('Coming Soon')
+        elif choice == "3":
+            print('Coming Soon')
+        elif choice == "4":
+            map1.shop()
+
+ def vil_weap():
+    print('\n\n\n\n\n')
+    print('-'*30)
+    print("Coming Soon")
+    print('[1]Back')
+    print('-'*30)
+    choice = input()
+    if choice == "1":
+        map1.village_shop()
+
+
 
  def blacksmith():
   while True:
@@ -71,14 +101,16 @@ class map1:
         print('\n\n\n\n\n')
         print('-'*30)
         print("You're in the Forest")
-        print("[1]Grassland, [2]Cave, [3]Go Deeper")
+        print("[1]Explore [2]Grassland, [3]Cave, [4]Go Deeper")
         print('-'*30)
         choice = input()
         if choice == "1":
-            map1.grassland()
+            pass
         elif choice == "2":
-            map1.cave()
+            map1.grassland()
         elif choice == "3":
+            map1.cave()
+        elif choice == "4":
             map1.deep_forest()
 
  def cave():
@@ -86,12 +118,14 @@ class map1:
         print('\n\n\n\n\n')
         print('-'*30)
         print("You're in the Cave")
-        print("[1]Go Deeper, [2]Go Back")
+        print("[1]Explore, [2]Go Deeper, [3]Go Back")
         print('-'*30)
         choice = input()
         if choice == "1":
-            map1.deep_cave()
+            pass
         elif choice == "2":
+            map1.deep_cave()
+        elif choice == "3":
             map1.forest()
 
  def deep_cave():
@@ -99,13 +133,15 @@ class map1:
         print('\n\n\n\n\n')
         print('-'*30)
         print("You're in the Deep Cave")
-        print("[1]Go Deeper, [2]Go Back")
+        print("[1]Explore, [2]Go Deeper, [3]Go Back")
         print('-'*30)
         choice = input()
         if choice == "1":
             pass
         elif choice == "2":
-            map1.cave()
+            pass
+        elif choice == "3":
+           pass
     
 
  def deep_forest():
@@ -180,6 +216,7 @@ class map2:
             if choice == "1":
                 map1.dark_forest()
             elif choice == "2":
+               pass
 
 class map3:
     def castle():
