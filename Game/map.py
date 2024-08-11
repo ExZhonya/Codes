@@ -60,13 +60,33 @@ class map1:
         if choice == "1":
             map1.vil_weap()
         elif choice == "2":
-            print('Coming Soon')
+            map1.vil_arm()
         elif choice == "3":
-            print('Coming Soon')
+            map1.vil_pot()
         elif choice == "4":
-            map1.shop()
+            map1.village()
 
  def vil_weap():
+    print('\n\n\n\n\n')
+    print('-'*30)
+    print("Coming Soon")
+    print('[1]Back')
+    print('-'*30)
+    choice = input()
+    if choice == "1":
+        map1.village_shop()
+
+ def vil_arm():
+    print('\n\n\n\n\n')
+    print('-'*30)
+    print("Coming Soon")
+    print('[1]Back')
+    print('-'*30)
+    choice = input()
+    if choice == "1":
+        map1.village_shop()
+
+ def vil_pot():
     print('\n\n\n\n\n')
     print('-'*30)
     print("Coming Soon")
