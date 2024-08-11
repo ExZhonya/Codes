@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
-# Creator : @ExZhonya
+#Creator: @ExZhonya
 
->>>>>>> 9bbb86abee5d4248538500adf480956369c9b584
 class map1:
  def village():
   while True:
