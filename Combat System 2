@@ -1,10 +1,12 @@
 #Original creator: Pilgrimir
 #Editor/Co-creator: Lua
+#Original creator: Pilgrimir
+#Editor/Co-creator: Lua
 import random
 import time
 
 enemy= "Spider" #replaceabe
-battlefield= "Marshlands" #replaceable
+battlefield= "Suspicious Cave" #replaceable
 current_enemy_ap= 10 #temporary
 current_enemy_hp= 100 #temporary
 current_player_ap= 10 #temporary
@@ -44,12 +46,13 @@ def enemy_input(value): #contains all of the player inputs, uses a random functi
         enemy_display = f"blocked {block_damage_e} dmg!" #updates the enemy displayed values 
 
 while True: #clock, and text visuals
-    print(f"Battlefield: {battlefield}")
-    print(f"\n{enemy}")
-    print(f"Health: {current_enemy_hp} Actionpts: {current_enemy_ap}")
+    print(f"Area: {battlefield}")
     print(f"-" * 30)
-    print(f"\nPlayer: ")
-    print(f"Health: {current_player_hp} Actionpts: {current_player_ap}")
+    print(f"|{enemy}")
+    print(f"|Health: {current_enemy_hp} Actionpts: {current_enemy_ap}")
+    print(f"-" * 30)
+    print(f"|Player: ")
+    print(f"|Health: {current_player_hp} Actionpts: {current_player_ap}")
     print(f"-" * 30)
     print("[1]- attack [2]- block [3]- dodge [4]- flee")
     next_move= input("Next move: ")
@@ -61,4 +64,3 @@ while True: #clock, and text visuals
     time.sleep(1) #waits for a second 
     print("\n" * 10) #clears the screen
     continue   #repeats
-
