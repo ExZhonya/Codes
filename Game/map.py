@@ -1,5 +1,5 @@
 #Creator: @ExZhonya
-import time
+
 
 class map1:
  def village():
