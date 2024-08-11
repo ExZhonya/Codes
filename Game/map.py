@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# Creator : @ExZhonya
+
+>>>>>>> 9bbb86abee5d4248538500adf480956369c9b584
 class map1:
  def village():
   while True:
@@ -105,6 +110,7 @@ class map1:
         elif choice == "2":
             map1.cave()
     
+<<<<<<< HEAD
 
  def deep_forest():
     while True:
@@ -152,7 +158,36 @@ class map2:
 
     
             
+=======
 
+ def deep_forest():
+    while True:
+        print('\n\n\n\n\n')
+        print('-'*30)
+        print("You're in the Deep Forest")
+        print("[1]Go Deeper, [2]Go Back")
+        print('-'*30)
+        choice = input()
+        if choice == "1":
+            pass
+        elif choice == "2":
+            map1.forest()
+>>>>>>> 9bbb86abee5d4248538500adf480956369c9b584
+
+ def grassland():
+    while True:
+        print('\n\n\n\n\n')
+        print('-'*30)
+        print("You're in the Grassland")
+        print("[1]Village [2]Forest, [3]Mountain")
+        print('-'*30)
+        choice = input()
+        if choice == "1":
+            map1.village()
+        elif choice == "2":
+            map1.forest()
+        elif choice == "3":
+            pass
     
   
 while True:
@@ -166,4 +201,8 @@ while True:
     elif player == "2":
         pass
     elif player == "3":
+<<<<<<< HEAD
         map1.forest()
+=======
+        map1.forest()
+>>>>>>> 9bbb86abee5d4248538500adf480956369c9b584
