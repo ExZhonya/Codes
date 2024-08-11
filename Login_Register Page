@@ -1,5 +1,8 @@
-name_register = " "
-password_register = " "
+#Update: Adding attempts tries
+
+
+name_register = ""
+password_register = ""
 
 def Register():
     global name_register, password_register
@@ -9,17 +12,26 @@ def Register():
     Login()
 
 def Login():
-    name_login = input("Enter Name: ")
-    if name_login == name_register:
-        password_login = input('Enter Password: ')
-        if password_login == password_register:
-            print(f"Welcome Back {name_login}")
+    attempts = 0
+    while attempts < 3:
+        name_login = input("Enter Name: ")
+        if name_login == name_register:
+            password_login = input('Enter Password: ')
+            if password_login == password_register:
+                print(f"Welcome Back, {name_login}!")
+                return
+            else:
+                print("Incorrect Password.")
         else:
-            print("Incorrect Password")
-    else:
-        print("Wrong Username")
+            print("Wrong Username.")
+        
+        attempts += 1
+        if attempts < 3:
+            print(f"Try again ")
+        else:
+            print("Too many attempts. Try again later.")
+            break
 
-# This is login/register
 confirm = input('New User? (yes/no): ')
 if confirm == 'yes':
     Register()
