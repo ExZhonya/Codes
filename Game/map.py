@@ -41,14 +41,12 @@ class map1:
     print('\n\n\n\n\n')
     print('-'*30)
     print("You're in the shop")
-    print("[1]Buy, [2]Sell, [3]Exit")
+    print("[1]Buy, [2()]Exit")
     print('-'*30)
     choice = input()
     if choice == "1":
         map1.village_shop()
     elif choice == "2":
-        pass
-    elif choice == "3":
         map1.village()
 
  def village_shop():
@@ -217,7 +215,7 @@ class map2:
         print('\n\n\n\n\n')
         print('-'*30)
         print("You're in the City")
-        print("[1]Village, [2]Shop, [3]Blacksmith, [4]Dark Forest")
+        print("[1]Village, [2]Shop, [3]Blacksmith [4]City Sewers, [5]Dark Forest")
         print('-'*30)
         choice = input()
         if choice == "1":
@@ -227,22 +225,22 @@ class map2:
         elif choice == "3":
            pass
         elif choice == "4":
-            map2.dark_forest()
+        	pass
         elif choice == "5":
+            map2.dark_forest()
+        elif choice == "6":
            map3.castle()
 
     def city_shop():
         print('\n\n\n\n\n')
         print('-'*30)
         print("You're in the City Shop")
-        print("[1]Buy, [2]Sell, [3]Exit")
+        print("[1]Buy, [2]Exit")
         print('-'*30)
         choice = input()
         if choice == "1":
             map2.in_city_shop()
         elif choice == "2":
-            pass
-        elif choice == "3":
             map2.city()
 
     def in_city_shop():
