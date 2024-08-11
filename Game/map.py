@@ -178,7 +178,7 @@ class map1:
         elif choice == "2":
             pass
         elif choice == "3":
-           pass
+           map1.cave()
     
 
  def deep_forest():
