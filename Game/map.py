@@ -142,17 +142,58 @@ class map2:
         print('\n\n\n\n\n')
         print('-'*30)
         print("You're in the City")
-        print("[1]Village, [2]Shop, [3]Blacksmith, ")
+        print("[1]Village, [2]Shop, [3]Blacksmith, [4]Dark Forest")
         print('-'*30)
         choice = input()
         if choice == "1":
-            map1.blacksmith()
+            map1.village()
         elif choice == "2":
             pass
         elif choice == "3":
            pass
+        elif choice == "4":
+            map1.dark_forest()
+        elif choice == "5":
+           map3.castle()
 
-    
+    def dark_forest():
+        while True:
+            print('\n\n\n\n\n')
+            print('-'*30)
+            print("You're in the Dark Forest")
+            print("[1]City, [3]Go Deeper")
+            print('-'*30)
+            choice = input()
+            if choice == "1":
+                map1.city()
+            elif choice == "3":
+                map1.deep_dark_forest()
+
+    def deep_dark_forest():
+        while True:
+            print('\n\n\n\n\n')
+            print('-'*30)
+            print("You're in the Deep Dark Forest")
+            print("[1]Go Back, [3]Go Deeper")
+            print('-'*30)
+            choice = input()
+            if choice == "1":
+                map1.dark_forest()
+            elif choice == "2":
+
+class map3:
+    def castle():
+        while True:
+            print('\n\n\n\n\n')
+            print('-'*30)
+            print("You're in the Castle")
+            print("[1]City, [2]Shop, [3]Blacksmith, [4]Sewer [5]Cemetery [6]Mountains")
+            print('-'*30)
+            choice = input()
+            if choice == "1":
+                map2.city()
+            elif choice == "2":
+                pass
             
 
     def grassland():
