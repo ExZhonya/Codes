@@ -1,21 +1,22 @@
-class map:
- def main_map_village():
+class map1:
+ def village():
   while True:
     print('\n\n\n\n\n')
     print('-'*30)
     print("You're in the village")
-    print("[1]Home, [2]Shop, [3]Blacksmith [4]Forest")
+    print("[1]Home, [2]Shop, [3]Blacksmith, [4]Grassland")
     print('-'*30)
     choice = input()
     if choice == "1":
-        map_home()
+        map1.home()
     elif choice == "2":
-        map_shop()
+        map1.shop()
     elif choice == "3":
-        pass
+        map1.blacksmith()
     elif choice == "4":
-        map_forest()
- def map_home():
+        map1.grassland()
+
+ def home():
   while True:
     print('\n\n\n\n\n')
     print('-'*30)
@@ -28,9 +29,9 @@ class map:
     elif choice == "2":
         pass
     elif choice == "3":
-        main_map_village()
+        map1.village()
 
- def map_shop():
+ def shop():
   while True:
     print('\n\n\n\n\n')
     print('-'*30)
@@ -43,9 +44,9 @@ class map:
     elif choice == "2":
         pass
     elif choice == "3":
-        main_map_village()
+        map1.village()
 
- def map_blacksmith():
+ def blacksmith():
   while True:
     print('\n\n\n\n\n')
     print('-'*30)
@@ -60,62 +61,97 @@ class map:
     elif choice == "3":
         pass
     elif choice == "4":
-        main_map_village()
+        map1.village()
 
 
- def map_forest():
+ def forest():
     while True:
         print('\n\n\n\n\n')
         print('-'*30)
         print("You're in the Forest")
-        print("[1]Village, [2]Cave, [3]Go Deeper")
+        print("[1]Grassland, [2]Cave, [3]Go Deeper")
         print('-'*30)
         choice = input()
         if choice == "1":
-            main_map_village()
+            map1.grassland()
         elif choice == "2":
-            map_cave()
+            map1.cave()
         elif choice == "3":
-            map_deep_forest()
+            map1.deep_forest()
 
- def map_cave():
-    print('\n\n\n\n\n')
-    print('-'*30)
-    print("You're in the Cave")
-    print("[1]Go Deeper, [2]Go Back")
-    print('-'*30)
-    choice = input()
-    if choice == "1":
-        pass
-    elif choice == "2":
-        map_forest()
+ def cave():
+    while True:
+        print('\n\n\n\n\n')
+        print('-'*30)
+        print("You're in the Cave")
+        print("[1]Go Deeper, [2]Go Back")
+        print('-'*30)
+        choice = input()
+        if choice == "1":
+            map1.deep_cave()
+        elif choice == "2":
+            map1.forest()
 
- def map_deep_forest():
-    print('\n\n\n\n\n')
-    print('-'*30)
-    print("You're in the Deep Forest")
-    print("[1]Go Deeper, [2]Go Back")
-    print('-'*30)
-    choice = input()
-    if choice == "1":
-        pass
-    elif choice == "2":
-        map_forest()
+ def deep_cave():
+    while True:
+        print('\n\n\n\n\n')
+        print('-'*30)
+        print("You're in the Deep Cave")
+        print("[1]Go Deeper, [2]Go Back")
+        print('-'*30)
+        choice = input()
+        if choice == "1":
+            pass
+        elif choice == "2":
+            map1.cave()
+    
 
- def map_grassland():
-    print('\n\n\n\n\n')
-    print('-'*30)
-    print("You're in the Grassland")
-    print("[1]Village [2]Forest, [3]Mountain")
-    print('-'*30)
-    choice = input()
-    if choice == "1":
-        main_map_village()
-    elif choice == "2":
-        map_forest()
-    elif choice == "3":
-        pass
+ def deep_forest():
+    while True:
+        print('\n\n\n\n\n')
+        print('-'*30)
+        print("You're in the Deep Forest")
+        print("[1]Go Deeper, [2]Go Back")
+        print('-'*30)
+        choice = input()
+        if choice == "1":
+            pass
+        elif choice == "2":
+            map1.forest()
 
+ def grassland():
+    while True:
+        print('\n\n\n\n\n')
+        print('-'*30)
+        print("You're in the Grassland")
+        print("[1]Village [2]Forest, [3]Mountain")
+        print('-'*30)
+        choice = input()
+        if choice == "1":
+            map1.village()
+        elif choice == "2":
+            map1.forest()
+        elif choice == "3":
+            pass
+
+class map2:
+   def city():
+      while True:
+        print('\n\n\n\n\n')
+        print('-'*30)
+        print("You're in the City")
+        print("[1]Village, [2]Shop, [3]Blacksmith, ")
+        print('-'*30)
+        choice = input()
+        if choice == "1":
+            map1.blacksmith()
+        elif choice == "2":
+            pass
+        elif choice == "3":
+           pass
+
+    
+            
 
     
   
@@ -126,8 +162,8 @@ while True:
     print('-' * 30)
     player = input('where do you want to go?: ')
     if player == "1":
-        main_map_village()
+        map1.village()
     elif player == "2":
         pass
     elif player == "3":
-        map_forest()
+        map1.forest()
