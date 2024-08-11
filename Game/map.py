@@ -103,7 +103,7 @@ class map1:
     print('\n\n\n\n\n')
     print('-'*30)
     print("You're in the blacksmith")
-    print("[1]Buy, [2]Enhance, [3]Craft, [4]Exit")
+    print("[1]Enhance, [2]Craft, [3]Exit")
     print('-'*30)
     choice = input()
     if choice == "1":
@@ -111,8 +111,6 @@ class map1:
     elif choice == "2":
         pass
     elif choice == "3":
-        pass
-    elif choice == "4":
         map1.village()
 
 
@@ -276,6 +274,6 @@ while True:
     if player == "1":
         map1.village()
     elif player == "2":
-        pass
+        map1.grassland()
     elif player == "3":
-       pass
+       map1.forest()
