@@ -7,10 +7,12 @@ class map1:
     print('\n\n\n\n\n')
     print('-'*30)
     print("You're in the village")
-    print("[1]Home, [2]Shop, [3]Blacksmith, [4]Grassland, [5]City")
+    print("[0]Elder [1]Home, [2]Shop, [3]Blacksmith, [4]Grassland, [5]City")
     print('-'*30)
     choice = input()
-    if choice == "1":
+    if choice == "0":
+    	map1.vil_quest()
+    elif choice == "1":
         map1.home()
     elif choice == "2":
         map1.vil_shop()
@@ -20,6 +22,53 @@ class map1:
         map1.grassland()
     elif choice == "5":
         map2.city()
+        
+ def vil_quest():
+  	while True:
+	  	grassland_quest = False
+	  	forest_quest = False
+	  	cave_quest = False
+	  	print('\n\n\n\n\n\n\n\n')
+	  	print('-'*30)
+	  	print('Adventurer! Please help us eradicate monsters destroying our fields.. we will reward you!')
+	  	print('[1]Grassland Quest, [2]Forest Quest, [3]Cave Quest, [4]Go Back')
+	  	print('-'*30)
+	  	choice = input(' ')
+	  	if choice == "1":
+	  		print('\n\n\n\n\n\n\n')
+	  		print('-'*30)
+	  		print('Coming Soon')
+	  		print('-'*30)
+	  		back = input('[1]Go Back')
+	  		print('-'*30)
+	  		if back == 1:
+	  			map1.vil_quest()
+	  		else:
+	  			map1.vil_quest()
+	  	elif choice == "2":
+  			print('\n\n\n\n\n\n\n')
+	  		print('-'*30)
+	  		print('Coming Soon')
+	  		print('-'*30)
+	  		back = input('[1]Go Back')
+	  		print('-'*30)
+	  		if back == 1:
+	  			map1.vil_quest()
+	  		else:
+	  			map1.vil_quest()
+ 	 	elif choice =="3":
+  			print('\n\n\n\n\n\n\n')
+	  		print('-'*30)
+	  		print('Coming Soon')
+	  		print('-'*30)
+	  		back = input('[1]Go Back')
+	  		print('-'*30)
+	  		if back == 1:
+	  			map1.vil_quest()
+	  		else:
+	  			map1.vil_quest()
+  		elif choice =="4":
+  			map1.village()
 
  def home():
   while True:
