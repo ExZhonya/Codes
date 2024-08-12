@@ -4,7 +4,7 @@
 class map1:
  def village():
   while True:
-    print('\n\n\n\n\n')
+    print('\n'*40)
     print('-'*30)
     print("You're in the village")
     print("[0]Elder [1]Home, [2]Shop, [3]Blacksmith, [4]Grassland, [5]City")
@@ -72,7 +72,7 @@ class map1:
 
  def home():
   while True:
-    print('\n\n\n\n\n')
+    print('\n'*40)
     print('-'*30)
     print("You're in your house")
     print("[1]Bed, [2]Chest, [3]Back")
@@ -87,8 +87,16 @@ class map1:
 
  def vil_shop():
   while True:
-    print('\n\n\n\n\n')
+    print('\n'*40)
     print('-'*30)
+    print("""
+ ____  _                 
+/ ___|| |__   ___  _ __  
+\___ \| '_ \ / _ \| '_ \ 
+ ___) | | | | (_) | |_) |
+|____/|_| |_|\___/| .__/ 
+                  |_|    
+				""")
     print("You're in the shop")
     print("[1]Buy, [2]Exit")
     print('-'*30)
