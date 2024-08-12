@@ -89,7 +89,7 @@ class map1:
   while True:
     print('\n'*40)
     print('-'*30)
-    print("""
+    print(r"""
  ____  _                 
 / ___|| |__   ___  _ __  
 \___ \| '_ \ / _ \| '_ \ 
@@ -108,9 +108,11 @@ class map1:
 
  def village_shop():
     while True:
-        print('\n\n\n\n\n')
+        print('\n'*40)
         print('-'*30)
         print("You're in the village shop")
+        print('\n')
+        print("Welcome! Do you need anything?")
         print('[1]Weapons, [2]Armor, [3]Potions, [4]Back')
         print('-'*30)
         choice = input()
@@ -124,9 +126,21 @@ class map1:
             map1.vil_shop()
 
  def vil_weap():
-    print('\n\n\n\n\n')
+    print('\n'*40)
     print('-'*30)
-    print("Coming Soon")
+    print(r"""
+__        __                               
+\ \      / /__  __ _ _ __   ___  _ __  ___ 
+ \ \ /\ / / _ \/ _` | '_ \ / _ \| '_ \/ __|
+  \ V  V /  __/ (_| | |_) | (_) | | | \__ \
+   \_/\_/ \___|\__,_| .__/ \___/|_| |_|___/
+                    |_|                    
+                    """)
+    print("""
+[1]Coming Soon
+[2]Coming Soon
+[3]Coming Soon
+    """)
     print('[1]Back')
     print('-'*30)
     choice = input()
@@ -134,9 +148,19 @@ class map1:
         map1.village_shop()
 
  def vil_arm():
-    print('\n\n\n\n\n')
+    print('\n'*40)
     print('-'*30)
-    print("Coming Soon")
+    print(r"""    _                              
+   / \   _ __ _ __ ___   ___  _ __ 
+  / _ \ | '__| '_ ` _ \ / _ \| '__|
+ / ___ \| |  | | | | | | (_) | |   
+/_/   \_\_|  |_| |_| |_|\___/|_|   
+""")
+    print("""
+[1]Coming Soon
+[2]Coming Soon
+[3]Coming Soon
+    """)
     print('[1]Back')
     print('-'*30)
     choice = input()
@@ -144,9 +168,20 @@ class map1:
         map1.village_shop()
 
  def vil_pot():
-    print('\n\n\n\n\n')
+    print('\n'*40)
     print('-'*30)
-    print("Coming Soon")
+    print(r"""
+ ____       _   _                 
+|  _ \ ___ | |_(_) ___  _ __  ___ 
+| |_) / _ \| __| |/ _ \| '_ \/ __|
+|  __/ (_) | |_| | (_) | | | \__ \
+|_|   \___/ \__|_|\___/|_| |_|___/
+""")
+    print("""
+[1]Coming Soon
+[2]Coming Soon
+[3]Coming Soon
+    """)
     print('[1]Back')
     print('-'*30)
     choice = input()
@@ -408,7 +443,7 @@ class map3:
   
 while True:
     print('\n\n\n\n\n\n\n\n\n\n\n\n\n')
-    print('-' * 30)
+    print('-' * 40)
     print('|[1]Village, [2]Grassland, [3]Forest')
     print('-' * 30)
     player = input('where do you want to go?: ')
