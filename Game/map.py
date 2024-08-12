@@ -264,10 +264,12 @@ class map2:
         print('\n\n\n\n\n')
         print('-'*30)
         print("You're in the City")
-        print("[1]Village, [2]Shop, [3]Blacksmith [4]City Sewers, [5]Dark Forest")
+        print("[0]Guild, [1]Village, [2]Shop, [3]Blacksmith [4]City Sewers, [5]Dark Forest")
         print('-'*30)
         choice = input()
-        if choice == "1":
+        if choice == "0":
+        	pass #will make guild def later
+        elif choice == "1":
             map1.village()
         elif choice == "2":
             map2.city_shop()
@@ -371,10 +373,12 @@ class map3:
             print('\n\n\n\n\n')
             print('-'*30)
             print("You're in the Castle")
-            print("[1]City, [2]Shop, [3]Blacksmith, [4]Sewer [5]Cemetery [6]Mountains")
+            print("[0]Guild, [1]City, [2]Shop, [3]Blacksmith, [4]Sewer [5]Cemetery [6]Mountains")
             print('-'*30)
             choice = input()
-            if choice == "1":
+            if choice == "0":
+            	pass #city guild
+            elif choice == "1":
                 map2.city()
             elif choice == "2":
                 pass
