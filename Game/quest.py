@@ -8,4 +8,3 @@ class quest_upd:
 
 queststats = quest_upd(False)
 queststats.quest_update(True)
-print(queststats.quest_status)

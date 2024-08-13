@@ -1,5 +1,7 @@
 #Creator: @ExZhonya
 
+import quest
+
 class preset:
 	def area(name, option):
 		print('\n'*40)
@@ -7,6 +9,9 @@ class preset:
 		print(name)
 		print(option)
 		print('-'*30)
+
+class quest:
+
 	
 class map1:
  def village():
