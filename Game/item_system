@@ -1,0 +1,51 @@
+import random
+
+class Sword:
+	low_dmg = 1
+	high_dmg = 1
+
+	def damage_default(self):
+		print(f"default attack range: {self.low_dmg} - {self.high_dmg}")
+
+
+class LeatherSword:
+	name = "Leather Sword"
+	low_dmg = 5
+	high_dmg = 10
+
+	def atk_range(self):
+		print(f"{self.name}'s' dmg range: {self.low_dmg} - {self.high_dmg}")
+
+	def attack(self):
+		final_attack = random.randint(self.low_dmg, self.high_dmg)
+		print(f"Used {self.name} for: {final_attack} damage.")
+
+	def inspect(self):
+		print("A sword made out of leather? Does it even do damage? ")
+
+	def actions_allowed(self):
+		print("You can: [1]-inspect [2]-swing")
+
+
+
+
+# Just calling the classes
+leather_sword = LeatherSword()
+defaultsword = Sword()
+action_choice_current = LeatherSword()
+
+# Just calling their attack range
+
+defaultsword.damage_default()
+equiped_sword = LeatherSword()
+
+print(f"You're currently using: {equiped_sword.name}")
+
+action_choice_current.actions_allowed()
+picked_options = input("What will you do with it? ")
+
+if picked_options == "1":
+	equiped_sword.inspect()
+elif picked_options == "2":
+	equiped_sword.attack()
+
