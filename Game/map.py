@@ -43,16 +43,7 @@ class map1:
             print("-" * 30)
             choice = input(" ")
             if choice == "1":
-                print("\n\n\n\n\n\n\n")
-                print("-" * 30)
-                print("Coming Soon")
-                print("-" * 30)
-                back = input("[1]Go Back")
-                print("-" * 30)
-                if back == 1:
-                    map1.vil_quest()
-                else:
-                    map1.vil_quest()
+                quest.queststats(True)
             elif choice == "2":
                 print("\n\n\n\n\n\n\n")
                 print("-" * 30)
@@ -71,10 +62,6 @@ class map1:
                 print("-" * 30)
                 back = input("[1]Go Back")
                 print("-" * 30)
-                if back == 1:
-                    map1.vil_quest()
-                else:
-                    map1.vil_quest()
             elif choice == "4":
                 map1.village()
 
