@@ -1,14 +1,17 @@
 #Creator: @ExZhonya
 
-
+class preset:
+	def area(name, option):
+		print('\n'*40)
+		print('-'*30)
+		print(name)
+		print(option)
+		print('-'*30)
+	
 class map1:
  def village():
   while True:
-    print('\n'*40)
-    print('-'*30)
-    print("You're in the village")
-    print("[0]Elder [1]Home, [2]Shop, [3]Blacksmith, [4]Grassland, [5]City")
-    print('-'*30)
+    preset.area("You're in the Village", "[0]Elder, [1]Home, [2]Shop, [3]Blacksmith, [4]Grassland, [5]City")
     choice = input()
     if choice == "0":
     	map1.vil_quest()
