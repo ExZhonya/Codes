@@ -5,6 +5,8 @@ class WoodenSword:
 	id_weap_type= "physical"
 	id_weap_desc = "Just a basic sword, made of sticks.\n atk = 11"
 	id_atk= 11
+	id_skill_tier = "Tier I"
+	id_skills= ["Rage", "Charging Thrust", "Holy Imbued"]
 
 
 class WoodenStaff:
@@ -14,7 +16,8 @@ class WoodenStaff:
 	id_weap_type = "magical"
 	id_weap_desc = "A stick that's imbued with magical cystals.\n m.atk = 15"
 	id_m_atk = 15
-	id_spells= ["Tier I", "Lightning", "Stone Throw", "Light Beam"]
+	id_spell_tier = "Tier I"
+	id_spells= ["Lightning", "Stone Throw", "Light Beam"]
 
 
 class WoodenShield:
@@ -78,6 +81,7 @@ class BasicBag:
 	bag_slots = ['','','','','','','','','','']
 	id_weap_desc= "A bag made of ragged leather. Has 10 bag slots."
 
+#=================TIER=1============================#
 
 class BasicBagSystem:
 	def __init__(self, slots, onhand, onhand_cache, incoming_item, eq):
@@ -133,6 +137,78 @@ class BasicBagSystem:
 				self.item_type[0] = self.slots[0].id_type
 				return self.slots[0], self.display[0], self.item_type[0]
 				break
+			elif put_item == "2":
+				self.slots[1] = self.incoming_item
+				self.display[1] = self.slots[1].id_name
+				print(f"{self.display[0]} placed, removed from extra inventory.")
+				self.display[1] = self.slots[1].id_name
+				self.item_type[1] = self.slots[1].id_type
+				return self.slots[1], self.display[1], self.item_type[1]
+				break
+			elif put_item == "3":
+				self.slots[2] = self.incoming_item
+				self.display[2] = self.slots[2].id_name
+				print(f"{self.display[2]} placed, removed from extra inventory.")
+				self.display[2] = self.slots[2].id_name
+				self.item_type[2] = self.slots[2].id_type
+				return self.slots[2], self.display[2], self.item_type[2]
+				break
+			elif put_item == "4":
+				self.slots[3] = self.incoming_item
+				self.display[3] = self.slots[3].id_name
+				print(f"{self.display[3]} placed, removed from extra inventory.")
+				self.display[3] = self.slots[3].id_name
+				self.item_type[3] = self.slots[3].id_type
+				return self.slots[3], self.display[3], self.item_type[3]
+				break
+			elif put_item == "5":
+				self.slots[4] = self.incoming_item
+				self.display[4] = self.slots[4].id_name
+				print(f"{self.display[4]} placed, removed from extra inventory.")
+				self.display[4] = self.slots[4].id_name
+				self.item_type[4] = self.slots[4].id_type
+				return self.slots[4], self.display[4], self.item_type[4]
+				break
+			elif put_item == "6":
+				self.slots[5] = self.incoming_item
+				self.display[5] = self.slots[5].id_name
+				print(f"{self.display[5]} placed, removed from extra inventory.")
+				self.display[5] = self.slots[5].id_name
+				self.item_type[5] = self.slots[5].id_type
+				return self.slots[5], self.display[5], self.item_type[5]
+				break
+			elif put_item == "7":
+				self.slots[6] = self.incoming_item
+				self.display[6] = self.slots[6].id_name
+				print(f"{self.display[6]} placed, removed from extra inventory.")
+				self.display[6] = self.slots[6].id_name
+				self.item_type[6] = self.slots[6].id_type
+				return self.slots[6], self.display[6], self.item_type[6]
+				break
+			elif put_item == "8":
+				self.slots[7] = self.incoming_item
+				self.display[7] = self.slots[7].id_name
+				print(f"{self.display[7]} placed, removed from extra inventory.")
+				self.display[7] = self.slots[7].id_name
+				self.item_type[7] = self.slots[7].id_type
+				return self.slots[7], self.display[7], self.item_type[7]
+				break
+			elif put_item == "9":
+				self.slots[8] = self.incoming_item
+				self.display[8] = self.slots[8].id_name
+				print(f"{self.display[8]} placed, removed from extra inventory.")
+				self.display[8] = self.slots[8].id_name
+				self.item_type[8] = self.slots[8].id_type
+				return self.slots[8], self.display[8], self.item_type[8]
+				break
+			elif put_item == "10":
+				self.slots[9] = self.incoming_item
+				self.display[9] = self.slots[9].id_name
+				print(f"{self.display[9]} placed, removed from extra inventory.")
+				self.display[9] = self.slots[9].id_name
+				self.item_type[9] = self.slots[9].id_type
+				return self.slots[9], self.display[9], self.item_type[9]
+				break
 	def takeitem(self):
 		while True:
 			take_item = input("What item to take? ")
@@ -144,6 +220,78 @@ class BasicBagSystem:
 					self.display[0] = self.raw[0].id_name
 					self.item_type[0] = self.raw[0].id_type
 					return self.raw[0], self.display[0], self.item_type[0]
+					break
+				case "2":
+					self.onhand, self.onhand_cache, self.cache_name = self.raw[1], self.raw[1], self.display[1]
+					print(f"{self.display[1]} taken, now in hand.")
+					self.raw[1] = Empty()
+					self.display[1] = self.raw[1].id_name
+					self.item_type[1] = self.raw[1].id_type
+					return self.raw[1], self.display[1], self.item_type[1]
+					break
+				case "3":
+					self.onhand, self.onhand_cache, self.cache_name = self.raw[2], self.raw[2], self.display[2]
+					print(f"{self.display[2]} taken, now in hand.")
+					self.raw[2] = Empty()
+					self.display[2] = self.raw[2].id_name
+					self.item_type[2] = self.raw[2].id_type
+					return self.raw[2], self.display[2], self.item_type[2]
+					break
+				case "4":
+					self.onhand, self.onhand_cache, self.cache_name = self.raw[3], self.raw[3], self.display[3]
+					print(f"{self.display[3]} taken, now in hand.")
+					self.raw[3] = Empty()
+					self.display[3] = self.raw[3].id_name
+					self.item_type[3] = self.raw[3].id_type
+					return self.raw[3], self.display[3], self.item_type[3]
+					break
+				case "5":
+					self.onhand, self.onhand_cache, self.cache_name = self.raw[4], self.raw[4], self.display[4]
+					print(f"{self.display[4]} taken, now in hand.")
+					self.raw[4] = Empty()
+					self.display[4] = self.raw[4].id_name
+					self.item_type[4] = self.raw[4].id_type
+					return self.raw[4], self.display[4], self.item_type[4]
+					break
+				case "6":
+					self.onhand, self.onhand_cache, self.cache_name = self.raw[5], self.raw[5], self.display[5]
+					print(f"{self.display[5]} taken, now in hand.")
+					self.raw[5] = Empty()
+					self.display[5] = self.raw[5].id_name
+					self.item_type[5] = self.raw[5].id_type
+					return self.raw[5], self.display[5], self.item_type[5]
+					break
+				case "7":
+					self.onhand, self.onhand_cache, self.cache_name = self.raw[6], self.raw[6], self.display[6]
+					print(f"{self.display[6]} taken, now in hand.")
+					self.raw[6] = Empty()
+					self.display[6] = self.raw[6].id_name
+					self.item_type[6] = self.raw[6].id_type
+					return self.raw[6], self.display[6], self.item_type[6]
+					break
+				case "8":
+					self.onhand, self.onhand_cache, self.cache_name = self.raw[7], self.raw[7], self.display[7]
+					print(f"{self.display[7]} taken, now in hand.")
+					self.raw[7] = Empty()
+					self.display[7] = self.raw[7].id_name
+					self.item_type[7] = self.raw[7].id_type
+					return self.raw[7], self.display[7], self.item_type[7]
+					break
+				case "9":
+					self.onhand, self.onhand_cache, self.cache_name = self.raw[8], self.raw[8], self.display[8]
+					print(f"{self.display[8]} taken, now in hand.")
+					self.raw[8] = Empty()
+					self.display[8] = self.raw[8].id_name
+					self.item_type[8] = self.raw[8].id_type
+					return self.raw[8], self.display[8], self.item_type[8]
+					break
+				case "10":
+					self.onhand, self.onhand_cache, self.cache_name = self.raw[9], self.raw[9], self.display[9]
+					print(f"{self.display[9]} taken, now in hand.")
+					self.raw[9] = Empty()
+					self.display[9] = self.raw[9].id_name
+					self.item_type[9] = self.raw[9].id_type
+					return self.raw[9], self.display[9], self.item_type[9]
 					break
 	def switcheq(self):
 		while True:
@@ -195,47 +343,109 @@ class BasicBagSystem:
 					continue
 			elif switch_to == "6":
 				break
-			
-
+				
 class WeaponOutcomes:
-	oncoming_dmg = 0
-	turns = 0
-	lightning_dmg_constant = 1.5
-	stone_throw_dmg_constant = 2.5
 	def determine(self):
 		if eq[0].id_weap_type == "physical":
-			print(f"You swung {eq[0].id_name} for {eq[0].id_atk} atk!")
+			print(f"Tier of skill in {eq[0].id_name}:  {eq[0].id_skill_tier}")
+			physical_attack = PhysicalAttacks()
+			physical_attack.tier_checker()
+			physical_attack.attack_system()
 		elif eq[0].id_weap_type == "magical":
-			print(f"Tier of spell in {eq[0].id_name}: {eq[0].id_spells[0]}")
-			self.magical_use()
+			print(f"Tier of spell in {eq[0].id_name}: {eq[0].id_spell_tier}")
+			magical_attack = MagicAttacks()
+			magical_attack.tier_checker()
+			magical_attack.attack_system()
 
+
+class PhysicalAttacks(WeaponOutcomes):
+	turns_left = 0
+	current_effect = "none"
+	final_multipier = 0
+
+	def attack_system(self):
+		while True:
+			print("[1]Attack [2]Check skill")
+			p_choice = input("What will you do? ")
+			if p_choice == "1":
+				p_atk = self.final_multipier + eq[0].id_atk
+				if self.turns_left >0:
+					self.turns_left -= 1
+					print(f"You attacked for {p_atk}! {self.current_effect} for {self.turns_left} turns left.")
+					self.effect_checker()
+					continue
+			elif p_choice == "2":
+				print(f"{self.current_effect}: {self.turns_left} turns left.")
+				change_skill = input("Do you wanna replace the current skill?[1]Yes [2]No: ")
+				if change_skill == "1":
+					print(f"{self.current_effect} worn off.")
+					self.current_effect = "none"
+					self.tier_checker()
+				else:
+					continue
+
+	def effect_checker(self):
+		if self.turns_left == 0:
+			self.final_multipier = 0
+			p_atk = self.final_multipier + eq[0].id_atk
+			print(f"Your {eq[0].id_skills[0]} wore off.")
+	def tier_checker(self):
+		if eq[0].id_skill_tier == "Tier I":
+			self.tier_1_phys()
+
+	def tier_1_phys(self):
+		tiered_dmg = 1.5
+		print(f"Available skills on {eq[0].id_name}: {eq[0].id_skills}")
+		physical_skill = input(f"What skill will you use? ")
+		if physical_skill == "1":
+			self.final_multipier = eq[0].id_atk * tiered_dmg
+			self.turns_left = 5
+			self.current_effect = eq[0].id_skills[0]
+			print(f"Applied skill: {eq[0].id_skills[0]}! dmg increase by {self.final_multipier} dmg for 5 turns.")
+		else:
+			self.tier_1_phys()
+	
+class MagicAttacks(WeaponOutcomes):
+	oncoming_dmg = 0
+	lightning_dmg_constant = 1.5
+	stone_throw_dmg_constant = 2.5
+	turns_magic = 0
+	current_spell = "none"
 	def magical_use(self):
 		while True:
-			magic_option = input(f"Available Spells on {eq[0].id_name}: [1]{eq[0].id_spells[1]} [2]{eq[0].id_spells[2]}")
 			if magic_option == "1":
 				self.use_spell(eq[0].id_spells[0], eq[0].id_spells[1], eq[0].id_m_atk)
 				break
 			if magic_option == "2":
 				self.use_spell(eq[0].id_spells[0], eq[0].id_spells[2], eq[0].id_m_atk)
 				continue
+			else:
+				continue
+	def attack_system(self):
+		while True:
+			print("[1]Attack ")
+			p_choice = input("What will you do? ")
+			if p_choice == "1":
+				self.tier_checker()
+				continue
+	def tier_checker(self):
+		if eq[0].id_spell_tier == "Tier I":
+			self.tier_1_magic()
+	def tier_1_magic(self):
+		self.oncoming_dmg = 1
+		print(f"Available Spells on {eq[0].id_name}: {eq[0].id_spells}")
+		used_spell = input(f"What spell will you use? ")
+		if used_spell == "1":
+			lightning_dmg = eq[0].id_m_atk * (self.oncoming_dmg + self.lightning_dmg_constant)
+			print(f"Used Lightning to generate {lightning_dmg} lightning dmg!")
+		elif used_spell == "2":
+			self.current_spell = eq[0].id_spells[1]
+			self.turns_magic += 1
+			print(f"Used Stone Throw, will generate in 2 turns")
+			if self.turns_magic == 2:
+				boulder_dmg = eq[0].id_m_atk * (self.oncoming_dmg + self.lightning_dmg_constant)
+				print(f"Used Stone Throw to deal {boulder_dmg} dmg!")
 
-	def use_spell(self, tier_spell, used_spell, m_atk):
-		if tier_spell == "Tier I":
-			self.oncoming_dmg += 1
-			if used_spell == "Lightning":
-				lightning_dmg = m_atk * (self.oncoming_dmg + self.lightning_dmg_constant)
-				print(f"Used Lightning to generate {lightning_dmg} lightning dmg!")
-			if used_spell == "Stone Throw":
-				self.turns += 1
-				if self.turns == 1:
-					print(f"Charging {used_spell}...")
-				elif self.turns == 2:
-					stone_dmg = m_atk * (self.oncoming_dmg + self.stone_throw_dmg_constant)
-					print(f"Used Stone Throw to generate {stone_dmg} stone dmg!")
-
-	
-
-#=================TIER=1============================#
 
 eq = [WoodenSword(), WoodenShield(), WoodenTorsoArmor(), WoodenHeadArmor(), WoodenLegArmor(), BasicBag()]
 inventory = [SimplePotion(), SimpleManaPot(), WoodenStaff(), WoodenHeadArmor(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty()]
@@ -243,6 +453,7 @@ onhand = "none"
 onhand_cache = "none"
 cache_name = "none"
 incoming_item = SimplePotion()
+current_effect = ""
 bag = BasicBagSystem(inventory, onhand, onhand_cache, incoming_item, eq)
 
 def show_equips():
@@ -300,11 +511,12 @@ def check_incoming(incoming_item):
 def weapon_usage():
 	while True:
 		print(f"You're currently using {eq[0].id_name}.")
-		print("[1]Use [2]Check description")
+		print("[1]Use skill/spell [2]Check description")
 		weap_choices = input("How will you use it? ")
 		if weap_choices == "1":
 			weap_outcomes = WeaponOutcomes()
 			weap_outcomes.determine()
+			weap_outcomes.final_hit()
 			continue
 		elif weap_choices == "2":
 			print(f"{eq[0].id_weap_desc}")
@@ -314,7 +526,7 @@ def weapon_usage():
 		else:
 			continue
 while True:
-	item_options = input(f"What will you do? \n[1]Show eqipment\n[2]Open Bag\n[3]Use onhand item\n[4]incoming item\n[5]Use weapon\n[6]Switch equip\n[9]Leave: ")
+	item_options = input(f"Current effect: {current_effect}\nWhat will you do? \n[1]Show eqipment\n[2]Open Bag\n[3]Use onhand item\n[4]incoming item\n[5]Use weapon\n[6]Switch equip\n[9]Leave: ")
 
 	if  item_options == "1":
 		show_equips()
