@@ -1,12 +1,15 @@
 # Creator: @ExZhonya
 import time
-#import quest
+import quests as Q
+import os 
+
 
 class shop:
 	pass
 class preset:
     def area(name, option):
         print("\n" * 40)
+        os.system("cls")
         print("-" * 30)
         print(name)
         print(option)
@@ -36,15 +39,18 @@ class map1:
     def vil_quest():
         while True:
             print("\n\n\n\n\n\n\n\n")
+            os.system("cls")
             print("-" * 30)
             print(
-                "Adventurer! Please help us eradicate monsters destroying our fields.. we will reward you!"
+                "Elder:\nAdventurer! Please help us eradicate monsters destroying our fields.. we will reward you!"
             )
-            print("[1]Grassland Quest, [2]Forest Quest, [3]Cave Quest, [4]Go Back")
+            print(f"[1]Grassland Quest({Q.quest_s.grass_q_status}), [2]Forest Quest, [3]Cave Quest, [4]Go Back")
             print("-" * 30)
             choice = input(" ")
             if choice == "1":
-                pass
+                Q.quest_s.check_quest_collision() # this checks for any ongoing quests
+                Q.quest_s.start_grass_quest() # this starts the quest itself and toggle the grass status to "Ongoing"
+                continue # Repeats back to vil_quest()
             elif choice == "2":
                 print("\n\n\n\n\n\n\n")
                 print("-" * 30)
@@ -53,9 +59,9 @@ class map1:
                 back = input("[1]Go Back")
                 print("-" * 30)
                 if back == 1:
-                    map1.vil_quest()
+                    map1.vil_quest() # 
                 else:
-                    map1.vil_quest()
+                    map1.vil_quest() # 
             elif choice == "3":
                 print("\n\n\n\n\n\n\n")
                 print("-" * 30)
