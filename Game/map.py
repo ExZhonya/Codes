@@ -1,6 +1,6 @@
 # Creator: @ExZhonya
-
-import quest
+import time
+#import quest
 
 
 class preset:
@@ -43,7 +43,7 @@ class map1:
             print("-" * 30)
             choice = input(" ")
             if choice == "1":
-                quest.queststats(True)
+                pass
             elif choice == "2":
                 print("\n\n\n\n\n\n\n")
                 print("-" * 30)
@@ -67,14 +67,22 @@ class map1:
 
     def home():
         while True:
-            print("\n" * 40)
+            print("\n" *40)
             print("-" * 30)
             print("You're in your house")
-            print("[1]Bed, [2]Chest, [3]Back")
+            print("[1]Rest, [2]Chest, [3]Back")
             print("-" * 30)
             choice = input()
             if choice == "1":
-                pass
+                print("\n"*40*40)
+                print("-"*30)
+                print("Eating... \n")
+                time.sleep(3)
+                print("Drinking... \n")
+                time.sleep(2)
+                print("Sleeping... \n")
+                time.sleep(5)
+                continue
             elif choice == "2":
                 pass
             elif choice == "3":
@@ -399,7 +407,7 @@ class map3:
 
 
 while True:
-    print("\n\n\n\n\n\n\n\n\n\n\n\n\n")
+    print("\n"*40*40)
     print("-" * 40)
     print("|[1]Village, [2]Grassland, [3]Forest")
     print("-" * 30)
