@@ -1,12 +1,20 @@
 # Made by: Pilgrimir
 # Co-owner/Intelectual Property: Exzhonya
 
+import time
 import os
 
 def prettify(): # Like the preset class, but turned to a function
 	print("-" * 30)
 
-
+def q_grass_acc():
+				os.system("cls")
+				prettify()
+				print("Elder:\nOh thank you Adventurer! You will be rewarded plenty for this!")
+				print("Bandits 0/5")
+				print("\n [1]Go Back")
+				prettify()
+				a = input()
 class QuestStatus:
 	grass_q_status = "Incomplete" # This is an attribute that only exists in this class 
 	forest_q_status = "Incomplete"
@@ -23,9 +31,8 @@ class QuestStatus:
 			player_choice = input()
 			if player_choice == "1":
 				self.grass_q_status = "Ongoing" # This sets the status for this quest as ongoing
-				prettify()
-				print("Elder:\nOh thank you Adventurer! You will be rewarded plenty for this!")
-				prettify()
+				os.system("cls")
+				q_grass_acc()
 				break
 			elif player_choice == "2": # if they decline, nothing happens, but you can add something here if you want @Lua
 				break
