@@ -413,8 +413,4 @@ class map3:
                 pass
 
 
-<<<<<<< HEAD
 map1.village()
-=======
-map1.village()
->>>>>>> 941dc9248f2ef3b15663c20967843d9b07d7dd35
