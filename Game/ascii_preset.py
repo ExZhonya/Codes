@@ -1,13 +1,11 @@
-
-
-class shop_preset:
-            def shop():
+class Shop:
+            def shop_preset():
                 print("\n" * 40)
                 print("-" * 30)
                 print(
                     r"""
-    ____  _                 
-    / ___|| |__   ___  _ __  
+     ____  _                 
+     / ___|| |__   ___  _ __  
     \___ \| '_ \ / _ \| '_ \ 
     ___) | | | | (_) | |_) |
     |____/|_| |_|\___/| .__/ 
@@ -17,3 +15,5 @@ class shop_preset:
                 print("You're in the shop")
                 print("[1]Buy, [2]Exit")
                 print("-" * 30)
+
+shop_visual = Shop()
