@@ -125,25 +125,7 @@ class map1:
                 map1.vil_shop()
 
     def vil_weap():
-        print("\n" * 40)
-        print("-" * 30)
-        print(
-            r"""
-__        __                               
-\ \      / /__  __ _ _ __   ___  _ __  ___ 
- \ \ /\ / / _ \/ _` | '_ \ / _ \| '_ \/ __|
-  \ V  V /  __/ (_| | |_) | (_) | | | \__ \
-   \_/\_/ \___|\__,_| .__/ \___/|_| |_|___/
-                    |_|                    
-                    """
-        )
-        print(
-            """
-[1]Coming Soon
-[2]Coming Soon
-[3]Coming Soon
-    """
-        )
+        ap.weapon_v.weapon()
         print("[1]Back")
         print("-" * 30)
         choice = input()
@@ -151,66 +133,25 @@ __        __
             map1.village_shop()
 
     def vil_arm():
-        print("\n" * 40)
-        print("-" * 30)
-        print(
-            r"""    _                              
-   / \   _ __ _ __ ___   ___  _ __ 
-  / _ \ | '__| '_ ` _ \ / _ \| '__|
- / ___ \| |  | | | | | | (_) | |   
-/_/   \_\_|  |_| |_| |_|\___/|_|   
-"""
-        )
-        print(
-            """
-[1]Coming Soon
-[2]Coming Soon
-[3]Coming Soon
-    """
-        )
-        print("[1]Back")
-        print("-" * 30)
+        ap.armor_v.armor()
         choice = input()
         if choice == "1":
             map1.village_shop()
 
     def vil_pot():
-        print("\n" * 40)
-        print("-" * 30)
-        print(
-            r"""
- ____       _   _                 
-|  _ \ ___ | |_(_) ___  _ __  ___ 
-| |_) / _ \| __| |/ _ \| '_ \/ __|
-|  __/ (_) | |_| | (_) | | | \__ \
-|_|   \___/ \__|_|\___/|_| |_|___/
-"""
-        )
-        print(
-            """
-[1]Coming Soon
-[2]Coming Soon
-[3]Coming Soon
-    """
-        )
-        print("[1]Back")
-        print("-" * 30)
+        ap.potion_v.potion()
         choice = input()
         if choice == "1":
             map1.village_shop()
 
     def blacksmith():
         while True:
-            print("\n\n\n\n\n")
-            print("-" * 30)
-            print("You're in the blacksmith")
-            print("[1]Enhance, [2]Craft, [3]Exit")
-            print("-" * 30)
+            ap.blacksmith_v.blacksmith()
             choice = input()
             if choice == "1":
-                pass
+                map1.vil_enh()
             elif choice == "2":
-                pass
+                map1.vil_craft()
             elif choice == "3":
                 map1.village()
 
