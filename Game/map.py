@@ -3,7 +3,7 @@ import time
 import os 
 """ OUR FILE IMPORT"""
 import quests as Q
-import ascii_preset as preset
+import ascii_preset as ap
 
 class shop:
 	pass
@@ -98,7 +98,7 @@ class map1:
 
     def vil_shop():
         while True:
-            preset.shop_visual.shop_preset()
+            ap.shop_v.shop()
             choice = input()
             if choice == "1":
                 map1.village_shop()
