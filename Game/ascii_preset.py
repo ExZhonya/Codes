@@ -13,7 +13,7 @@ class Shop:
                 """
         )
         print("You're in the shop")
-        print("[1]Buy, [2]Exit")
+        print("[1]Weapons, [2]Armor, [3]Potions, [4]Back")
         print("-" * 30)
 
 
@@ -37,6 +37,8 @@ __        __
 [2]Coming Soon
 [3]Coming Soon
     """)
+        print("[1]Back")
+        print("-" * 30)
         
 class Armors:
     def armor(self):
@@ -95,7 +97,7 @@ class Blacksmith:
 |____/|_|\__,_|\___|_|\_\___/_| |_| |_|_|\__|_| |_|
               """)
         print("You are in Blacksmith")
-        print("[1]Enhance, [2]Craft")
+        print("[1]Enhance, [2]Craft [3]Back")
         print("-" * 30)
 
 

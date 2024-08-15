@@ -101,28 +101,13 @@ class map1:
             ap.shop_v.shop()
             choice = input()
             if choice == "1":
-                map1.village_shop()
-            elif choice == "2":
-                map1.village()  
-
-    def village_shop():
-        while True:
-            print("\n" * 40)
-            print("-" * 30)
-            print("You're in the village shop")
-            print("\n")
-            print("Welcome! Do you need anything?")
-            print("[1]Weapons, [2]Armor, [3]Potions, [4]Back")
-            print("-" * 30)
-            choice = input()
-            if choice == "1":
                 map1.vil_weap()
             elif choice == "2":
                 map1.vil_arm()
             elif choice == "3":
                 map1.vil_pot()
             elif choice == "4":
-                map1.vil_shop()
+                map1.village()
 
     def vil_weap():
         ap.weapon_v.weapon()
@@ -130,19 +115,19 @@ class map1:
         print("-" * 30)
         choice = input()
         if choice == "1":
-            map1.village_shop()
+            map1.vil_shop()
 
     def vil_arm():
         ap.armor_v.armor()
         choice = input()
         if choice == "1":
-            map1.village_shop()
+            map1.vil_shop()
 
     def vil_pot():
         ap.potion_v.potion()
         choice = input()
         if choice == "1":
-            map1.village_shop()
+            map1.vil_shop()
 
     def blacksmith():
         while True:
@@ -257,31 +242,31 @@ class map2:
             ap.shop_v.shop()
             choice = input()
             if choice == "1":
-                map1.vil_weap()
+                map2.city_weap()
             elif choice == "2":
-                map1.vil_arm()
+                map2.city_arm()
             elif choice == "3":
-                map1.vil_pot()
+                map2.city_pot()
             elif choice == "4":
-                map1.village()
+                map2.city()
 
     def city_weap():
         ap.weapon_v.weapon()
         choice = input()
         if choice == "1":
-            map1.in_city_shop()
+            map2.city_shop()
 
     def city_arm():
         ap.armor_v.armor()
         choice = input()
         if choice == "1":
-            map1.in_city_shop()
+            map2.city_shop()
 
     def city_pot():
         ap.potion_v.potion()
         choice = input()
         if choice == "1":
-            map1.in_city_shop()
+            map2.city_shop()
 
     def dark_forest():
         while True:
