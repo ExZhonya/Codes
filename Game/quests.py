@@ -15,6 +15,8 @@ def q_grass_acc():
 				print("\n [1]Go Back")
 				prettify()
 				a = input()
+
+
 class QuestStatus:
 	grass_q_status = "Incomplete" # This is an attribute that only exists in this class 
 	forest_q_status = "Incomplete"
