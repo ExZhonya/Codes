@@ -2,7 +2,8 @@
 import time
 #import quest
 
-
+class shop:
+	pass
 class preset:
     def area(name, option):
         print("\n" * 40)
@@ -16,13 +17,13 @@ class map1:
         while True:
             preset.area(
                 "You're in the Village",
-                "[0]Elder, [1]Home, [2]Shop, [3]Blacksmith, [4]Grassland, [5]City",
+                "[0]Elder, [1]Inn, [2]Shop, [3]Blacksmith, [4]Grassland, [5]City",
             )
             choice = input()
             if choice == "0":
                 map1.vil_quest()
             elif choice == "1":
-                map1.home()
+                map1.vil_inn()
             elif choice == "2":
                 map1.vil_shop()
             elif choice == "3":
@@ -65,7 +66,7 @@ class map1:
             elif choice == "4":
                 map1.village()
 
-    def home():
+    def vil_inn():
         while True:
             print("\n" *40)
             print("-" * 30)
@@ -242,7 +243,7 @@ __        __
 
     def forest():
         while True:
-            preset.area("You're in Forest", "[1]Explore, [2]Cave, [3]Deep Forest")
+            preset.area("You're in Forest", "[1]Explore, [2]Grassland, [3]Cave, [4]Deep Forest")
             choice = input()
             if choice == "1":
                 pass
@@ -287,6 +288,7 @@ __        __
     def grassland():
         while True:
             preset.area("You're in Grassland", "[1]Village [2]Forest,")
+            choice = input()
             if choice == "1":
                 map1.village()
             elif choice == "2":
@@ -364,19 +366,18 @@ class map2:
     def dark_forest():
         while True:
             preset.area("You're in Dark Forest", "[1]City, [2]Deep Dark Forest")
-            print("-" * 30)
             choice = input()
             if choice == "1":
-                map1.city()
+                map2.city()
             elif choice == "2":
-                map1.deep_dark_forest()
+                map2.deep_dark_forest()
 
     def deep_dark_forest():
         while True:
             preset.area("You're in Deep Dark Forest", "[1]City, [2]Go Back")
             choice = input()
             if choice == "1":
-                map1.dark_forest()
+                map2.dark_forest()
             elif choice == "2":
                 pass
 
@@ -406,15 +407,4 @@ class map3:
                 pass
 
 
-while True:
-    print("\n"*40*40)
-    print("-" * 40)
-    print("|[1]Village, [2]Grassland, [3]Forest")
-    print("-" * 30)
-    player = input("where do you want to go?: ")
-    if player == "1":
-        map1.village()
-    elif player == "2":
-        map1.grassland()
-    elif player == "3":
-        map1.forest()
+map1.village()
