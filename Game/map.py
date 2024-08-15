@@ -1,8 +1,9 @@
 # Creator: @ExZhonya
 import time
-import quests as Q
 import os 
-
+""" OUR FILE IMPORT"""
+import quests as Q
+import ascii_preset as S
 
 class shop:
 	pass
@@ -97,26 +98,12 @@ class map1:
 
     def vil_shop():
         while True:
-            print("\n" * 40)
-            print("-" * 30)
-            print(
-                r"""
- ____  _                 
-/ ___|| |__   ___  _ __  
-\___ \| '_ \ / _ \| '_ \ 
- ___) | | | | (_) | |_) |
-|____/|_| |_|\___/| .__/ 
-                  |_|    
-				"""
-            )
-            print("You're in the shop")
-            print("[1]Buy, [2]Exit")
-            print("-" * 30)
+            S.shop()
             choice = input()
             if choice == "1":
                 map1.village_shop()
             elif choice == "2":
-                map1.village()
+                map1.village()  
 
     def village_shop():
         while True:
