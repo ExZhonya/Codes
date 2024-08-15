@@ -254,9 +254,7 @@ class map2:
 
     def city_shop():
         while True:
-            preset.area(
-                "You're in City Shop", "[1]Weapon, [2]Armor, [3]Potion, [4]Back"
-            )
+            ap.shop_v.shop()
             choice = input()
             if choice == "1":
                 map1.vil_weap()
@@ -268,31 +266,19 @@ class map2:
                 map1.village()
 
     def city_weap():
-        print("\n\n\n\n\n")
-        print("-" * 30)
-        print("Coming Soon")
-        print("[1]Back")
-        print("-" * 30)
+        ap.weapon_v.weapon()
         choice = input()
         if choice == "1":
             map1.in_city_shop()
 
     def city_arm():
-        print("\n\n\n\n\n")
-        print("-" * 30)
-        print("Coming Soon")
-        print("[1]Back")
-        print("-" * 30)
+        ap.armor_v.armor()
         choice = input()
         if choice == "1":
             map1.in_city_shop()
 
     def city_pot():
-        print("\n\n\n\n\n")
-        print("-" * 30)
-        print("Coming Soon")
-        print("[1]Back")
-        print("-" * 30)
+        ap.potion_v.potion()
         choice = input()
         if choice == "1":
             map1.in_city_shop()
