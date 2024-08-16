@@ -8,7 +8,7 @@ import inventory_system_release as inv
 '''Displays ONLY'''
 def ask_player():
 	print("""=========OPTIONS===========""")
-	a = input("\nWhat will you do?\n[1]Change Equipment \n[2]Access Inventory \n[3]Use Currently Holding \n[4]Switch Bags(Coming Soon)")
+	a = input("\nWhat will you do?\n[1]Change Equipment \n[2]Access Inventory \n[3]Use Currently Holding \n[4]Expand Bag")
 	match a:
 		case "1":
 			inv.database.select_item()
