@@ -16,7 +16,6 @@ class Database:
 		# same with here, just do import.class.eq to access it
 	h_item = item.orange
 		# sets the held item to an orange :3
-	state = "Available"
 
 	def __str__(self):
 		return "Basic Bag"
