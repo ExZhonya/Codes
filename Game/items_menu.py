@@ -1,5 +1,5 @@
 import item_assets as item
-import inventory_system as inv
+import inventory_system_release as inv
 # Note: we wanna have NO while loops in the assets files, only in the engine, i'll remove the while loop here in the future, and move it in the main loop of the game
 # This is your domain btw, design this however you like :3 Ask me if you want any code changes
 
