@@ -54,7 +54,7 @@ def confirm():
 def test():
     print("Code has completed")
 
-if __name__ == "__map__":
+if __name__ == "__main__":
     welc_ascii()
     confirm()
     test()
