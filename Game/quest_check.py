@@ -29,5 +29,3 @@ def quest_updater(value):
 			quest_states[value] = 'Activated'
 	else:
 		print("There's no such quest")
-
-	start()
