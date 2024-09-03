@@ -100,9 +100,14 @@ class Blacksmith:
         print("[1]Enhance, [2]Craft [3]Back")
         print("-" * 30)
 
+class random_ecounter:
+    def vil_msg():
+        ecounter = ["You see people walking....", "You see children playing around..."]
+        print(random.choice(ecounter))
 
 shop_v = Shop()
 weapon_v = Weapons()
 armor_v = Armors()
 potion_v = Potions()
 blacksmith_v = Blacksmith()
+ec_msg = random_ecounter()
