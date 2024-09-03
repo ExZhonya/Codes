@@ -1,5 +1,5 @@
 # Creator: @ExZhonya
-# Creator: @ExZhonya
+# Co-Creator: @Pilgrimir
 import time
 import os
 import msvcrt
