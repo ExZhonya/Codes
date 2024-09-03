@@ -4,6 +4,13 @@ import os
 """ OUR FILE IMPORT"""
 import quests as Q
 import ascii_preset as ap
+import welcome as w
+
+#========PLAYER ENTER GAME SCREEN========
+w.welc_ascii()
+w.confirm()
+#========================================
+
 
 class shop:
 	pass
@@ -318,4 +325,4 @@ class map3:
                 pass
 
 
-map1.village()
+

@@ -29,7 +29,14 @@ def fast_print(text, delay=0.010):
         time.sleep(delay)
     print()  # Move to the next line after finishing
 
-def forest_scene():
+def slow_print(text, delay=0.05):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
+
+def welc_ascii():
     fast_print(r"""
 __        _______ _     ____ ___  __  __ _____ _ 
 \ \      / / ____| |   / ___/ _ \|  \/  | ____| |
@@ -39,21 +46,15 @@ __        _______ _     ____ ___  __  __ _____ _
    """)
     time.sleep(0.5)
    
-def slow_print(text, delay=0.05):
-    for char in text:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(delay)
-    print()
 
-def forest_scene_2():
-    slow_print("\n This is a test")
+def confirm():
     slow_print("\n Press any key to continue")
     getch()
 
-def test(): # to check if it works
-    print("\n\n Code has run successfully")
-    
-forest_scene()
-forest_scene_2()
-test()
+def test():
+    print("Code has completed")
+
+if __name__ == "__map__":
+    welc_ascii()
+    confirm()
+    test()
