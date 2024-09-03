@@ -1,15 +1,28 @@
 # Creator: @ExZhonya
 import time
-import os 
+import os
+import msvcrt
 """ OUR FILE IMPORT"""
 import quests as Q
 import ascii_preset as ap
 import welcome as w
+import cutscenes as c
 
 #========PLAYER ENTER GAME SCREEN========
 w.welc_ascii()
 w.confirm()
+c.spawn()
 #========================================
+def getch():
+    return msvcrt.getch().decode('utf-8')
+
+def start():
+    while True:
+        print("\n [1]Village")
+        a = getch()
+        map1.village()
+
+
 
 
 class shop:
@@ -17,7 +30,7 @@ class shop:
 class preset:
     def area(name, option):
         print("\n" * 40)
-        os.system("cls")
+        os.system("cls;clear")
         print("-" * 30)
         print(name)
         print(option)
@@ -324,5 +337,6 @@ class map3:
             elif choice == "2":
                 pass
 
-
-
+#==========START========
+start()
+#=======================
