@@ -19,8 +19,8 @@ def q_grass_acc():
 
 class QuestStatus:
 	grass_q_status = "Incomplete" # This is an attribute that only exists in this class 
-	forest_q_status = "Incomplete"
-	cave_q_status = "Incomplete"
+	forest_q_status = "Cannot Start"
+	cave_q_status = "Cannot Start"
 
 	def start_grass_quest(self): 
 		while self.grass_q_status == "Incomplete": # This is just a more complicated version of an if statement, but if you read it, it'll be True 
@@ -46,12 +46,46 @@ class QuestStatus:
 			print("You're already in a quest.") # Dialogue, feel free to add more
 			prettify()
 	
+	def is_grass_done(self):
+		if self.grass_q_status == "Complete":
+			self.forest_q_status = "Incomplete"
+			self.cave_q_status = "Incomplete"
+		else:
+			print("Please complete the grass quest first.")
 
 	def start_forest_quest(self): # Just copy the same shit in grass quest, and you can display rewards, just to entice the player to accept them
-		pass
+		while self.forest_q_status == "Incomplete": # This is just a more complicated version of an if statement, but if you read it, it'll be True 
+			os.system("cls") # Just clears the terminal screen 
+			prettify() 
+			print("Elder:\nAdventurer! please help us, there's bandits that keep attacking us! please kill them!") # Dialogue, feel free to add more
+			prettify()
+			print("[1]Accept Quest [2]Decline")
+			prettify()
+			player_choice = input()
+			if player_choice == "1":
+				self.forest_q_status = "Ongoing" # This sets the status for this quest as ongoing
+				os.system("cls")
+				q_grass_acc()
+				break
+			elif player_choice == "2": # if they decline, nothing happens, but you can add something here if you want @Lua
+				break
 
 	def start_cave_quest(self):  # Just copy the same shit in grass quest, and you can display rewards, just to entice the player to accept them
-		pass
+		while self.cave_q_status == "Incomplete": # This is just a more complicated version of an if statement, but if you read it, it'll be True 
+			os.system("cls") # Just clears the terminal screen 
+			prettify() 
+			print("Elder:\nAdventurer! please help us, there's bandits that keep attacking us! please kill them!") # Dialogue, feel free to add more
+			prettify()
+			print("[1]Accept Quest [2]Decline")
+			prettify()
+			player_choice = input()
+			if player_choice == "1":
+				self.cave_q_status = "Ongoing" # This sets the status for this quest as ongoing
+				os.system("cls")
+				q_grass_acc()
+				break
+			elif player_choice == "2": # if they decline, nothing happens, but you can add something here if you want @Lua
+				break
 
 
 

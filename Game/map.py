@@ -45,7 +45,7 @@ class map1:
             print(
                 "Elder:\nAdventurer! Please help us eradicate monsters destroying our fields.. we will reward you!"
             )
-            print(f"[1]Grassland Quest({Q.quest_s.grass_q_status}), [2]Forest Quest, [3]Cave Quest, [4]Go Back")
+            print(f"[1]Grassland Quest({Q.quest_s.grass_q_status}), [2]Forest Quest({Q.quest_s.forest_q_status}), [3]Cave Quest({Q.quest_s.cave_q_status}), [4]Go Back")
             print("-" * 30)
             choice = input(" ")
             if choice == "1":
@@ -55,10 +55,11 @@ class map1:
             elif choice == "2":
                 print("\n\n\n\n\n\n\n")
                 print("-" * 30)
-                print("Coming Soon")
+                Q.quest_s.is_grass_done()
                 print("-" * 30)
-                back = input("[1]Go Back")
+                print("[1]Go Back")
                 print("-" * 30)
+                back = input(": ")
                 if back == 1:
                     map1.vil_quest() # 
                 else:
@@ -66,10 +67,15 @@ class map1:
             elif choice == "3":
                 print("\n\n\n\n\n\n\n")
                 print("-" * 30)
-                print("Coming Soon")
+                Q.quest_s.is_grass_done()
                 print("-" * 30)
-                back = input("[1]Go Back")
+                print("[1]Go Back")
                 print("-" * 30)
+                back = input(": ")
+                if back == 1:
+                    map1.vil_quest() # 
+                else:
+                    map1.vil_quest() # 
             elif choice == "4":
                 map1.village()
 
