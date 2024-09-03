@@ -1,9 +1,10 @@
 # Creator: @ExZhonya
+# Creator: @ExZhonya
 import time
 import os
 import msvcrt
 """ OUR FILE IMPORT"""
-import quests as Q
+import quest_check as quest
 import ascii_preset as ap
 import welcome as w
 import cutscenes as c
@@ -68,38 +69,16 @@ class map1:
             print(
                 "Elder:\nAdventurer! Please help us eradicate monsters destroying our fields.. we will reward you!"
             )
-            print(f"[1]Grassland Quest({Q.quest_s.grass_q_status}), [2]Forest Quest({Q.quest_s.forest_q_status}), [3]Cave Quest({Q.quest_s.cave_q_status}), [4]Go Back")
+            print("[1]Quests [2]Go Back")
             print("-" * 30)
-            choice = input(" ")
+            choice = input("What do you wanna do?\n")
             if choice == "1":
-                Q.quest_s.check_quest_collision() # this checks for any ongoing quests
-                Q.quest_s.start_grass_quest() # this starts the quest itself and toggle the grass status to "Ongoing"
-                continue # Repeats back to vil_quest()
+                os.system("cls")
+                quest.show()
+                quest_choice = int(input("Which quest will you do?\n"))
+                quest.update(quest_choice)
+                continue
             elif choice == "2":
-                print("\n\n\n\n\n\n\n")
-                print("-" * 30)
-                Q.quest_s.is_grass_done()
-                print("-" * 30)
-                print("[1]Go Back")
-                print("-" * 30)
-                back = input(": ")
-                if back == 1:
-                    map1.vil_quest() # 
-                else:
-                    map1.vil_quest() # 
-            elif choice == "3":
-                print("\n\n\n\n\n\n\n")
-                print("-" * 30)
-                Q.quest_s.is_grass_done()
-                print("-" * 30)
-                print("[1]Go Back")
-                print("-" * 30)
-                back = input(": ")
-                if back == 1:
-                    map1.vil_quest() # 
-                else:
-                    map1.vil_quest() # 
-            elif choice == "4":
                 map1.village()
 
     def vil_inn():
