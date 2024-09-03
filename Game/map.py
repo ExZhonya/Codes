@@ -11,7 +11,7 @@ import cutscenes as c
 #========PLAYER ENTER GAME SCREEN========
 w.welc_ascii()
 w.confirm()
-#c.spawn()
+c.spawn()
 #========================================
 def getch():
     return msvcrt.getch().decode('utf-8')
@@ -245,6 +245,7 @@ class map1:
 
 class map2:
     def city():
+        c.city_first()
         while True:
             preset.area(
                 "You're in City",
