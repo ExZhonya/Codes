@@ -1,10 +1,59 @@
-hp = 4  # Current HP as an integer (percentage)
-max_hp_bar_length = 10  # Total number of bars
+import sys
+import time
 
-# Calculate the number of filled bars based on the current HP, with a minimum of 1 bar if hp > 0
-filled_bars = max(1, hp // 10) if hp > 0 else 0
+# Cross-platform getch
+if sys.platform == "win32":
+    import msvcrt
 
-maxHP_bar = "[{}{}]".format('▆' * filled_bars, ' ' * (max_hp_bar_length - filled_bars))
+    def getch():
+        return msvcrt.getch().decode('utf-8')
 
-print(f"HP: {hp}%")
-print(f"HP Bar: {maxHP_bar}")
+else:
+    import tty
+    import termios
+
+    def getch():
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(fd)
+            ch = sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return ch
+
+def fast_print(text, delay=0.010):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()  # Move to the next line after finishing
+
+def forest_scene():
+    fast_print(r"""
+__        _______ _     ____ ___  __  __ _____ _ 
+\ \      / / ____| |   / ___/ _ \|  \/  | ____| |
+ \ \ /\ / /|  _| | |  | |  | | | | |\/| |  _| | |
+  \ V  V / | |___| |__| |__| |_| | |  | | |___|_|
+   \_/\_/  |_____|_____\____\___/|_|  |_|_____(_)
+   """)
+    time.sleep(0.5)
+   
+def slow_print(text, delay=0.05):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
+
+def forest_scene_2():
+    slow_print("\n This is a test")
+    slow_print("\n Press any key to continue")
+    getch()
+
+def test(): # to check if it works
+    print("\n\n Code has run successfully")
+    
+forest_scene()
+forest_scene_2()
+test()

@@ -1,17 +1,26 @@
-import time
 import sys
-import tty
-import termios
+import time
 
-def getch():
-    fd = sys.stdin.fileno()
-    old_settings = termios.tcgetattr(fd)
-    try:
-        tty.setraw(fd)
-        ch = sys.stdin.read(1)
-    finally:
-        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return ch
+# Cross-platform getch
+if sys.platform == "win32":
+    import msvcrt
+
+    def getch():
+        return msvcrt.getch().decode('utf-8')
+
+else:
+    import tty
+    import termios
+
+    def getch():
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(fd)
+            ch = sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return ch
 
 def fast_print(text, delay=0.010):
     for char in text:
@@ -42,8 +51,8 @@ def forest_scene_2():
     slow_print("\n Press any key to continue")
     getch()
 
-def test(): #to check if it works
-    print("\n\n Code has run sucessfully")
+def test(): # to check if it works
+    print("\n\n Code has run successfully")
     
 forest_scene()
 forest_scene_2()
