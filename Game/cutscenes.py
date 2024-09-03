@@ -9,6 +9,20 @@ def slow_print(text, delay=0.05):
         time.sleep(delay)
     print()
 
+def preset_city():
+    print(r"""
+                           _ _.-'`-._ _
+                ;.'________'.;
+     _________n.[____________].n_________
+    |''_''_''_''||==||==||==||''_''_''_''']
+    |'''''''''''||..||..||..||'''''''''''|
+    |LI LI LI LI||LI||LI||LI||LI LI LI LI|
+    |.. .. .. ..||..||..||..||.. .. .. ..|
+    |LI LI LI LI||LI||LI||LI||LI LI LI LI|
+ ,,;;,;;;,;;;,;;;,;;;,;;;,;;;,;;,;;;,;;;,;;,,
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+===============================================
+""")
 
 def spawn():
     os.system("cls;clear")
@@ -30,28 +44,48 @@ def spawn():
 
 def city_first():
     os.system("cls;clear")
+    preset_city()
     slow_print("\x1b[3mYou are in the city of Luterra. You can see the bustling streets and the tall buildings around you.\x1b[23m\n")
     time.sleep(0.5)
+    os.system("cls;clear")
+    preset_city()
     slow_print("\x1b[3mYou see an enormous building named 'Guild'\x1b[23m\n")
     time.sleep(0.5)
+    os.system("cls;clear")
+    preset_city()
     slow_print("\x1b[3mYou decided to enter, and goes to the receptionist\x1b[23m\n")
     time.sleep(0.5)
-    slow_print("Rin: Welcome to the guild! is there anything we can help?\n")
+    os.system("cls;clear")
+    preset_city()
+    slow_print("\033[1mRin: Welcome to the guild! is there anything we can help?\033[0m\n")
     time.sleep(0.5)
-    slow_print("You: I'd like to register as Adventurer\n")
+    os.system("cls;clear")
+    preset_city()
+    slow_print("\033[1mYou: I'd like to register as Adventurer\033[0m\n")
     time.sleep(0.5)
-    slow_print("Rin: Sure thing! What's your name?\n")
+    os.system("cls;clear")
+    preset_city()
+    slow_print("\033[1mRin: Sure thing! What's your name?\033[0m\n")
     time.sleep(0.5)
+    os.system("cls;clear")
+    preset_city()
     slow_print("\x1b[3mYou sign in your information\x1b[23m\n")
     time.sleep(0.5)
-    slow_print("Rin: Congratulation! you have become adventurer. you will need to do guild quest to become full fledged adventurer!\n")
+    os.system("cls;clear")
+    preset_city()
+    slow_print("\033[1mRin: Congratulation! you have become adventurer. you will need to do guild quest to become full fledged adventurer!\033[0m\n")
     time.sleep(0.5)
-    slow_print("Rin: There are 6 tier, G>F>D>C>B>A. You will need to complete 3 quest to move to the next tier. You can choose your quest from the guild quest board\n")
+    os.system("cls;clear")
+    preset_city()
+    slow_print("\033[1mRin: There are 6 tier, G>F>D>C>B>A. You will need to complete 3 quest to move to the next tier. You can choose your quest from the guild quest board\033[0m\n")
     time.sleep(0.5)
-    slow_print("Rin: Here are your Guild Card, stay safe adventurer!")
+    os.system("cls;clear")
+    preset_city()
+    slow_print("\033[1mRin: Here are your Guild Card, stay safe adventurer!\033[0m")
     time.sleep(0.5)
-    slow_print("You: Thank you!\n")
+    os.system("cls;clear")
+    preset_city()
+    slow_print("\033[1mYou: Thank you!\033[0m\n")
 
 if __name__ == "__main__":
-    # spawn()
     city_first()
