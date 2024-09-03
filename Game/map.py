@@ -18,9 +18,12 @@ def getch():
 
 def start():
     while True:
-        print("\n [1]Village")
+        print("=============")
+        print("[1]Village")
+        print("=============")
         a = getch()
-        map1.village()
+        if a == '1':
+            map1.village()
 
 
 
