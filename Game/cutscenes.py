@@ -2,7 +2,47 @@ import sys
 import time
 import os
 
-def slow_print(text, delay=0.05):
+
+# Cutscene based functions
+cutscenes = {
+    1: 'Spawn',
+    2: 'City'
+}
+cutscenes_state = {
+    1: 'Incomplete',
+    2: 'Incomplete'
+}
+
+def cutscenes_show():
+    print("----Scenes-----")
+    for key, value in cutscenes.items():
+        if cutscenes_state[key] == 'Completed':
+            print(f"[{key}] {value} (Completed)")
+        else:
+            print(f"[{key}] {value}")
+    print("---------------")
+    print("Which scene do you wanna visit?\n")
+    scene = int(input())
+    cutscene_updater(scene)
+
+def cutscene_updater(value):
+    if value in cutscenes_state:
+        if cutscenes_state[value] == 'Completed':
+            print("Already read scene.")
+        else:
+            cutscenes_state[value] = 'Completed'
+            scene_runner(value)
+    else:
+        print('scene does not exist.')
+
+def scene_runner(value):
+    if value == 1:
+        spawn()
+    elif value == 2:
+        city_first()
+
+# Text based functions
+def slow_print(text, delay=0.03):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
@@ -23,6 +63,12 @@ def preset_city():
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ===============================================
 """)
+
+
+
+
+
+#=============================================================================================#
 
 def spawn():
     os.system("cls;clear")
@@ -53,7 +99,7 @@ def city_first():
     time.sleep(0.5)
     os.system("cls;clear")
     preset_city()
-    slow_print("\x1b[3mYou decided to enter, and goes to the receptionist\x1b[23m\n")
+    slow_print("\x1b[3mYou decided to enter, and went to the receptionist.\x1b[23m\n")
     time.sleep(0.5)
     os.system("cls;clear")
     preset_city()
@@ -61,7 +107,7 @@ def city_first():
     time.sleep(0.5)
     os.system("cls;clear")
     preset_city()
-    slow_print("\033[1mYou: I'd like to register as Adventurer\033[0m\n")
+    slow_print("\033[1mYou: I'd like to register as Adventurer.\033[0m\n")
     time.sleep(0.5)
     os.system("cls;clear")
     preset_city()
@@ -69,11 +115,11 @@ def city_first():
     time.sleep(0.5)
     os.system("cls;clear")
     preset_city()
-    slow_print("\x1b[3mYou sign in your information\x1b[23m\n")
+    slow_print("\x1b[3m<You sign in your information>\x1b[23m\n")
     time.sleep(0.5)
     os.system("cls;clear")
     preset_city()
-    slow_print("\033[1mRin: Congratulation! you have become adventurer. you will need to do guild quest to become full fledged adventurer!\033[0m\n")
+    slow_print(f"\033[1mRin: Congratulations ! you have become an adventurer. you will need to do guild quest to become full fledged adventurer!\033[0m\n")
     time.sleep(0.5)
     os.system("cls;clear")
     preset_city()
@@ -87,5 +133,8 @@ def city_first():
     preset_city()
     slow_print("\033[1mYou: Thank you!\033[0m\n")
 
+
+
 if __name__ == "__main__":
-    city_first()
+    while True:
+        cutscenes_show()
