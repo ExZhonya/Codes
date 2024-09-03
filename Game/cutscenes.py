@@ -30,11 +30,11 @@ def spawn():
 
 def city_first():
     os.system("cls;clear")
-    slow_print("You are in the city of Luterra. You can see the bustling streets and the tall buildings around you.\n")
+    slow_print("\x1b[3mYou are in the city of Luterra. You can see the bustling streets and the tall buildings around you.\x1b[23m\n")
     time.sleep(0.5)
-    slow_print("You see an enormous building named 'Guild'\n")
+    slow_print("\x1b[3mYou see an enormous building named 'Guild'\x1b[23m\n")
     time.sleep(0.5)
-    slow_print("You decided to enter, and goes to the receptionist\n")
+    slow_print("\x1b[3mYou decided to enter, and goes to the receptionist\x1b[23m\n")
     time.sleep(0.5)
     slow_print("Rin: Welcome to the guild! is there anything we can help?\n")
     time.sleep(0.5)
