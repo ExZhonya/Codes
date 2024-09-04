@@ -5,50 +5,51 @@ import os
 
 
 # Cutscene based functions-----------------------
-"""this are just dictionaries for the available cutscenes."""
-cutscenes = {
-    1: 'Spawn',
-    2: 'City'
-}
 cutscenes_state = {
     1: 'Incomplete',
     2: 'Incomplete'
 }
+display_scene = {
+    1: 'Spawn',
+    2: 'City'
+}
 
-"""this uses a for loop that prints every possible items in the dictionaries mentioned above."""
-def cutscenes_show():
-    # Can be removed in the future, no need for the player to choose scenes.
-
-    print("----Scenes-----")
-    for key, value in cutscenes.items():
-        if cutscenes_state[key] == 'Completed':
-            print(f"[{key}] {value} (Completed)")
+def display_hub(): 
+    for key, value in display_scene.items(): # checks the current key and values of the display_scene dictionary
+        if cutscenes_state[key] == 'Completed': # checks a different dictionary named cutscenes_state if the current key is 'Completed'
+            print(f"[{key}] {value} (Completed)") # if it is, it runs this print
         else:
-            print(f"[{key}] {value}")
-    print("---------------")
-    cutscene_runner()
+            print(f"[{key}] {value}") # this is the default print
+    run = int(input("Enter the number of the scene you want to continue."))
+    run_cutscene(run)
 
-"""just takes the input of what the scene the player wants, can be removed in the future."""
-def cutscene_updater():
-    print("Which scene do you wanna visit?\n")
-    scene = int(input())
-    if scene in cutscenes_state:
-        if cutscenes_state[scene] == 'Completed':
-            print("Already read scene.")
+
+def check(scene_number): # given scene no.
+    if scene_number in cutscenes_state: # checks if the given scene no. is in the cutscenes_state dictionary 
+        if cutscenes_state[scene_number] == 'Incomplete': # if so, it checks if it's incomplete
+            pass # if it is, then it'll continue to the rest of the dialogue
         else:
-            scene_runner(scene)
+            next_(scene_number) # if not, it'll skip to the next dialogue.
     else:
-        print('scene does not exist.')
+        print("Scene does not exist.") # if a next dialogue doesn't exit, this will run. 
 
-"""This is pretty straightforward."""
-def cutscene_runner(scene):
-    # Can be removed in the future
-    if scene == 1:
-        spawn()
-    elif scene == 2:
-        city_first()
+def update(scene_number):
+    cutscenes_state[scene_number] = 'Completed' # just updates the dictionary to complete once the dialogue has completely finished.
 
+def next_(scene_number):
+    if scene_number in cutscenes_state: # checks if the given no. is in the dictionary
+        run_cutscene(scene_number + 1) # if it is, then it runs the consecutive/the next scene
+    else:
+        print("Scene does not exist.") # if the given no. doesn't exist, this shows up
 
+def run_cutscene(next_number):
+    match next_number: # this is the backbone of the whole thing, the rest are only checking, and this thing runs and gives meaning to the checking above.
+        case 1:
+            spawn()
+        case 2:
+            city_first()
+        case _: # this is a default value for match functions.
+            unknown_scene() # redirects to a function i made.
 
 # Text based functions-------------------------
 def slow_print(text, delay=0.03):
@@ -76,7 +77,15 @@ def preset_city():
 
 # Actual Cutscenes-------------------------------
 
+def unknown_scene():
+    os.system("cls;clear")
+    slow_print("All cutscenes are completed.")
+    time.sleep(1)
+    display_hub()
+
 def spawn():
+    id_ = 1
+    check(id_)
     os.system("cls;clear")
     slow_print("You wake up in a dark room. You can't remember how you got here, but you know you need to find a way out.\n")
     time.sleep(0.5)
@@ -90,12 +99,15 @@ def spawn():
     time.sleep(0.5)
     slow_print("You walk up to them and they turn to you.\n")
     time.sleep(0.5)
-    slow_print("One of them says, 'Hello there! Welcome to our village. We need your help. There is a monster in the forest that is terrorizing the villagers. Can you help us defeat it?\n")
+    slow_print("One of them says, 'Hello there! Welcome to our village. We need your help. There is a monster in the forest that is terrorizing the villagers. Can you help us defeat it?'\n")
     time.sleep(0.5)
     slow_print("You agree to help and start your journey to defeat the monster.\n")
-    cutscenes_state[1] = 'Completed'
+    update(id_)
+    next_(id_)
 
 def city_first():
+    id_ = 2
+    check(id_)
     os.system("cls;clear")
     preset_city()
     slow_print("\x1b[3mYou are in the city of Luterra. You can see the bustling streets and the tall buildings around you.\x1b[23m\n")
@@ -139,10 +151,10 @@ def city_first():
     os.system("cls;clear")
     preset_city()
     slow_print("\033[1mYou: Thank you!\033[0m\n")
-    cutscenes_state[2] = 'Completed'
+    update(id_)
+    next_(id_)
 
 
 
 if __name__ == "__main__":
-    while True:
-        cutscenes_show()
+    display_hub() # could be started from the spawn(), no need to use this in the future codes.
