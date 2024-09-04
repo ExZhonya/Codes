@@ -3,7 +3,9 @@ import time
 import os
 
 
-# Cutscene based functions
+
+# Cutscene based functions-----------------------
+"""this are just dictionaries for the available cutscenes."""
 cutscenes = {
     1: 'Spawn',
     2: 'City'
@@ -13,7 +15,10 @@ cutscenes_state = {
     2: 'Incomplete'
 }
 
+"""this uses a for loop that prints every possible items in the dictionaries mentioned above."""
 def cutscenes_show():
+    # Can be removed in the future, no need for the player to choose scenes.
+
     print("----Scenes-----")
     for key, value in cutscenes.items():
         if cutscenes_state[key] == 'Completed':
@@ -21,27 +26,31 @@ def cutscenes_show():
         else:
             print(f"[{key}] {value}")
     print("---------------")
+    cutscene_runner()
+
+"""just takes the input of what the scene the player wants, can be removed in the future."""
+def cutscene_updater():
     print("Which scene do you wanna visit?\n")
     scene = int(input())
-    cutscene_updater(scene)
-
-def cutscene_updater(value):
-    if value in cutscenes_state:
-        if cutscenes_state[value] == 'Completed':
+    if scene in cutscenes_state:
+        if cutscenes_state[scene] == 'Completed':
             print("Already read scene.")
         else:
-            cutscenes_state[value] = 'Completed'
-            scene_runner(value)
+            scene_runner(scene)
     else:
         print('scene does not exist.')
 
-def scene_runner(value):
-    if value == 1:
+"""This is pretty straightforward."""
+def cutscene_runner(scene):
+    # Can be removed in the future
+    if scene == 1:
         spawn()
-    elif value == 2:
+    elif scene == 2:
         city_first()
 
-# Text based functions
+
+
+# Text based functions-------------------------
 def slow_print(text, delay=0.03):
     for char in text:
         sys.stdout.write(char)
@@ -65,10 +74,7 @@ def preset_city():
 """)
 
 
-
-
-
-#=============================================================================================#
+# Actual Cutscenes-------------------------------
 
 def spawn():
     os.system("cls;clear")
@@ -87,6 +93,7 @@ def spawn():
     slow_print("One of them says, 'Hello there! Welcome to our village. We need your help. There is a monster in the forest that is terrorizing the villagers. Can you help us defeat it?\n")
     time.sleep(0.5)
     slow_print("You agree to help and start your journey to defeat the monster.\n")
+    cutscenes_state[1] = 'Completed'
 
 def city_first():
     os.system("cls;clear")
@@ -132,6 +139,7 @@ def city_first():
     os.system("cls;clear")
     preset_city()
     slow_print("\033[1mYou: Thank you!\033[0m\n")
+    cutscenes_state[2] = 'Completed'
 
 
 
