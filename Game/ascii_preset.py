@@ -133,31 +133,25 @@ class Player:
 #stats and the variable, to activate it just put player.display_stats()
 player = Player(name="Hero", hp=100, mp=50, strength=20, defense=15, level=5)
 
+class mob_table():
+    def preset():
+        hp = 210  # Current HP as an integer (percentage)
+        max_hp_bar_length = 21  # Total number of bars
 
-class monster_stats:
-    def __init__(self, name, hp, mp, strength, defense, level):
-        self.name = name
-        self.hp = hp
-        self.mp = mp
-        self.strength = strength
-        self.defense = defense
-        self.level = level
+        filled_bars = hp // 10  # Each bar represents 10%
 
-    def display_stats(self):
-        # Adjusting the format to include monster name and level
-        print(f"{'='*30}")
-        print(f"Monster: {self.name:<15} Level: {self.level:>2}")  # Name left-aligned, level right-aligned
-        print(f"{'='*30}")
-        print(f"{'Stat':<15} | {'Value':<5}")  # Adjusted to match new formatting
-        print(f"{'-'*30}")
-        print(f"{'Health (HP)':<15}| {self.hp:<5}")
-        print(f"{'Mana (MP)':<15}| {self.mp:<5}")
-        print(f"{'Strength':<15}| {self.strength:<5}")
-        print(f"{'Defense':<15}| {self.defense:<5}")
-        print(f"{'='*30}")
+        # Create the HP bar based on the filled bars
+        maxHP_bar = "[{}{}]".format('▆' * filled_bars, ' ' * (max_hp_bar_length - filled_bars))
 
-# Create a monster character
-monster = Player(name="Goblin", hp=50, mp=10, strength=10, defense=5, level=1)
+        print(f"""
+                ==============================
+                | Goblin     |  Lv.1         |
+                ==============================
+                | HP: {maxHP_bar}|
+                ==============================
+                |[1]Attack, [2]Defend, [3]Run|
+                ==============================
+                """)
 
 
 
@@ -173,24 +167,3 @@ ec_msg = random_ecounter()
 
 
 
-
-def preset():
-    hp = 210  # Current HP as an integer (percentage)
-    max_hp_bar_length = 21  # Total number of bars
-
-    filled_bars = hp // 10  # Each bar represents 10%
-
-    # Create the HP bar based on the filled bars
-    maxHP_bar = "[{}{}]".format('▆' * filled_bars, ' ' * (max_hp_bar_length - filled_bars))
-
-    print(f"""
-            ==============================
-            | Goblin     |  Lv.1         |
-            ==============================
-            | HP: {maxHP_bar}|
-            ==============================
-            |[1]Attack, [2]Defend, [3]Run|
-            ==============================
-            """)
-
-preset()
