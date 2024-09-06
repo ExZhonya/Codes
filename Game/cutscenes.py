@@ -28,8 +28,6 @@ def check(scene_number):  # given scene no.
 
 def update(scene_number):
     cutscenes_state[scene_number] = 'Completed' # just updates the dictionary to complete once the dialogue has completely finished.
-    # New code*****
-    print(f"{scene_number}: {cutscenes_state[scene_number]}!")
 
 
 # Text based functions-------------------------
