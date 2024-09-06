@@ -81,7 +81,6 @@ class map1:
 
     def vil_quest():
         while True:
-            print("\n\n\n\n\n\n\n\n")
             os.system("cls")
             print("-" * 30)
             print(
@@ -101,15 +100,13 @@ class map1:
 
     def vil_inn():
         while True:
-            print("\n" *40)
-            print("-" * 30)
-            print("You're in your house")
-            print("[1]Rest, [2]Chest, [3]Back")
-            print("-" * 30)
+            preset.area(
+                "You're in the Inn",
+                "1]Rest, [2]Chest, [3]Back",
+            )
             choice = getch()
             if choice == "1":
                 os.system("cls;clear")
-                print("\n"*40*40)
                 print("-"*30)
                 print("Eating... \n")
                 time.sleep(3)
@@ -168,20 +165,20 @@ class map1:
 
     def vil_enh():
         os.system("cls;clear")
-        print("-" * 30)
-        print("Coming Soon")
-        print("[1]Back")
-        print("-" * 30)
+        preset.area(
+            "Coming Soon",
+            "[1]Back"
+        )
         choice = getch()
         if choice == "1":
             map1.blacksmith()
 
     def vil_craft():
         os.system("cls;clear")
-        print("-" * 30)
-        print("Coming Soon")
-        print("[1]Back")
-        print("-" * 30)
+        preset.area(
+            "Coming Soon",
+            "[1]Back"
+        )
         choice = getch()
         if choice == "1":
             map1.blacksmith()
