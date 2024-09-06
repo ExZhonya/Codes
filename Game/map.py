@@ -102,7 +102,7 @@ class map1:
         while True:
             preset.area(
                 "You're in the Inn",
-                "1]Rest, [2]Chest, [3]Back",
+                "[1]Rest, [2]Chest, [3]Back",
             )
             choice = getch()
             if choice == "1":
@@ -318,7 +318,7 @@ class map2:
 
     def deep_dark_forest():
         while True:
-            preset.area("You're in Deep Dark Forest", "[1]City, [2]Go Back")
+            preset.area("You're in Deep Dark Forest", "[1]Go Back [2]??????")
             choice = getch()
             if choice == "1":
                 map2.dark_forest()
