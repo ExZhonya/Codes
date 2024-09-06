@@ -140,5 +140,3 @@ armor_v = Armors()
 potion_v = Potions()
 blacksmith_v = Blacksmith()
 ec_msg = random_ecounter()
-
-player.display_stats()
