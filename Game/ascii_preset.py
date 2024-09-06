@@ -1,6 +1,8 @@
+import os
+
 class Shop:
     def shop(self):
-        print("\n" * 40)
+        os.system("cls;clear")
         print("-" * 30)
         print(
             r"""
@@ -19,7 +21,7 @@ class Shop:
 
 class Weapons:
     def weapon(self):
-        print("\n" * 40)
+        os.system("cls;clear")
         print("-" * 30)
         print(
             r"""
@@ -42,7 +44,7 @@ __        __
         
 class Armors:
     def armor(self):
-        print("\n" * 40)
+        os.system("cls;clear")
         print("-" * 30)
         print(
             r"""    _                              
@@ -64,7 +66,7 @@ class Armors:
 
 class Potions:
     def potion(self):
-        print("\n" * 40)
+        os.system("cls;clear")
         print("-" * 30)
         print(
             r"""
@@ -87,7 +89,7 @@ class Potions:
 
 class Blacksmith:
     def blacksmith(self):
-        print("\n" * 40)
+        os.system("cls;clear")
         print("-" * 30)
         print(r"""
  ____  _            _                  _ _   _     

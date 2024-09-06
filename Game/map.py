@@ -3,6 +3,7 @@
 import time
 import os
 import msvcrt
+import sys
 """ OUR FILE IMPORT"""
 import quest_check as quest
 import ascii_preset as ap
@@ -12,13 +13,34 @@ import welcome as w
 w.welc_ascii()
 w.confirm()
 from cutscenes import spawn
-spawn()
+#spawn()
 #========================================
-def getch():
-    return msvcrt.getch().decode('utf-8')
+
+#=====================NO INPUT TECHNIQUE===============================
+if sys.platform == "win32":
+    import msvcrt
+
+    def getch():
+        return msvcrt.getch().decode('utf-8')
+
+else:
+    import tty
+    import termios
+
+    def getch():
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(fd)
+            ch = sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return ch
+#=====================================================================
 
 def start():
     while True:
+        os.system('cls;clear')
         print("=============")
         print("[1]Village")
         print("=============")
@@ -27,10 +49,6 @@ def start():
             map1.village()
 
 
-
-
-class shop:
-	pass
 class preset:
     def area(name, option):
         print("\n" * 40)
@@ -47,7 +65,7 @@ class map1:
                 "You're in the Village",
                 "[0]Elder, [1]Inn, [2]Shop, [3]Blacksmith, [4]Grassland, [5]City",
             )
-            choice = input()
+            choice = getch()
             if choice == "0":
                 map1.vil_quest()
             elif choice == "1":
@@ -71,7 +89,7 @@ class map1:
             )
             print("[1]Quests [2]Go Back")
             print("-" * 30)
-            choice = input("What do you wanna do?\n")
+            choice = getch()
             if choice == "1":
                 os.system("cls")
                 quest.show()
@@ -88,8 +106,9 @@ class map1:
             print("You're in your house")
             print("[1]Rest, [2]Chest, [3]Back")
             print("-" * 30)
-            choice = input()
+            choice = getch()
             if choice == "1":
+                os.system("cls;clear")
                 print("\n"*40*40)
                 print("-"*30)
                 print("Eating... \n")
@@ -97,6 +116,7 @@ class map1:
                 print("Drinking... \n")
                 time.sleep(2)
                 print("Sleeping... \n")
+                print("-"*30)
                 time.sleep(5)
                 continue
             elif choice == "2":
@@ -107,7 +127,7 @@ class map1:
     def vil_shop():
         while True:
             ap.shop_v.shop()
-            choice = input()
+            choice = getch()
             if choice == "1":
                 map1.vil_weap()
             elif choice == "2":
@@ -119,28 +139,26 @@ class map1:
 
     def vil_weap():
         ap.weapon_v.weapon()
-        print("[1]Back")
-        print("-" * 30)
-        choice = input()
+        choice = getch()
         if choice == "1":
             map1.vil_shop()
 
     def vil_arm():
         ap.armor_v.armor()
-        choice = input()
+        choice = getch()
         if choice == "1":
             map1.vil_shop()
 
     def vil_pot():
         ap.potion_v.potion()
-        choice = input()
+        choice = getch()
         if choice == "1":
             map1.vil_shop()
 
     def blacksmith():
         while True:
             ap.blacksmith_v.blacksmith()
-            choice = input()
+            choice = getch()
             if choice == "1":
                 map1.vil_enh()
             elif choice == "2":
@@ -149,29 +167,29 @@ class map1:
                 map1.village()
 
     def vil_enh():
-        print("\n\n\n\n\n")
+        os.system("cls;clear")
         print("-" * 30)
         print("Coming Soon")
         print("[1]Back")
         print("-" * 30)
-        choice = input()
+        choice = getch()
         if choice == "1":
             map1.blacksmith()
 
     def vil_craft():
-        print("\n\n\n\n\n")
+        os.system("cls;clear")
         print("-" * 30)
         print("Coming Soon")
         print("[1]Back")
         print("-" * 30)
-        choice = input()
+        choice = getch()
         if choice == "1":
             map1.blacksmith()
 
     def forest():
         while True:
             preset.area("You're in Forest", "[1]Explore, [2]Grassland, [3]Cave, [4]Deep Forest")
-            choice = input()
+            choice = getch()
             if choice == "1":
                 pass
             elif choice == "2":
@@ -184,7 +202,7 @@ class map1:
     def cave():
         while True:
             preset.area("You're in Cave", "[1]Explore, [2]Deep Cave, [3]Forest")
-            choice = input()
+            choice = getch()
             if choice == "1":
                 pass
             elif choice == "2":
@@ -195,7 +213,7 @@ class map1:
     def deep_cave():
         while True:
             preset.area("You're in Deep Cave", "[1]Explore, [2]Go Deeper, [3]Go Back")
-            choice = input()
+            choice = getch()
             if choice == "1":
                 pass
             elif choice == "2":
@@ -206,7 +224,7 @@ class map1:
     def deep_forest():
         while True:
             preset.area("You're in Deep Forest", "[1]Explore, [2]Go Back")
-            choice = input()
+            choice = getch()
             if choice == "1":
                 pass
             elif choice == "2":
@@ -215,7 +233,7 @@ class map1:
     def grassland():
         while True:
             preset.area("You're in Grassland", "[1]Village [2]Forest,")
-            choice = input()
+            choice = getch()
             if choice == "1":
                 map1.village()
             elif choice == "2":
@@ -231,7 +249,7 @@ class map2:
                 "You're in City",
                 "[0]Guild, [1]Village, [2]Shop, [3]Blacksmith [4]City Sewers, [5]Dark Forest",
             )
-            choice = input()
+            choice = getch()
             if choice == "0":
                 pass  # will make guild def later
             elif choice == "1":
@@ -253,7 +271,7 @@ class map2:
                 "You're in the Guild",
                 "[1]Exit, [2]Receptionist, [3]Quest Board",
             )
-            choice = input()
+            choice = getch()
             if choice == "1":
                 map2.city()
             elif choice == "2":
@@ -264,7 +282,7 @@ class map2:
     def city_shop():
         while True:
             ap.shop_v.shop()
-            choice = input()
+            choice = getch()
             if choice == "1":
                 map2.city_weap()
             elif choice == "2":
@@ -276,26 +294,26 @@ class map2:
 
     def city_weap():
         ap.weapon_v.weapon()
-        choice = input()
+        choice = getch()
         if choice == "1":
             map2.city_shop()
 
     def city_arm():
         ap.armor_v.armor()
-        choice = input()
+        choice = getch()
         if choice == "1":
             map2.city_shop()
 
     def city_pot():
         ap.potion_v.potion()
-        choice = input()
+        choice = getch()
         if choice == "1":
             map2.city_shop()
 
     def dark_forest():
         while True:
             preset.area("You're in Dark Forest", "[1]City, [2]Deep Dark Forest")
-            choice = input()
+            choice = getch()
             if choice == "1":
                 map2.city()
             elif choice == "2":
@@ -304,7 +322,7 @@ class map2:
     def deep_dark_forest():
         while True:
             preset.area("You're in Deep Dark Forest", "[1]City, [2]Go Back")
-            choice = input()
+            choice = getch()
             if choice == "1":
                 map2.dark_forest()
             elif choice == "2":
@@ -318,7 +336,7 @@ class map3:
                 "You're in Castle",
                 "[0]Guild, [1]City, [2]Shop, [3]Blacksmith [4]Sewers",
             )
-            choice = input()
+            choice = getch()
             if choice == "0":
                 pass  # city guild
             elif choice == "1":
@@ -329,7 +347,7 @@ class map3:
     def sewer():
         while True:
             preset.area("You're in Sewer", "[1]Go Back, [2]Go Deeper")
-            choice = input()
+            choice = getch()
             if choice == "1":
                 map3.castle()
             elif choice == "2":
