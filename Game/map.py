@@ -48,6 +48,12 @@ def start():
         if a == '1':
             map1.village()
 
+def slow_print(text, delay=0.08):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
 
 class preset:
     def area(name, option):
@@ -63,21 +69,28 @@ class map1:
         while True:
             preset.area(
                 "You're in the Village",
-                "[0]Elder, [1]Inn, [2]Shop, [3]Blacksmith, [4]Grassland, [5]City",
+                "[1]Explore, [2]Elder, [3]Inn, [4]Shop, [5]Blacksmith, [6]City",
             )
             choice = getch()
-            if choice == "0":
-                map1.vil_quest()
-            elif choice == "1":
-                map1.vil_inn()
-            elif choice == "2":
-                map1.vil_shop()
-            elif choice == "3":
-                map1.blacksmith()
-            elif choice == "4":
+            if choice == "1":
+                os.system("cls;clear")
+                import loading as l
+                l.main()
                 map1.grassland()
+                map1.grassland()
+            elif choice == "2":
+                map1.vil_quest()
+            elif choice == "3":
+                map1.vil_inn()
+            elif choice == "4":
+                map1.vil_shop()
             elif choice == "5":
-                map2.city()
+                map1.blacksmith()
+            elif choice == "6":
+                os.system("cls;clear")
+                import loading as l
+                l.main()
+
 
     def vil_quest():
         while True:

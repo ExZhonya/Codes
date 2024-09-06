@@ -1,7 +1,7 @@
 import sys
 import time
 
-def print_progress_bar(length, current, bar_length=50):
+def print_progress_bar(length, current, bar_length=20):
     """Prints a progress bar to the terminal.
     
     Args:
@@ -23,7 +23,7 @@ def main():
     total_length = 100  # Total length of the task (e.g., 100%)
     for i in range(total_length + 1):
         print_progress_bar(total_length, i)
-        time.sleep(0.1)  # Simulate work by sleeping for 0.1 seconds
+        time.sleep(0.04)  # Simulate work by sleeping for 0.1 seconds
 
 if __name__ == "__main__":
     main()
