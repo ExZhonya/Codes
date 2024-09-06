@@ -120,7 +120,7 @@ class map1:
                 pass
             elif choice == "3":
                 map1.village()
-            elif choice == "0":
+            elif choice == ".":
                 ap.secret.secret()
 
     def vil_shop():
