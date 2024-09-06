@@ -91,7 +91,7 @@ class map1:
             choice = getch()
             if choice == "1":
                 os.system("cls")
-                quest.show()
+                quest.show_quests()
                 quest_choice = int(input("Which quest will you do?\n"))
                 quest.update(quest_choice)
                 continue
