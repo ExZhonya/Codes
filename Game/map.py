@@ -251,7 +251,7 @@ class map2:
             )
             choice = getch()
             if choice == "0":
-                pass  # will make guild def later
+                guild()
             elif choice == "1":
                 map1.village()
             elif choice == "2":
