@@ -1,15 +1,12 @@
 import sys
 import time
 
-def print_progress_bar(length, current, bar_length=20):
+def print_progress_bar(length, current, bar_length=20): #bar length is the bar length, unlike total length
     """Prints a progress bar to the terminal.
-    
-    Args:
         length (int): The total length of the task or progress (e.g., 100%).
         current (int): The current progress value.
         bar_length (int): The length of the progress bar in characters.
     """
-    # Calculate the percentage completion
     percent = (current / length)
     # Calculate the number of filled blocks
     filled_length = int(bar_length * percent)
@@ -20,10 +17,10 @@ def print_progress_bar(length, current, bar_length=20):
     sys.stdout.flush()
 
 def main():
-    total_length = 100  # Total length of the task (e.g., 100%)
+    total_length = 100  #just the bar number
     for i in range(total_length + 1):
         print_progress_bar(total_length, i)
-        time.sleep(0.04)  # Simulate work by sleeping for 0.1 seconds
+        time.sleep(0.04)  # print speed
 
 if __name__ == "__main__":
     main()
