@@ -8,7 +8,6 @@ def print_progress_bar(length, current, bar_length=20): #bar length is the bar l
         bar_length (int): The length of the progress bar in characters.
     """
     percent = (current / length)
-    # Calculate the number of filled blocks
     filled_length = int(bar_length * percent)
     # Create the progress bar string
     bar = '█' * filled_length + '-' * (bar_length - filled_length)
