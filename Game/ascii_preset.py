@@ -1,4 +1,6 @@
 import os
+import time
+
 
 class Shop:
     def shop(self):
@@ -107,6 +109,16 @@ class random_ecounter:
         ecounter = ["You see people walking....", "You see children playing around..."]
         print(random.choice(ecounter))
 
+class secret:
+    def secret():
+        while True:
+            choice = input()
+            if choice == "exzhonya and pilgrimir has made this game":
+                print("wow! you have found our secret code. contact us in discord to claim reward")
+                time.sleep(3)
+                break
+            else:
+                break
 
 class Player:
     def __init__(self, name, hp, mp, strength, defense, level):
@@ -153,15 +165,12 @@ class mob_table():
                 ==============================
                 """)
 
-
-
 shop_v = Shop()
 weapon_v = Weapons()
 armor_v = Armors()
 potion_v = Potions()
 blacksmith_v = Blacksmith()
 ec_msg = random_ecounter()
-
 
 
 

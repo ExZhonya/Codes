@@ -28,6 +28,8 @@ def check(scene_number):  # given scene no.
 
 def update(scene_number):
     cutscenes_state[scene_number] = 'Completed' # just updates the dictionary to complete once the dialogue has completely finished.
+    # New code*****
+    print(f"{scene_number}: {cutscenes_state[scene_number]}!")
 
 
 # Text based functions-------------------------
@@ -92,19 +94,19 @@ def spawn():
     time.sleep(1)
     os.system("cls;clear")
     slow_print("You start walking and soon you see a small village in the distance.\n")
-    time.sleep(1)
+    time.sleep(.5)
     os.system("cls;clear")
     preset_village()
     slow_print("You goes to the village and hears a villager screaming\n")
-    time.sleep(1)
+    time.sleep(0.5)
     os.system("cls;clear")
     preset_village()
     slow_print("You walk up to them and sees a villager hysterically \n")
-    time.sleep(1)
+    time.sleep(0.5)
     os.system("cls;clear")
     preset_village()
     slow_print("'AHHHHH!!! SOMEONE PLEASE HELP US. PLEASE SAVE MY CHILD IN THE FOREST!!'\n")
-    time.sleep(1)
+    time.sleep(0.5)
     os.system("cls;clear")
     preset_village()
     slow_print("You agree to help and start your journey to defeat the monster.(obviously)\n")
@@ -168,4 +170,4 @@ def city_first():
 
 if __name__ == "__main__":
     spawn()
-    city_first()
+    city()

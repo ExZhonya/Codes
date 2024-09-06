@@ -10,10 +10,10 @@ import ascii_preset as ap
 import welcome as w
 
 #========PLAYER ENTER GAME SCREEN========
-w.welc_ascii()
-w.confirm()
+#w.welc_ascii()
+#w.confirm()
 from cutscenes import spawn
-spawn()
+#spawn()
 #========================================
 
 #=====================NO INPUT TECHNIQUE===============================
@@ -91,7 +91,7 @@ class map1:
             choice = getch()
             if choice == "1":
                 os.system("cls")
-                quest.show()
+                quest.show_quests()
                 quest_choice = int(input("Which quest will you do?\n"))
                 quest.update(quest_choice)
                 continue
@@ -120,6 +120,8 @@ class map1:
                 pass
             elif choice == "3":
                 map1.village()
+            elif choice == "0":
+                ap.secret.secret()
 
     def vil_shop():
         while True:
