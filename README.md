@@ -6,7 +6,7 @@ Contributors: @Pilgrimir @ExZhonya
 
 
 if you want to play my Text-Based-RPG game, go to the Games folder and download
-- map.py
+- map.py  (Run the code here)
 - cutscenes.py
 - ascii_preset.py
 - welcome.py
