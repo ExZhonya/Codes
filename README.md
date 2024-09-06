@@ -10,5 +10,6 @@ if you want to play my Text-Based-RPG game, go to the Games folder and download
 - cutscenes.py
 - ascii_preset.py
 - welcome.py
+- loading.py
 
 contact me in discord @exzhonya if you found any bugs!
