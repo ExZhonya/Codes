@@ -7,12 +7,12 @@ import msvcrt
 import quest_check as quest
 import ascii_preset as ap
 import welcome as w
-import cutscenes as c
 
 #========PLAYER ENTER GAME SCREEN========
 w.welc_ascii()
 w.confirm()
-c.spawn()
+from cutscenes import spawn
+spawn()
 #========================================
 def getch():
     return msvcrt.getch().decode('utf-8')
@@ -224,7 +224,8 @@ class map1:
 
 class map2:
     def city():
-        c.city_first()
+        from cutscenes import city_first
+        city_first()
         while True:
             preset.area(
                 "You're in City",
@@ -245,6 +246,20 @@ class map2:
                 map2.dark_forest()
             elif choice == "6":
                 map3.castle()
+
+    def guild():
+        while True:
+            preset.area(
+                "You're in the Guild",
+                "[1]Exit, [2]Receptionist, [3]Quest Board",
+            )
+            choice = input()
+            if choice == "1":
+                map2.city()
+            elif choice == "2":
+                pass
+            elif choice == "3":
+                pass
 
     def city_shop():
         while True:

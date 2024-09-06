@@ -2,8 +2,6 @@ import sys
 import time
 import os
 
-
-
 # Cutscene based functions-----------------------
 cutscenes_state = {
     1: 'Incomplete',
@@ -14,42 +12,25 @@ display_scene = {
     2: 'City'
 }
 
-def display_hub(): 
-    for key, value in display_scene.items(): # checks the current key and values of the display_scene dictionary
-        if cutscenes_state[key] == 'Completed': # checks a different dictionary named cutscenes_state if the current key is 'Completed'
-            print(f"[{key}] {value} (Completed)") # if it is, it runs this print
-        else:
-            print(f"[{key}] {value}") # this is the default print
-    run = int(input("Enter the number of the scene you want to continue."))
-    run_cutscene(run)
 
-
-def check(scene_number): # given scene no.
-    if scene_number in cutscenes_state: # checks if the given scene no. is in the cutscenes_state dictionary 
-        if cutscenes_state[scene_number] == 'Incomplete': # if so, it checks if it's incomplete
-            pass # if it is, then it'll continue to the rest of the dialogue
+def check(scene_number):  # given scene no.
+    if scene_number in cutscenes_state:  # checks if the given scene no. is in the cutscenes_state dictionary 
+        if cutscenes_state[scene_number] == 'Incomplete':  # if it's incomplete, continue the scene
+            pass
         else:
-            next_(scene_number) # if not, it'll skip to the next dialogue.
+            return False  # Scene is already completed, return False to stop the cutscene
     else:
-        print("Scene does not exist.") # if a next dialogue doesn't exit, this will run. 
+        print("Scene does not exist.")  # if the scene doesn't exist, print a message
+        return False  # Return False to avoid running a non-existent scene
+
+    return True  # Return True to continue the cutscene
+
 
 def update(scene_number):
     cutscenes_state[scene_number] = 'Completed' # just updates the dictionary to complete once the dialogue has completely finished.
+    # New code*****
+    print(f"{scene_number}: {cutscenes_state[scene_number]}!")
 
-def next_(scene_number):
-    if scene_number in cutscenes_state: # checks if the given no. is in the dictionary
-        run_cutscene(scene_number + 1) # if it is, then it runs the consecutive/the next scene
-    else:
-        print("Scene does not exist.") # if the given no. doesn't exist, this shows up
-
-def run_cutscene(next_number):
-    match next_number: # this is the backbone of the whole thing, the rest are only checking, and this thing runs and gives meaning to the checking above.
-        case 1:
-            spawn()
-        case 2:
-            city_first()
-        case _: # this is a default value for match functions.
-            unknown_scene() # redirects to a function i made.
 
 # Text based functions-------------------------
 def slow_print(text, delay=0.03):
@@ -73,6 +54,22 @@ def preset_city():
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ===============================================
 """)
+    
+def preset_village():
+    print(r"""
+          ~         ~~          __
+       _T      .,,.    ~--~ ^^
+ ^^   // \                    ~
+      ][O]    ^^      ,-~ ~
+   /''-I_I         _II____
+__/_  /   \ ______/ ''   /'\_,__
+  | II--'''' \,--:--..,_/,.-{ },
+; '/__\,.--';|   |[] .-.| O{ _ }
+:' |  | []  -|   ''--:.;[,.'\,/
+'  |[]|,.--'' '',   ''-,.    |
+  ..    ..-''    ;       ''. '
+================================
+          """)
 
 
 # Actual Cutscenes-------------------------------
@@ -87,27 +84,39 @@ def spawn():
     id_ = 1
     check(id_)
     os.system("cls;clear")
-    slow_print("You wake up in a dark room. You can't remember how you got here, but you know you need to find a way out.\n")
-    time.sleep(0.5)
-    slow_print("You look around and see a door in front of you. You open it and step outside.\n")
-    time.sleep(0.5)
+    slow_print("You woke up in a strange cave...\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    slow_print("You looked around, and sees a light..\n")
+    time.sleep(1)
+    os.system("cls;clear")
     slow_print("You are in a forest. You can see trees all around you and the sun is shining.\n")
-    time.sleep(0.5)
+    time.sleep(1)
+    os.system("cls;clear")
     slow_print("You start walking and soon you see a small village in the distance.\n")
-    time.sleep(0.5)
-    slow_print("You approach the village and see a group of people gathered around a building.\n")
-    time.sleep(0.5)
-    slow_print("You walk up to them and they turn to you.\n")
-    time.sleep(0.5)
-    slow_print("One of them says, 'Hello there! Welcome to our village. We need your help. There is a monster in the forest that is terrorizing the villagers. Can you help us defeat it?'\n")
-    time.sleep(0.5)
-    slow_print("You agree to help and start your journey to defeat the monster.\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    preset_village()
+    slow_print("You goes to the village and hears a villager screaming\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    preset_village()
+    slow_print("You walk up to them and sees a villager hysterically \n")
+    time.sleep(1)
+    os.system("cls;clear")
+    preset_village()
+    slow_print("'AHHHHH!!! SOMEONE PLEASE HELP US. PLEASE SAVE MY CHILD IN THE FOREST!!'\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    preset_village()
+    slow_print("You agree to help and start your journey to defeat the monster.(obviously)\n")
+    time.sleep(1)
     update(id_)
-    next_(id_)
 
 def city_first():
     id_ = 2
-    check(id_)
+    if not check(id_):  # If check() returns False, stop the cutscene
+        return
     os.system("cls;clear")
     preset_city()
     slow_print("\x1b[3mYou are in the city of Luterra. You can see the bustling streets and the tall buildings around you.\x1b[23m\n")
@@ -134,8 +143,8 @@ def city_first():
     time.sleep(0.5)
     os.system("cls;clear")
     preset_city()
-    slow_print("\x1b[3m<You sign in your information>\x1b[23m\n")
-    time.sleep(0.5)
+    slow_print("\x1b[3mYou sign in your information...\x1b[23m\n")
+    time.sleep(1)
     os.system("cls;clear")
     preset_city()
     slow_print(f"\033[1mRin: Congratulations ! you have become an adventurer. you will need to do guild quest to become full fledged adventurer!\033[0m\n")
@@ -151,10 +160,14 @@ def city_first():
     os.system("cls;clear")
     preset_city()
     slow_print("\033[1mYou: Thank you!\033[0m\n")
+    time.sleep(0.5)
+    os.system("cls;clear")
+    slow_print("\x1b[3mYou walked back to the city...\x1b[23m\n")
+    time.sleep(1)
     update(id_)
-    next_(id_)
 
 
 
 if __name__ == "__main__":
-    display_hub() # could be started from the spawn(), no need to use this in the future codes.
+    spawn()
+    city_first()
