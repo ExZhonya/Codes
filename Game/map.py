@@ -235,12 +235,22 @@ class map1:
 
     def deep_forest():
         while True:
-            preset.area("You're in Deep Forest", "[1]Explore, [2]Go Back")
+            preset.area("You're in Deep Forest", "[1]Explore, [2]Heart Forest [3]Go Back")
             choice = getch()
             if choice == "1":
                 pass
             elif choice == "2":
+                map1.forest_heart()
+            elif choice == "3":
                 map1.forest()
+
+    def forest_heart():
+        preset.area("You're in the Heart Forest.", "[1]Explore, [2]Go Back")
+        choice = getch()
+        if choice == "1":
+            pass
+        elif choice == "2":
+            map1.forest()
 
     def grassland():
         while True:

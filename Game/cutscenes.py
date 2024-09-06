@@ -5,11 +5,15 @@ import os
 # Cutscene based functions-----------------------
 cutscenes_state = {
     1: 'Incomplete',
-    2: 'Incomplete'
+    2: 'Incomplete',
+    3: 'Incomplete',
+    4: 'Incomplete',
 }
 display_scene = {
     1: 'Spawn',
-    2: 'City'
+    2: 'City',
+    3: 'Forest',
+    4: 'Cave',
 }
 
 
@@ -165,6 +169,43 @@ def city_first():
     slow_print("\x1b[3mYou walked back to the city...\x1b[23m\n")
     time.sleep(1)
     update(id_)
+
+
+def forest():
+    id_ = 3
+    if not check(id_):  # If check() returns False, stop the cutscene
+        return
+    os.system("cls;clear")
+    slow_print("\x1b[3mYou are in Heart Forest... It's so dark you can barely see at all.\x1b[23m\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    slow_print("\x1b[3mYou wander around trying to find monsters...\x1b[23m\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    slow_print("\x1b[3mYou heard a big stomp.. and a munching sound..\x1b[23m\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    slow_print("\x1b[3mYou slowly goes to that sound...\x1b[23m\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    slow_print("\x1b[3m...You are terrified, a huge monster is munching down Red Wraith so easily..\x1b[23m\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    slow_print("\x1b[3mThey are so hopeless, they are eaten alive.\x1b[23m\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    slow_print("\x1b[3mAfter the huge monster done eating, it goes away..\x1b[23m\n")
+    time.sleep(1)
+    os.system("cls;clear")
+    slow_print("\x1b[3mYou are safe for now.\x1b[23m\n")
+    time.sleep(1)
+    update(id_)
+
+def cave():
+    id_ = 4
+    if not check(id_):  # If check() returns False, stop the cutscene
+        return
+    os.system("cls;clear")
 
 
 
