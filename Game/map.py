@@ -10,10 +10,10 @@ import ascii_preset as ap
 import welcome as w
 
 #========PLAYER ENTER GAME SCREEN========
-#w.welc_ascii()
-#w.confirm()
+w.welc_ascii()
+w.confirm()
 from cutscenes import spawn
-#spawn()
+spawn()
 #========================================
 
 #=====================NO INPUT TECHNIQUE===============================
@@ -291,23 +291,21 @@ class map2:
         while True:
             preset.area(
                 "You're in City",
-                "[0]Guild, [1]Village, [2]Shop, [3]Blacksmith [4]City Sewers, [5]Dark Forest",
+                "[1]Guild, [2]Village, [3]Shop, [4]Blacksmith, [5]Explore",  # Updated to 1-based options
             )
             choice = getch()
-            if choice == "0":
-                guild()
-            elif choice == "1":
-                map1.village()
+            if choice == "1":
+                map2.guild()
             elif choice == "2":
-                map2.city_shop()
+                map1.village()
             elif choice == "3":
-                pass
+                map2.city_shop()
             elif choice == "4":
-                pass
+                map2.blacksmith()
             elif choice == "5":
-                map2.dark_forest()
-            elif choice == "6":
-                map3.castle()
+                map2.explore()
+
+
 
     def guild():
         while True:
@@ -353,6 +351,60 @@ class map2:
         choice = getch()
         if choice == "1":
             map2.city_shop()
+
+    def blacksmith():
+        while True:
+            ap.blacksmith_v.blacksmith()
+            choice = getch()
+            if choice == "1":
+                map2.city_enh()
+            elif choice == "2":
+                map2.city_craft()
+            elif choice == "3":
+                map2.city()
+
+    def city_enh():
+        os.system("cls;clear")
+        preset.area(
+            "Coming Soon",
+            "[1]Back"
+        )
+        choice = getch()
+        if choice == "1":
+            map2.blacksmith()
+
+    def city_craft():
+        os.system("cls;clear")
+        preset.area(
+            "Coming Soon",
+            "[1]Back"
+        )
+        choice = getch()
+        if choice == "1":
+            map2.blacksmith()
+
+    def explore():
+        preset.area(
+            "Where do you want to go?",
+            "[1]City Sewers, [2]Dark Forest"
+        )
+        choice = getch()
+        if choice == "1":
+            map2.sewer()
+        elif choice == "2":
+            map2.dark_forest()
+
+    def sewer():
+        while True:
+            preset.area("You're in Sewer", "[1]Explore, [2]Go Deeper [3]Go Back")
+            choice = getch()
+            if choice == "1":
+                import loading as l
+                l.main_explore()
+            elif choice == "2":
+                pass
+            elif choice == "3":
+                map2.city()
 
     def dark_forest():
         while True:
