@@ -2,7 +2,6 @@
 # Co-Creator: @Pilgrimir
 import time
 import os
-import msvcrt
 import sys
 """ OUR FILE IMPORT"""
 import quest_check as quest
