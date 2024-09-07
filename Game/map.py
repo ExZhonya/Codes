@@ -75,7 +75,7 @@ class map1:
             if choice == "1":
                 os.system("cls;clear")
                 import loading as l
-                l.main()
+                l.main_explore()
                 map1.grassland()
                 map1.grassland()
             elif choice == "2":
@@ -90,6 +90,7 @@ class map1:
                 os.system("cls;clear")
                 import loading as l
                 l.main()
+                map2.city()
 
 
     def vil_quest():
