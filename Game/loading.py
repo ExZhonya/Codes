@@ -1,6 +1,14 @@
 import sys
 import time
 import os
+import sys
+
+if sys.platform == 'win32':
+    def clear():
+        os.system("cls")
+else:
+    def clear():
+        os.system("clear")
 
 def print_progress_bar(length, current, bar_length=20): #bar length is the bar length, unlike total length
     """Prints a progress bar to the terminal.
@@ -28,7 +36,7 @@ def main_explore():
 def main():
     total_length = 100  #just the bar number
     for i in range(total_length + 1):
-        os.system("cls;clear")
+        clear()
         print_progress_bar(total_length, i)
         print("\nAdventuring...")
         

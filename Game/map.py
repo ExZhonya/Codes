@@ -237,15 +237,16 @@ class map1:
                 map1.forest()
 
     def forest_heart():
-        preset.area("You're in the Heart Forest.", "[1]Explore, [2]Cave [3]Go Back")
-        choice = getch()
-        if choice == "1":
-                import loading as l
-                l.main_explore()
-        elif choice == "2":
-            map1.cave()
-        elif choice == "3":
-            map1.deep_forest()
+        while True:
+            preset.area("You're in the Heart Forest.", "[1]Explore, [2]Cave [3]Go Back")
+            choice = getch()
+            if choice == "1":
+                    import loading as l
+                    l.main_explore()
+            elif choice == "2":
+                map1.cave()
+            elif choice == "3":
+                map1.deep_forest()
 
     def cave():
         while True:
@@ -272,15 +273,16 @@ class map1:
                 map1.cave()
 
     def dungeon_den():
-        preset.area(
-            "You are in the Dungeon Den",
-            "[1]Explore, [2]Go Back",
-        )
-        choice = getch()
-        if choice == "1":
-            pass
-        elif choice == "2":
-            map1.deep_cave()
+        while True:
+            preset.area(
+                "You are in the Dungeon Den",
+                "[1]Explore, [2]Go Back",
+            )
+            choice = getch()
+            if choice == "1":
+                pass
+            elif choice == "2":
+                map1.deep_cave()
 
 
 class map2:
