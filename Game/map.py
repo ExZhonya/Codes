@@ -69,17 +69,16 @@ class map1:
         while True:
             preset.area(
                 "You're in the Village",
-                "[1]Explore, [2]Elder, [3]Inn, [4]Shop, [5]Blacksmith, [6]City",
+                "[1]Adventure, [2]Elder, [3]Inn, [4]Shop, [5]Blacksmith, [6]City",
             )
             choice = getch()
             if choice == "1":
                 os.system("cls;clear")
                 import loading as l
-                l.main_explore()
-                map1.grassland()
-                map1.grassland()
+                l.main() #loading animation
+                map1.grassland() #teleports
             elif choice == "2":
-                map1.vil_quest()
+                pass #map1.vil_quest()
             elif choice == "3":
                 map1.vil_inn()
             elif choice == "4":
@@ -89,11 +88,11 @@ class map1:
             elif choice == "6":
                 os.system("cls;clear")
                 import loading as l
-                l.main()
-                map2.city()
+                l.main() #loading animation
+                map2.city() #teleports
 
 
-    def vil_quest():
+    #def vil_quest(): #temporarily disabled due to errors
         while True:
             os.system("cls")
             print("-" * 30)
@@ -112,6 +111,7 @@ class map1:
             elif choice == "2":
                 map1.village()
 
+#========village neccesity=======
     def vil_inn():
         while True:
             preset.area(
@@ -198,69 +198,90 @@ class map1:
         choice = getch()
         if choice == "1":
             map1.blacksmith()
+#================================
 
-    def forest():
+#=========village maps===========
+    def grassland():
         while True:
-            preset.area("You're in Forest", "[1]Explore, [2]Grassland, [3]Cave, [4]Deep Forest")
+            preset.area("You're in Grassland", "[1]Explore, [2]Village [3]Forest,")
             choice = getch()
             if choice == "1":
-                pass
+                import loading as l
+                l.main_explore()
             elif choice == "2":
-                map1.grassland()
-            elif choice == "3":
-                map1.cave()
-            elif choice == "4":
-                map1.deep_forest()
-
-    def cave():
-        while True:
-            preset.area("You're in Cave", "[1]Explore, [2]Deep Cave, [3]Forest")
-            choice = getch()
-            if choice == "1":
-                pass
-            elif choice == "2":
-                map1.deep_cave()
+                map1.village()
             elif choice == "3":
                 map1.forest()
 
-    def deep_cave():
+    def forest():
         while True:
-            preset.area("You're in Deep Cave", "[1]Explore, [2]Go Deeper, [3]Go Back")
+            preset.area("You're in Forest", "[1]Explore, [2]Grassland, [3]Deep Forest")
             choice = getch()
             if choice == "1":
-                pass
+                import loading as l
+                l.main_explore()
             elif choice == "2":
-                pass
+                map1.grassland()
             elif choice == "3":
-                map1.cave()
+                map1.deep_forest()
 
     def deep_forest():
         while True:
             preset.area("You're in Deep Forest", "[1]Explore, [2]Heart Forest [3]Go Back")
             choice = getch()
             if choice == "1":
-                pass
+                import loading as l
+                l.main_explore()
             elif choice == "2":
                 map1.forest_heart()
             elif choice == "3":
                 map1.forest()
 
     def forest_heart():
-        preset.area("You're in the Heart Forest.", "[1]Explore, [2]Go Back")
+        preset.area("You're in the Heart Forest.", "[1]Explore, [2]Cave [3]Go Back")
+        choice = getch()
+        if choice == "1":
+                import loading as l
+                l.main_explore()
+        elif choice == "2":
+            map1.cave()
+        elif choice == "3":
+            map1.deep_forest()
+
+    def cave():
+        while True:
+            preset.area("You're in Cave", "[1]Explore, [2]Deep Cave, [3]Heart Forest")
+            choice = getch()
+            if choice == "1":
+                import loading as l
+                l.main_explore()
+            elif choice == "2":
+                map1.deep_cave()
+            elif choice == "3":
+                map1.forest_heart()
+
+    def deep_cave():
+        while True:
+            preset.area("You're in Deep Cave", "[1]Explore, [2]Go Deeper, [3]Go Back")
+            choice = getch()
+            if choice == "1":
+                import loading as l
+                l.main_explore()
+            elif choice == "2":
+                map1.dungeon_den()
+            elif choice == "3":
+                map1.cave()
+
+    def dungeon_den():
+        preset.area(
+            "You are in the Dungeon Den",
+            "[1]Explore, [2]Go Back",
+        )
         choice = getch()
         if choice == "1":
             pass
         elif choice == "2":
-            map1.forest()
-
-    def grassland():
-        while True:
-            preset.area("You're in Grassland", "[1]Village [2]Forest,")
-            choice = getch()
-            if choice == "1":
-                map1.village()
-            elif choice == "2":
-                map1.forest()
+            map1.deep_cave()
 
 
 class map2:
