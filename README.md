@@ -5,7 +5,7 @@ Hello! I'm a student, i am studying, and messing with codes i found and post it 
 Contributors: @Pilgrimir @ExZhonya
 
 
-if you want to play my Text-Based-RPG game, go to the Games folder and download
+if you want to play my Text-Based-RPG game, go to the [Games](https://github.com/ExZhonya/Codes/tree/main/Game) folder and download
 - map.py  (Run the code here)
 - cutscenes.py
 - ascii_preset.py
