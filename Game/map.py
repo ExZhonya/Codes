@@ -4,7 +4,7 @@ import time
 import os
 import sys
 """ OUR FILE IMPORT"""
-import quest_check as quest
+#import quest_check as quest
 import ascii_preset as ap
 import welcome as w
 
