@@ -54,10 +54,15 @@ def slow_print(text, delay=0.08):
         time.sleep(delay)
     print()
 
+def clear(): #cls for win and clear for linux, apparently it'll show error code if i kept use "cls;clear"
+    if sys.platform == "win32":
+        os.system("cls")
+    else:
+        os.system("clear")
+
 class preset:
     def area(name, option):
-        print("\n" * 40)
-        os.system("cls;clear")
+        clear()
         print("-" * 30)
         print(name)
         print(option)
