@@ -27,7 +27,7 @@ def print_progress_bar(length, current, bar_length=20): #bar length is the bar l
 def main_explore():
     total_length = 100  #just the bar number
     for i in range(total_length + 1):
-        os.system("cls;clear")
+        clear()
         print_progress_bar(total_length, i)
         print("\nExploring...")
         
