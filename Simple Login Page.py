@@ -1,6 +1,9 @@
 #V3(Advanced Version)
+import os
+
 def login():
     while True:
+        os.system("cls")
         name = input("Please Input Your Name: ")
         
         if name == "lua":

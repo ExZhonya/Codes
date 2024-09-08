@@ -3,6 +3,7 @@
 import time
 import os
 import sys
+#######################
 """ OUR FILE IMPORT"""
 #import quest_check as quest
 import ascii_preset as ap
@@ -12,7 +13,7 @@ import welcome as w
 w.welc_ascii()
 w.confirm()
 from cutscenes import spawn
-spawn()
+#spawn()
 #========================================
 
 #=====================NO INPUT TECHNIQUE===============================
@@ -46,13 +47,6 @@ def start():
         a = getch()
         if a == '1':
             map1.village()
-
-def slow_print(text, delay=0.08):
-    for char in text:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(delay)
-    print()
 
 def clear(): #cls for win and clear for linux, apparently it'll show error code if i kept use "cls;clear"
     if sys.platform == "win32":
@@ -242,6 +236,8 @@ class map1:
                 map1.forest()
 
     def forest_heart():
+        from cutscenes import forest
+        forest()
         while True:
             preset.area("You're in the Heart Forest.", "[1]Explore, [2]Cave [3]Go Back")
             choice = getch()

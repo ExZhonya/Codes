@@ -29,9 +29,9 @@ class Monster:
 		hp_bar = "[{}{}]".format('▆' * filled_bars, ' ' * (max_hp_bar_length - filled_bars))
 
 		print(f"==============================")
-		print(f"|{self.name}| Lv.{self.level}|")
+		print(f"|{self.name}| Lv.{self.level}         |")
 		print(f"==============================")
-		print(f"| HP:{self.hp} {hp_bar}|""")
+		print(f"| HP:{self.hp} {hp_bar}        |""")
 		print(f"==============================")
 		print(f"|[1]Attack, [2]Defend, [3]Run|")
 		print(f"==============================")
@@ -83,7 +83,7 @@ Caves : Spiders(few amounts)
 Deep Caves : Spiders(severals), Poisonous Spider(few amounts)
 Heart Caves : Spider Queen"""
 
-rabbit = Monster("Rabbit", 1, 20, 0.40)
+rabbit = Monster("Rabbit", 1, 20, 0.40) #1. level, 2. HP, 3.Evasion
 deer = Monster("Deer", 5, 40, 0.35)
 wolf = Monster("Wolf", 10, 60, 0.30)
 fox = Monster("Fox", 15, 80, 0.45)

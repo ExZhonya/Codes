@@ -4,6 +4,15 @@
 #Editor/Co-creator: Lua
 import random
 import time
+import sys
+
+if sys.platform == 'win32':
+    def clear():
+        os.system("cls")
+else:
+    def clear():
+        os.system("clear")
+
 
 enemy= "Spider" #replaceabe
 battlefield= "Suspicious Cave" #replaceable
@@ -62,5 +71,5 @@ while True: #clock, and text visuals
     enemy_input(2) #generates a random value for their attack, it's set to 2 for now 
     print(f"{enemy} {enemy_display}") #prints the enemy actions
     time.sleep(1) #waits for a second 
-    print("\n" * 10) #clears the screen
+    #clears the screen
     continue   #repeats
