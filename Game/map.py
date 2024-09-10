@@ -206,13 +206,9 @@ class map1:
 			if choice == "1":
 				import loading as l
 				l.main_explore()
-				import monster_pick as m
-				monster = m.randomize(m.grassland)
-				print(f"Found a {monster}!")
-				time.sleep(1)
-				monster.spawn()
-				import fight_handler as f
-				f.start(monster)
+				import explore_handler as explore
+				import monster_pick as monster
+				explore.handle(monster.grassland)
 			elif choice == "2":
 				map1.village()
 			elif choice == "3":
@@ -225,13 +221,9 @@ class map1:
 			if choice == "1":
 				import loading as l
 				l.main_explore()
-				import monster_pick as m
-				monster = m.randomize(m.forest)
-				print(f"Found a {monster}!")
-				time.sleep(1)
-				monster.spawn()
-				import fight_handler as f
-				f.start(monster)
+				import explore_handler as explore
+				import monster_pick as monster
+				explore.handle(monster.forest)
 			elif choice == "2":
 				map1.grassland()
 			elif choice == "3":
@@ -244,13 +236,9 @@ class map1:
 			if choice == "1":
 				import loading as l
 				l.main_explore()
-				import monster_pick as m
-				monster = m.randomize(m.deep_forest)
-				print(f"Found a {monster}!")
-				time.sleep(1)
-				monster.spawn()
-				import fight_handler as f
-				f.start(monster)
+				import explore_handler as explore
+				import monster_pick as monster
+				explore.handle(monster.deep_forest)
 			elif choice == "2":
 				map1.forest_heart()
 			elif choice == "3":
@@ -265,13 +253,9 @@ class map1:
 			if choice == "1":
 				import loading as l
 				l.main_explore()
-				import monster_pick as m
-				monster = m.randomize(m.forest_heart)
-				print(f"Found a {monster}!")
-				time.sleep(1)
-				monster.spawn()
-				import fight_handler as f
-				f.start(monster)
+				import explore_handler as explore
+				import monster_pick as monster
+				explore.handle(monster.forest_heart)
 			elif choice == "2":
 				map1.cave()
 			elif choice == "3":
@@ -284,13 +268,9 @@ class map1:
 			if choice == "1":
 				import loading as l
 				l.main_explore()
-				import monster_pick as m
-				monster = m.randomize(m.caves)
-				print(f"Found a {monster}!")
-				time.sleep(1)
-				monster.spawn()
-				import fight_handler as f
-				f.start(monster)
+				import explore_handler as explore
+				import monster_pick as monster
+				explore.handle(monster.caves)
 			elif choice == "2":
 				map1.deep_cave()
 			elif choice == "3":
@@ -303,13 +283,9 @@ class map1:
 			if choice == "1":
 				import loading as l
 				l.main_explore()
-				import monster_pick as m
-				monster = m.randomize(m.caves_deep)
-				print(f"Found a {monster}!")
-				time.sleep(1)
-				monster.spawn()
-				import fight_handler as f
-				f.start(monster)
+				import explore_handler as explore
+				import monster_pick as monster
+				explore.handle(monster.caves_deep)
 			elif choice == "2":
 				map1.dungeon_den()
 			elif choice == "3":

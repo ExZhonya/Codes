@@ -2,15 +2,20 @@ import random
 
 
 class Monster:
-	def __init__(self, name, level, hp, evasion_rate):
+	def __init__(self, name, base_level, base_hp, evasion_rate):
 		self.name = name
-		self.level = level
-		self.hp = hp
+		self.base_level = base_level
+		self.base_hp = base_hp
 		self.evasion_rate = evasion_rate
 		"""I'm assuming y'know how self and instances works."""
 
 	def spawn(self):
-		self.level += random.randint(-5, 5) # The level randomizer
+		# Hp and Level reset
+		self.level = self.base_level # Resets the spawn's base level before spawning a new one
+		self.hp = self.base_hp
+
+		# Randomizer and Multipliers
+		self.level = max(1, self.level + random.randint(-2, 5))
 		self.hp = self.hp + (self.level * 2) 
 		"""Hp multiplier e.g.(50 + (15 * 2)) 
 							= (50 + 30) 
@@ -23,6 +28,7 @@ class Monster:
 		   this compares the random value from earlier to the monster's evasion rate,
 		   if random value is higher than monster's evasion, then if_evaded is false
 		   if random value is equal or lower than the monster's evasion, then it's set to true."""
+		return
 
 	def __str__(self):
 		return self.name
