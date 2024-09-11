@@ -3,4 +3,6 @@ import map as m
 
 w.welc_ascii()
 w.confirm
-m.spawn()
+from cutscenes import spawn
+spawn()
+m.start()

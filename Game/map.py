@@ -10,10 +10,10 @@ import ascii_preset as ap
 import welcome as w
 
 #========PLAYER ENTER GAME SCREEN========
-"""w.welc_ascii()
+w.welc_ascii()
 w.confirm()
 from cutscenes import spawn
-spawn()"""
+spawn()
 #========================================
 
 #=====================NO INPUT TECHNIQUE===============================
@@ -42,6 +42,7 @@ def start():
 	while True:
 		os.system('cls;clear')
 		print("=============")
+		print("Objective: Accept Quest")
 		print("[1]Village")
 		print("=============")
 		a = getch()
