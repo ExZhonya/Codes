@@ -10,4 +10,5 @@ if you want to play my Text-Based-RPG game, go to the [Games](https://github.com
 You will need :
 - everything
 
-contact me in discord @exzhonya if you found any bugs!
+Contact:
+[Discord](https://discord.com/users/557475840171048962)
