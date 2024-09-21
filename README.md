@@ -11,4 +11,5 @@ You will need :
 - everything
 
 Contact:
-[Discord](https://discord.com/users/557475840171048962)
+
+[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.com/users/557475840171048962)
