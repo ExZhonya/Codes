@@ -5,16 +5,7 @@ import os
 import sys
 #######################
 """ OUR FILE IMPORT"""
-#import quest_check as quest
 import ascii_preset as ap
-import welcome as w
-
-#========PLAYER ENTER GAME SCREEN========
-w.welc_ascii()
-w.confirm()
-from cutscenes import spawn
-spawn()
-#========================================
 
 #=====================NO INPUT TECHNIQUE===============================
 if sys.platform == "win32":
@@ -42,7 +33,6 @@ def start():
 	while True:
 		os.system('cls;clear')
 		print("=============")
-		print("Objective: Accept Quest")
 		print("[1]Village")
 		print("=============")
 		a = getch()
@@ -77,7 +67,7 @@ class map1:
 				l.main() #loading animation
 				map1.grassland() #teleports
 			elif choice == "2":
-				pass #map1.vil_quest()
+				map1.vil_quest()
 			elif choice == "3":
 				map1.vil_inn()
 			elif choice == "4":
@@ -91,7 +81,7 @@ class map1:
 				map2.city() #teleports
 
 
-	#def vil_quest(): #temporarily disabled due to errors
+	def vil_quest():
 		while True:
 			os.system("cls")
 			print("-" * 30)
@@ -103,10 +93,8 @@ class map1:
 			choice = getch()
 			if choice == "1":
 				os.system("cls")
-				quest.show_quests()
-				quest_choice = int(input("Which quest will you do?\n"))
-				quest.update(quest_choice)
-				continue
+				import quest_check as check
+				check.quest_handler()
 			elif choice == "2":
 				map1.village()
 

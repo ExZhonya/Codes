@@ -1,4 +1,4 @@
-import random
+import random, time
 
 
 class Monster:
@@ -86,6 +86,15 @@ caves = [spider]
 caves_deep = [spider_2, poison_spider]
 caves_heart = [queen_spider]
 
-def randomize(monster_list):
-	current_monster = random.choice(monster_list)
+def randomize(list_location):
+	if len(list_location) == 2:
+		rng = random.randint(1,10)
+		if rng > 7:
+			current_monster = list_location[0]
+		elif rng < 7:
+			current_monster = list_location[1]
+		else:
+			current_monster = random.choice(list_location)
+	else:
+		current_monster = monster_list
 	return current_monster
