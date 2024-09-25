@@ -1,10 +1,12 @@
 import os
 
 class Player:
-	def __init__(self, name="", hp=20, mp=15, strength=1, int=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=1500):
+	def __init__(self, name="", hp=2440, mp=15, strength=1, int=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=1500):
 		self.name = name
 		self.hp = hp
+		self.max_hp = self.hp
 		self.mp = mp
+		self.max_mp = self.mp
 		self.strength = strength
 		self.int = int
 		self.defense = defense
@@ -13,7 +15,7 @@ class Player:
 		self.exp = exp
 		self.exp_needed = exp_needed
 
-	def display_stats(self):
+	def display_stats(self): #FOR WHILE IN INN/HOUSE
 		os.system("cls" if os.name == "nt" else "clear")
 		print(f"{'='*30}")
 		print(f"Character: {self.name}")
@@ -88,5 +90,6 @@ class Player:
 				self.level_up()
 				self.display_stats()
 
-player = Player()
-player.display_stats()
+if __name__ == "__main__":
+	player = Player()
+	player.display_stats()
