@@ -1,0 +1,68 @@
+import os
+
+class Player:
+    def __init__(self, name="", hp=20, mp=15, strength=1, defense=1, level=1, stat_points=0, exp=1, exp_needed=30):
+        self.name = name
+        self.hp = hp
+        self.mp = mp
+        self.strength = strength
+        self.defense = defense
+        self.level = level
+        self.stat_points = stat_points
+        self.exp = exp
+        self.exp_needed = int(exp * 2)
+
+    def display_stats(self):
+        os.system("cls;clear")
+        print(f"{'='*30}")
+        print(f"Character: {self.name}")
+        print(f"{'='*30}")
+        print(f"{'Stat':<10} | {'Value':<5}")
+        print(f"{'-'*30}")
+        print(f"{'Health (HP)':<10}| {self.hp:<5}")
+        print(f"{'Mana (MP)':<10} | {self.mp:<5}")
+        print(f"{'Strength':<10} | {self.strength:<5}")
+        print(f"{'Defense':<10} | {self.defense:<5}")
+        print(f"{'Level':<10} | {self.level:<5}")
+        print(f"Stat Points Available: {self.stat_points}")
+        print(f"{'='*30}")
+        print(f"""
+                LEVEL: {self.level}
+                EXP: {self.exp}
+                NEEDED: {self.exp_needed}
+                """)
+        player.test()
+
+    def level_up(self):
+        if self.exp > self.exp_needed:
+            print(f"Congratulations! You are now level {self.level + 1}")
+            self.level += 1
+            self.exp_needed = self.exp * 1.5
+            self.exp = 0
+
+    def receive_exp(self, value):
+        self.exp += value
+        if self.exp >= self.exp_needed:
+            self.level_up()
+        else:
+        	pass
+
+    def test(self):
+        while True:
+            print("""
+            [1] Level Up
+            """)
+            x = input("Choose an option: ")
+            if x == "1":
+                print(f"""
+                LEVEL: {self.level}
+                EXP: {self.exp}
+                NEEDED: {self.exp_needed}
+                """)
+                self.exp += 1000
+                self.level_up()
+                self.display_stats()
+
+
+player = Player()
+player.display_stats()
