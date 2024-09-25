@@ -45,7 +45,7 @@ def enemy_hp_bar():
 
 def player_hp_bar():
     hp = player.hp  # Current HP as an integer
-    max_hp = player.hp  # Ensure max_hp is part of current_monster attributes
+    max_hp = player.max_hp  # Ensure max_hp is part of current_monster attributes
     max_hp_bar_length = 10  # Total number of bars
 
     hp_perc = hp / max_hp  # HP as a percentage
@@ -71,7 +71,7 @@ def start():
         print(f"{'='*30}")
         print(f"{'Player Stats':<10}")
         print(f"{'-'*30}")
-        print(f"{'HP':<10}| {player_hp()}{player.max_hp}/{player.max_hp}")
+        print(f"{'HP':<10}| {player_hp()}{player.hp}/{player.max_hp}")
         print(f"{'MP':<10}| {player.mp}/{player.max_mp}")
         print(f"{'Level':<10}| {player.level}")
         print(f"{'-'*30}")
@@ -86,7 +86,7 @@ def start():
 
 
 def attack():
-    damage = 100000 # Test value
+    damage = int(player.strength // 2)
     print(f"You attacked the {current_monster.name}...")
     time.sleep(1)
     return damage
@@ -94,7 +94,7 @@ def attack():
 def defend():
     print(f"You defend the next attack...")
     time.sleep(1)
-    return 0
+    return -1
 
 def flee():
     flee_chance = random.random()
@@ -116,27 +116,29 @@ def enemy_response(damage):
         print(f"{name} took too much dmg, it cannot fight anymore.")
         time.sleep(1)
         return True
-    elif damage > 0:
-        print(f"{name} took {damage} dmg.")
-        time.sleep(0.5)
 
-    move = random.randint(1,2)
-    if move == 1:
+    move = random.random()
+    print(move)
+    if move >= 0.30:
+        current_monster.hp -= damage
+        print(f"{name} took {damage} dmg!")
+        time.sleep(1)
+
         # attack
-        monster_dmg = int(current_monster.dmg // 2)
-        
-        # add a function to alert the player class hp attr
-
+        monster_dmg = current_monster.dmg
+        if damage < 0:
+            monster_dmg = current_monster.dmg // 2
+        player.hp -= int(monster_dmg)
         print(f"{name} dealt {monster_dmg} dmg!")
         time.sleep(1)
-    else:
+    elif move <= 0.30:
         # defend
         if damage != 0:
             current_monster.hp -= damage // 2
-            print(f"{name} took {damage // 2} dmg!")
+            print(f"{name} blocked and took {damage // 2} dmg!")
             time.sleep(1)
         else:
             print("Enemy had blocked.")
             time.sleep(1)
 
-#start()
+start()
