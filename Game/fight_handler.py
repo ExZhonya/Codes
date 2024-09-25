@@ -83,6 +83,11 @@ def start():
             case '1': dead = enemy_response(attack())
             case '2': dead = enemy_response(defend())
             case '3': dead = flee()
+        if dead:
+            player.hp = player.max_hp
+            player.get_exp(current_monster.exp)
+            print(f"You recieved {current_monster.exp} exp!")
+            time.sleep(1)
 
 
 def attack():
