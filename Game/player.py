@@ -85,10 +85,11 @@ class Player:
 			if self.stat_points < 1:
 				self.display_stats()
 
-	def test(self):
-				self.exp += 1000
-				self.level_up()
-				self.display_stats()
+	def get_exp(self, exp):
+				self.exp += exp
+				if self.exp >= self.exp_needed:
+					self.level_up()
+					self.display_stats()
 
 if __name__ == "__main__":
 	player = Player()
