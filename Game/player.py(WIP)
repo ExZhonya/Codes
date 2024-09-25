@@ -1,68 +1,92 @@
 import os
 
 class Player:
-    def __init__(self, name="", hp=20, mp=15, strength=1, defense=1, level=1, stat_points=0, exp=1, exp_needed=30):
-        self.name = name
-        self.hp = hp
-        self.mp = mp
-        self.strength = strength
-        self.defense = defense
-        self.level = level
-        self.stat_points = stat_points
-        self.exp = exp
-        self.exp_needed = int(exp * 2)
+	def __init__(self, name="", hp=20, mp=15, strength=1, int=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=1500):
+		self.name = name
+		self.hp = hp
+		self.mp = mp
+		self.strength = strength
+		self.int = int
+		self.defense = defense
+		self.level = level
+		self.stat_points = stat_points
+		self.exp = exp
+		self.exp_needed = exp_needed
 
-    def display_stats(self):
-        os.system("cls;clear")
-        print(f"{'='*30}")
-        print(f"Character: {self.name}")
-        print(f"{'='*30}")
-        print(f"{'Stat':<10} | {'Value':<5}")
-        print(f"{'-'*30}")
-        print(f"{'Health (HP)':<10}| {self.hp:<5}")
-        print(f"{'Mana (MP)':<10} | {self.mp:<5}")
-        print(f"{'Strength':<10} | {self.strength:<5}")
-        print(f"{'Defense':<10} | {self.defense:<5}")
-        print(f"{'Level':<10} | {self.level:<5}")
-        print(f"Stat Points Available: {self.stat_points}")
-        print(f"{'='*30}")
-        print(f"""
-                LEVEL: {self.level}
-                EXP: {self.exp}
-                NEEDED: {self.exp_needed}
-                """)
-        player.test()
+	def display_stats(self):
+		os.system("cls" if os.name == "nt" else "clear")
+		print(f"{'='*30}")
+		print(f"Character: {self.name}")
+		print(f"{'='*30}")
+		print(f"{'Stat':<10} | {'Value':<5}")
+		print(f"{'-'*30}")
+		print(f"{'Health (HP)':<10}| {self.hp:<5}")
+		print(f"{'Mana (MP)':<10} | {self.mp:<5}")
+		print(f"{'Strength':<10} | {self.strength:<5}")
+		print(f"{'Defense':<10} | {self.defense:<5}")
+		print(f"{'Level':<10} | {self.level:<5}")
+		print(f"{'Exp':<10} | {self.exp}/{self.exp_needed}")
+		print(f"Stat Points Available: {self.stat_points}")
+		print(f"{'='*30}")
+		
+		if self.stat_points < 1:
+			self.test()
+		if self.stat_points > 0:
+			print("[1] Level Up | [2] Allocate Stats")
+			x = input()
+			if x == "1":
+				self.test()
+			elif x == "2":
+				self.stats_up()
 
-    def level_up(self):
-        if self.exp > self.exp_needed:
-            print(f"Congratulations! You are now level {self.level + 1}")
-            self.level += 1
-            self.exp_needed = self.exp * 1.5
-            self.exp = 0
+	def level_up(self):
+		while self.exp >= self.exp_needed:
+			print(f"Congratulations! You are now level {self.level + 1}")
+			self.level += 1
+			self.exp -= self.exp_needed
+			self.exp_needed = int(self.exp_needed * 1.2)
+			self.exp = 0
+			self.stat_points += 2
 
-    def receive_exp(self, value):
-        self.exp += value
-        if self.exp >= self.exp_needed:
-            self.level_up()
-        else:
-        	pass
+	def stats_up(self):
+		while self.stat_points > 0:
+			print("""
+			Choose a stat to increase:
+			[1] HP(+5)
+			[2] MP(+5)
+			[3] Strength(+1)
+			[4] Intelligence(+1)
+			[5] Defense(+1)
+			""")
+			while self.stat_points > 0:
+				x = input()
+				if x == "1":
+					self.hp += 5
+					self.stat_points -= 1
+					print(f"You have {self.stat_points} stat points left.")
+				elif x == "2":
+					self.mp += 5
+					self.stat_points -= 1
+					print(f"You have {self.stat_points} stat points left.")
+				elif x == "3":
+					self.strength += 1
+					self.stat_points -= 1
+					print(f"You have {self.stat_points} stat points left.")
+				elif x == "4":
+					self.int += 1
+					self.stat_points -= 1
+					print(f"You have {self.stat_points} stat points left.")
+				elif x == "5":
+					self.defense += 1
+					self.stat_points -= 1
+					print(f"You have {self.stat_points} stat points left.")
+			if self.stat_points < 1:
+				self.display_stats()
 
-    def test(self):
-        while True:
-            print("""
-            [1] Level Up
-            """)
-            x = input("Choose an option: ")
-            if x == "1":
-                print(f"""
-                LEVEL: {self.level}
-                EXP: {self.exp}
-                NEEDED: {self.exp_needed}
-                """)
-                self.exp += 1000
-                self.level_up()
-                self.display_stats()
-
+	def test(self):
+				self.exp += 1000
+				self.level_up()
+				self.display_stats()
 
 player = Player()
 player.display_stats()
