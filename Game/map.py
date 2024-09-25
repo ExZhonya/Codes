@@ -101,20 +101,15 @@ class map1:
 #========village neccesity=======
 	def vil_inn():
 		while True:
-			preset.area(
-				"You're in the Inn",
-				"[1]Rest, [2]Chest, [3]Back",
-			)
+			ap.inn.inn()
 			choice = getch()
 			if choice == "1":
 				os.system("cls;clear")
-				print("-"*30)
 				print("Eating... \n")
 				time.sleep(3)
 				print("Drinking... \n")
 				time.sleep(2)
 				print("Sleeping... \n")
-				print("-"*30)
 				time.sleep(5)
 				continue
 			elif choice == "2":

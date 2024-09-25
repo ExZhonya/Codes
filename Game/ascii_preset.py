@@ -1,6 +1,30 @@
 import os
 import time
 
+class Inn:
+    def inn(self):
+        os.system("cls;clear")
+        print("-" * 30)
+        print(
+            r"""
+⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢸⣿⣇⣀⣀⣤⣤⣤⣴⣶⣶⣶⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢸⣿⣿⡿⠿⠟⠛⠛⠛⠉⣁⣤⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢸⣿⡇⠠⣶⣶⣾⣿⣷⠆⠙⠛⠛⣛⣉⠠⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢸⣿⣤⣀⡀⠉⠁⢠⡤⠶⠚⠋⣁⣠⣤⣴⣶⣶⣿⡿⠿⠗⠒⠀⣀⣀⣤⡄⠀
+⠀⠸⣿⣿⣿⣿⣿⣶⣤⣄⣀⠚⠻⠿⣿⡟⠛⢉⣉⣠⣤⣶⣶⣿⣿⣿⣿⣿⡇⠀
+⠀⢠⣤⡈⠙⠻⢿⣿⣿⣿⣿⣿⣶⣦⣤⡀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀
+⠀⠈⠉⠁⠀⠀⠀⠈⠉⠛⠿⢿⣿⣿⣿⡇⢸⣿⣿⣿⣿⣿⣿⠿⠟⠛⠋⣉⡁⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⠇⠸⠿⠟⠛⠉⠁⠀⠀⠀⠀⢸⣿⠇⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣦⣤⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⠿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+""")
+        print("-" * 30)
+        print("You're in the Inn")
+        print("[1]Rest, [2]Chest, [3]Back")
+        
+inn = Inn()
+inn.inn()
 
 class Shop:
     def shop(self):
@@ -125,7 +149,7 @@ armor_v = Armors()
 potion_v = Potions()
 blacksmith_v = Blacksmith()
 ec_msg = random_ecounter()
-
+inn = Inn()
 
 
 
