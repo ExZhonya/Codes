@@ -1,14 +1,14 @@
 import os
 
 class Player:
-	def __init__(self, name="", hp=2440, mp=15, strength=1, int=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=1500):
+	def __init__(self, name="", hp=2440, mp=15, strength=5, _int=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=1500):
 		self.name = name
 		self.hp = hp
 		self.max_hp = self.hp
 		self.mp = mp
 		self.max_mp = self.mp
 		self.strength = strength
-		self.int = int
+		self.int = _int
 		self.defense = defense
 		self.level = level
 		self.stat_points = stat_points
