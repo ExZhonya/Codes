@@ -123,26 +123,26 @@ def enemy_response(damage):
         return True
 
     move = random.random()
-    print(move)
     if move >= 0.30:
-        current_monster.hp -= damage
-        print(f"{name} took {damage} dmg!")
-        time.sleep(1)
+        if damage > 0: # checks if >0 (attacking)
+            current_monster.hp -= damage
+            print(f"{name} took {damage} dmg!")
+            time.sleep(1)
 
         # attack
         monster_dmg = current_monster.dmg
-        if damage < 0:
+        if damage < 0: # checks if -1 (defending)
             monster_dmg = current_monster.dmg // 2
         player.hp -= int(monster_dmg)
         print(f"{name} dealt {monster_dmg} dmg!")
         time.sleep(1)
     elif move <= 0.30:
         # defend
-        if damage >= 0:
+        if damage > 0: # checks if >0 (attacking)
             current_monster.hp -= damage // 2
             print(f"{name} blocked and took {damage // 2} dmg!")
             time.sleep(1)
-        else:
+        elif damage < 0: # checks if -1 (defending)
             print("Enemy had blocked.")
             time.sleep(1)
 
