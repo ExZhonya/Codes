@@ -8,5 +8,5 @@ w.confirm()
 c.spawn()
 import explore_handler as explore
 import monster_pick as monster
-explore.handle(monster.rabbit)
+explore.handle(monster.spawn)
 m.start()

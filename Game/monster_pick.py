@@ -44,8 +44,11 @@ class EvolvedMonster(Monster):
 	def __str__(self):
 		super().__str__()
 
+#Spawn Monster
+goblin = Monster("Goblin", 1, 10, 0.50, 300)
+
 # Grassland monsters
-rabbit = Monster("Rabbit", 1, 20, 0.40, 100) # 1. Level; 2. Hp; 3. Evasion Rate;
+rabbit = Monster("Rabbit", 1, 20, 0.40, 100) # 1. Level, 2. Hp, 3. Evasion Rate, 4. Exp
 deer = Monster("Deer", 5, 40, 0.35, 200)
 
 # Forest monsters
@@ -70,6 +73,7 @@ poison_spider = EvolvedMonster("Poisonous Spiders", 35, 60, 0.30, 1000, random.r
 # Cave heart monsters
 queen_spider = Monster("Spider Queen", 50, 220, 0, 1500)
 
+spawn = [goblin]
 grassland = [rabbit, deer]
 forest = [wolf, fox]
 deep_forest = [bear, wraith]

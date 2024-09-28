@@ -92,7 +92,7 @@ def spawn():
     time.sleep(1)
     slow_print("You woke up confused, empty... You don't remember anything.\n")
     time.sleep(1)
-    slow_print("Suddenly you see a animals tries to attack you!\n")
+    slow_print("Suddenly you multiple enemies attacking you!\n")
     update(id_)
 
 def city_first():

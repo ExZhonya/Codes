@@ -83,6 +83,7 @@ Caves : Spiders(few amounts)
 Deep Caves : Spiders(severals), Poisonous Spider(few amounts)
 Heart Caves : Spider Queen"""
 
+goblin = Monster("Goblin", 1, 10, 0.50)
 rabbit = Monster("Rabbit", 1, 20, 0.40) #1. level, 2. HP, 3.Evasion
 deer = Monster("Deer", 5, 40, 0.35)
 wolf = Monster("Wolf", 10, 60, 0.30)

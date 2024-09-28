@@ -1,7 +1,7 @@
 import os
 
 class Player:
-	def __init__(self, name="", hp=20, mp=15, strength=5, _int=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=1500):
+	def __init__(self, name="", hp=20, mp=15, strength=5, _int=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=300):
 		self.name = name
 		self.hp = hp
 		self.max_hp = self.hp
@@ -31,14 +31,10 @@ class Player:
 		print(f"Stat Points Available: {self.stat_points}")
 		print(f"{'='*30}")
 		
-		if self.stat_points < 1:
-			self.test()
 		if self.stat_points > 0:
-			print("[1] Level Up | [2] Allocate Stats")
+			print("[2] Allocate Stats")
 			x = input()
 			if x == "1":
-				self.test()
-			elif x == "2":
 				self.stats_up()
 
 	def level_up(self):
