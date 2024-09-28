@@ -36,9 +36,9 @@ def handle_single(monster):
     rng = random.random()
     encounter_chance = 0.80
     if rng < encounter_chance:
-        print("You found a monster lying about.")
-        time.sleep(1)
-        monster = monster.spawn()
+        print(f"You found a {monster} lying about.")
+        time.sleep(5)
+        monster.spawn()
         fight.current_monster = monster
         fight.start()
         print('There was no more monsters, you left the area.')

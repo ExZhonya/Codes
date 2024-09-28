@@ -38,6 +38,7 @@ def slow_print(text, delay=0.05):
 
 def welc_ascii():
     import os
+    print('HI')
     os.system("cls;clear")
     fast_print(r"""
 __        _______ _     ____ ___  __  __ _____ _ 

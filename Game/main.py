@@ -6,7 +6,8 @@ import cutscenes as c
 w.welc_ascii()
 w.confirm()
 c.spawn()
-import explore_handler as explore
-import monster_pick as monster
-explore.handle(monster.spawn)
+from explore_handler import handle_single
+from monster_pick import rabbit
+
+handle_single(rabbit)
 m.start()

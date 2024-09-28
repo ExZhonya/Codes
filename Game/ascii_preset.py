@@ -1,27 +1,4 @@
 import os
-import time
-
-class Inn:
-    def inn(self):
-        os.system("cls;clear")
-        print("-" * 30)
-        print(
-            r"""
-⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⢸⣿⣇⣀⣀⣤⣤⣤⣴⣶⣶⣶⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⢸⣿⣿⡿⠿⠟⠛⠛⠛⠉⣁⣤⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⢸⣿⡇⠠⣶⣶⣾⣿⣷⠆⠙⠛⠛⣛⣉⠠⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⢸⣿⣤⣀⡀⠉⠁⢠⡤⠶⠚⠋⣁⣠⣤⣴⣶⣶⣿⡿⠿⠗⠒⠀⣀⣀⣤⡄⠀
-⠀⠸⣿⣿⣿⣿⣿⣶⣤⣄⣀⠚⠻⠿⣿⡟⠛⢉⣉⣠⣤⣶⣶⣿⣿⣿⣿⣿⡇⠀
-⠀⢠⣤⡈⠙⠻⢿⣿⣿⣿⣿⣿⣶⣦⣤⡀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀
-⠀⠈⠉⠁⠀⠀⠀⠈⠉⠛⠿⢿⣿⣿⣿⡇⢸⣿⣿⣿⣿⣿⣿⠿⠟⠛⠋⣉⡁⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⠇⠸⠿⠟⠛⠉⠁⠀⠀⠀⠀⢸⣿⠇⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣦⣤⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⠿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-""")
-        print("-" * 30)
-        print("You're in the Inn")
-        print("[1]Rest, [2]Chest, [3]Back")
 
 class Shop:
     def shop(self):
@@ -130,24 +107,9 @@ class random_ecounter:
         ecounter = ["You see people walking....", "You see children playing around..."]
         print(random.choice(ecounter))
 
-class secret:
-    def secret():
-        while True:
-            choice = input()
-            if choice == "exzhonya and pilgrimir has made this game":
-                print("wow! you have found our secret code. contact us in discord to claim reward")
-                time.sleep(3)
-                break
-            else:
-                break
 shop_v = Shop()
 weapon_v = Weapons()
 armor_v = Armors()
 potion_v = Potions()
 blacksmith_v = Blacksmith()
 ec_msg = random_ecounter()
-inn = Inn()
-
-
-
-

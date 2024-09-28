@@ -54,7 +54,7 @@ def player_hp_bar():
 
 def start():
     global dead
-    while not dead and player.hp > 0:
+    while not dead:
         enemy_hp = enemy_hp_bar
         player_hp = player_hp_bar
         os.system("cls;clear")
@@ -84,8 +84,6 @@ def start():
             player.get_exp(current_monster.exp)
             print(f"You recieved {current_monster.exp} exp!")
             time.sleep(1)
-    print("You died, and got nothing, you wake up in the nearest village...")
-    time.sleep(1)
 
 
 def attack():
@@ -141,3 +139,4 @@ def enemy_response(damage):
             print(f"{name} blocked and took {damage // 2} dmg!")
             time.sleep(1)
 
+start()
