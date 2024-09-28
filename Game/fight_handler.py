@@ -138,7 +138,7 @@ def enemy_response(damage):
         time.sleep(1)
     elif move <= 0.30:
         # defend
-        if damage != 0:
+        if damage >= 0:
             current_monster.hp -= damage // 2
             print(f"{name} blocked and took {damage // 2} dmg!")
             time.sleep(1)
