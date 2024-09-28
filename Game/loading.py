@@ -31,7 +31,7 @@ def main_explore():
         print_progress_bar(total_length, i)
         print("\nExploring...")
         
-        time.sleep(0.04)  # print speed
+        time.sleep(0.01)  # print speed
 
 def main():
     total_length = 100  #just the bar number
@@ -40,7 +40,7 @@ def main():
         print_progress_bar(total_length, i)
         print("\nAdventuring...")
         
-        time.sleep(0.04)  # print speed
+        time.sleep(0.01)  # print speed
 
 if __name__ == "__main__":
     main_explore()

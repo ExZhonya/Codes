@@ -141,4 +141,5 @@ def enemy_response(damage):
             print(f"{name} blocked and took {damage // 2} dmg!")
             time.sleep(1)
 
-start()
+if __name__ == "__main__":
+    start()
