@@ -452,7 +452,3 @@ class map3:
 				map3.castle()
 			elif choice == "2":
 				pass
-
-#==========START========
-start()
-#=======================

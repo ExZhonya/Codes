@@ -21,9 +21,7 @@ else:
         return ch
 #=====================================================================
 
-import monster_pick as m
-m.rabbit.spawn()
-current_monster = m.rabbit
+current_monster = None
 from player import Player
 player = Player()
 
@@ -123,7 +121,7 @@ def enemy_response(damage):
         return True
 
     move = random.random()
-    if move >= 0.30:
+    if move >= 0.30 or damage < 0: # checks if the monster's move is an attack, or if the player is defending (-1)
         if damage > 0: # checks if >0 (attacking)
             current_monster.hp -= damage
             print(f"{name} took {damage} dmg!")
@@ -141,9 +139,6 @@ def enemy_response(damage):
         if damage > 0: # checks if >0 (attacking)
             current_monster.hp -= damage // 2
             print(f"{name} blocked and took {damage // 2} dmg!")
-            time.sleep(1)
-        elif damage < 0: # checks if -1 (defending)
-            print("Enemy had blocked.")
             time.sleep(1)
 
 start()
