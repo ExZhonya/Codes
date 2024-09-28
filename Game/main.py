@@ -7,7 +7,7 @@ w.welc_ascii()
 w.confirm()
 c.spawn()
 from explore_handler import handle_single
-from monster_pick import rabbit
+from monster_pick import goblin
 
-handle_single(rabbit)
+handle_single(goblin)
 m.start()
