@@ -22,6 +22,7 @@ else:
 #=====================================================================
 from player import Player
 player = Player()
+current_monster = None
 
 global dead
 dead = False
@@ -130,8 +131,12 @@ def enemy_response(damage):
         # attack
         monster_dmg = current_monster.dmg
         if damage < 0: # checks if -1 (defending)
-            monster_dmg = current_monster.dmg // 2
-        player.hp -= int(monster_dmg)
+            monster_dmg = current_monster.dmg // 3
+        lower_bound = max(int(monster_dmg - 2), 1)  # Ensure at least 1
+        upper_bound = int(monster_dmg + 2)
+        # Adding fluctuation to the monster's damage
+        fluc_dmg = random.randint(lower_bound, upper_bound)
+        player.hp -= fluc_dmg
         print(f"{name} dealt {monster_dmg} dmg!")
         time.sleep(1)
     elif move <= 0.30:
