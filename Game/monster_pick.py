@@ -2,8 +2,9 @@ import random, time
 
 
 class Monster:
-	def __init__(self, name, base_level, base_hp, evasion_rate, exp):
+	def __init__(self, name, damage, base_level, base_hp, evasion_rate, exp):
 		self.name = name
+		self.damage = damage
 		self.base_level = base_level
 		self.base_hp = base_hp
 		self.evasion_rate = evasion_rate
@@ -45,23 +46,23 @@ class EvolvedMonster(Monster):
 		super().__str__()
 
 #Spawn Monster
-goblin = Monster("Goblin", 1, 10, 0.50, 300)
+goblin = Monster("Goblin", 1, 2, 10, 0.50, 300)
 
 # Grassland monsters
-rabbit = Monster("Rabbit", 1, 20, 0.40, 100) # 1. Level, 2. Hp, 3. Evasion Rate, 4. Exp
-deer = Monster("Deer", 5, 40, 0.35, 200)
+rabbit = Monster("Rabbit", 1, 3, 20, 0.40, 100) # 1. Level, 2. Hp, 3. Evasion Rate, 4. Exp
+deer = Monster("Deer", 5, 5, 40, 0.35, 200)
 
 # Forest monsters
-wolf = Monster("Wolf", 10, 60, 0.30, 300)
-fox = Monster("Fox", 15, 80, 0.45, 400)
+wolf = Monster("Wolf", 10, 7, 60, 0.30, 300)
+fox = Monster("Fox", 15, 7, 9, 80, 0.45, 400)
 
 # Deep Forest monsters 
-bear = Monster("Bear", 20, 100, 0.10, 500)
-wraith = Monster("Wraith", 25, 120, 0.20, 500)
+bear = Monster("Bear", 20, 20, 100, 0.10, 500)
+wraith = Monster("Wraith", 25, 15, 120, 0.20, 500)
 
 # Forest Heart monsters
-wraith_2 = Monster("Wraith", 30, 140, 0.40, 600)
-tree_treant = Monster("Tree Treant", 50, 200, 0, 700)
+wraith_2 = Monster("Wraith", 30, 20, 140, 0.40, 600)
+tree_treant = Monster("Tree Treant", 50, 23, 200, 0, 700)
 
 # Caves monsters
 spider= EvolvedMonster("Spiders", 25, 40, 0.30, 800, random.randint(1,3)) # 1. Level; 2. Hp; 3. Evasion Rate; 4. Random Spawn amount
