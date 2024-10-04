@@ -132,9 +132,9 @@ def enemy_response(damage):
         monster_dmg = current_monster.dmg
         if damage < 0: # checks if -1 (defending)
             monster_dmg // 3
-        fluc_dmg = monster_dmg + random.randint(-4, 2)
-        player.hp -= fluc_dmg
-        print(f"{name} dealt {fluc_dmg} dmg!")
+        final_dmg = random.randint((0.25 * current_monster.attack), current_monster.attack)
+        player.hp -= final_dmg
+        print(f"{name} dealt {final_dmg} dmg!")
         time.sleep(1)
     elif move <= 0.30:
         # defend
