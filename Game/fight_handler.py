@@ -132,7 +132,8 @@ def enemy_response(damage):
         monster_dmg = current_monster.dmg
         if damage < 0: # checks if -1 (defending)
             monster_dmg // 3
-        final_dmg = random.randint((0.25 * current_monster.attack), current_monster.attack)
+        final_dmg = random.randint(int(0.25 * current_monster.damage), current_monster.damage)
+
         player.hp -= final_dmg
         print(f"{name} dealt {final_dmg} dmg!")
         time.sleep(1)

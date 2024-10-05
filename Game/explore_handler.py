@@ -2,6 +2,7 @@ import time
 import random
 import monster_pick as monster
 import fight_handler as fight
+import map as m
 
 def handle(location): # encounter
     rng = random.random()
@@ -11,11 +12,11 @@ def handle(location): # encounter
         time.sleep(1)
         repetition = 0
         while repetition in range(3):
-            monster = monster.randomize(location) # it's this
-            monster.spawn()
+            current_monster = monster.randomize(location) # it's this
+            current_monster.spawn()
             fight.current_monster = monster
             fight.start()
-            quest_updater(str(monster), location)
+            quest_updater(str(current_monster), location)
             if repetition == 2:
                 print('There was no more monsters, you left the area.')
                 time.sleep(1)

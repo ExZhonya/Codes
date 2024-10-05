@@ -32,7 +32,7 @@ class Player:
 		print(f"{'='*30}")
 		
 		if self.stat_points > 0:
-			print("[2] Allocate Stats")
+			print("[1] Allocate Stats")
 			x = input()
 			if x == "1":
 				self.stats_up()
