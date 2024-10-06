@@ -1,4 +1,4 @@
-import os
+import os, time
 
 class Player:
 	def __init__(self, name="", hp=20, mp=15, strength=5, _int=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=300):
@@ -40,6 +40,7 @@ class Player:
 	def level_up(self):
 		while self.exp >= self.exp_needed:
 			print(f"Congratulations! You are now level {self.level + 1}")
+			time.sleep(3)
 			self.level += 1
 			self.exp -= self.exp_needed
 			self.exp_needed = int(self.exp_needed * 1.2)
@@ -82,10 +83,11 @@ class Player:
 				self.display_stats()
 
 	def get_exp(self, exp):
-				self.exp += exp
-				if self.exp >= self.exp_needed:
-					self.level_up()
-					self.display_stats()
+		self.exp += exp
+		print(f"You recieved {exp} exp!")
+		if self.exp >= self.exp_needed:
+			self.level_up()
+			self.display_stats()
 
 if __name__ == "__main__":
 	player = Player()

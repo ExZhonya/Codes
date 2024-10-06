@@ -52,26 +52,26 @@ class EvolvedMonster(Monster):
 goblin = Monster("Goblin", 1, 2, 1, 10, 0.50, 300) # 1. Level, 2.Attack, 3.Defense, 4. Hp, 5. Evasion Rate, 6. Exp
 
 # Grassland monsters
-rabbit = Monster("Rabbit", 1, 3, 3, 20, 0.40, 100)
-deer = Monster("Deer", 5, 5, 5, 40, 0.35, 200)
+rabbit = Monster("Rabbit", 1, 3, 3, 5, 0.40, 100)
+deer = Monster("Deer", 5, 5, 5, 10, 0.35, 200)
 
 # Forest monsters
-wolf = Monster("Wolf", 10, 7, 7, 60, 0.30, 300)
-fox = Monster("Fox", 15, 7, 9, 80, 0.45, 400)
+wolf = Monster("Wolf", 10, 7, 7, 30, 0.30, 300)
+fox = Monster("Fox", 15, 7, 9, 40, 0.45, 400)
 
 # Deep Forest monsters 
-bear = Monster("Bear", 20, 20, 35, 100, 0.10, 500)
-wraith = Monster("Wraith", 25, 15, 17, 120, 0.20, 500)
+bear = Monster("Bear", 20, 20, 35, 50, 0.10, 500)
+wraith = Monster("Wraith", 25, 15, 17, 60, 0.20, 500)
 
 # Forest Heart monsters
-wraith_2 = Monster("Wraith", 30, 20, 20, 140, 0.40, 600)
-tree_treant = Monster("Tree Treant", 50, 23, 25, 200, 0, 700)
+wraith_2 = Monster("Wraith", 30, 20, 20, 80, 0.40, 600)
+tree_treant = Monster("Tree Treant", 50, 23, 25, 150, 0, 700)
 
 # Caves monsters
 spider = EvolvedMonster("Spiders", 25, 40, 25, 40, 0.30, 800, random.randint(1, 3))  # 1. Level; 2. Hp; 3. Evasion Rate; 4. Random Spawn amount
-"""
-the deep cave are copy paste for test, modify them later
-"""
+
+# the deep cave are copy paste for test, modify them later
+
 # Deep caves monsters
 spider_2 = EvolvedMonster("Spiders", 25, 40, 25, 40, 0.30, 800, random.randint(1, 3)) 
 poison_spider = EvolvedMonster("Poisonous Spiders", 25, 40, 25, 40, 0.30, 800, random.randint(1, 3))
@@ -88,15 +88,16 @@ caves = [spider]
 caves_deep = [spider_2, poison_spider]
 caves_heart = [queen_spider]
 
-def randomize(list_location):
-	if len(list_location) == 2:
+def randomize(location):
+	if len(location) == 2:
 		rng = random.randint(1,10)
 		if rng > 7:
-			current_monster = list_location[0]
+			current_monster = location[0]
 		elif rng < 7:
-			current_monster = list_location[1]
+			current_monster = location[1]
 		else:
-			current_monster = random.choice(list_location)
+			current_monster = random.choice(location)
 	else:
-		current_monster = monster_list
+		current_monster = location[0]
+
 	return current_monster
