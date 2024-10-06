@@ -44,22 +44,10 @@ def handle_multiple(location):
 
 
 def handle_single(monster):
-	if random.random() < 0.80:
-		print(f"You found a {monster} idling.")
-		time.sleep(1)
-		monster.spawn()
-		fight.current_monster = monster
-		fight.start(monster)
-
-		# after fight
-		print("There was no more monsters, you left the area.")
-		time.sleep(1)
-
-	else:
-		print("You found nothing.")
-		time.sleep(1)
-
-
+	monster.spawn()
+	fight.current_monster = monster
+	fight.start(monster)
+	return
 
 def quest_updater(mon, location):
 	if 'Ongoing' in quest_states.values():

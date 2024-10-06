@@ -17,20 +17,19 @@ class Monster:
 		self.hp = self.base_hp
 
 		# Randomizer and Multipliers
-		self.level = max(1, self.level + random.randint(-2, 5))
-		self.hp = self.hp + (self.level * 2) 
+		random_multiplier = random.randint(-3, 3)
+		modified_level = self.level + random_multiplier
+		self.level = max(1, modified_level)
+		self.hp = self.hp + self.level
 		self.max_hp = self.hp 
-		self.dmg = self.max_hp / 2 
-		self.evade_chance = random.random()
-		self.if_evaded = self.evade_chance <= self.evasion_rate
-		self.exp = self.exp * self.level
+		self.dmg = self.max_hp / 2
+		self.exp = self.exp + self.level
 		return
 
 	def __str__(self):
 		return self.name
 
 class EvolvedMonster(Monster):
-
     def __init__(self, name, attack, defense, level, hp, evasion_rate, exp, amount):
         # Inherit the Monster class initialization with the correct arguments
         super().__init__(name, attack, defense, level, hp, evasion_rate, exp)
@@ -43,7 +42,7 @@ class EvolvedMonster(Monster):
         super().spawn()
         self.hp *= self.amount
         self.max_hp = self.hp
-        self.exp *= self.amount * self.level 
+        self.exp *= self.amount
 
     def __str__(self):
         return super().__str__()

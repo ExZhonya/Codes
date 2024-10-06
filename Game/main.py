@@ -1,16 +1,13 @@
 import welcome as w
 import map as m
 import cutscenes as c
+import monster_pick as monster
+from explore_handler import handle_single
 
+if __name__ == '__main__':
+    w.welc_ascii()
+    w.confirm()
+    c.spawn()
 
-#w.welc_ascii()
-#w.confirm()
-#c.spawn()
-trigger = False # Added because sometimes the code runs the m.start() before fighting the goblins
-if trigger == False:
-    from explore_handler import handle_single
-    from monster_pick import goblin
-    #handle_single(goblin)
-    trigger = True
-if trigger == True:
-    m.start()
+    current_monster = monster.goblin
+    handle_single(current_monster)

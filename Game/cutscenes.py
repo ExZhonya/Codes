@@ -32,8 +32,6 @@ def check(scene_number):  # given scene no.
 
 def update(scene_number):
     cutscenes_state[scene_number] = 'Completed' # just updates the dictionary to complete once the dialogue has completely finished.
-    # New code*****
-    print(f"{scene_number}: {cutscenes_state[scene_number]}!")
 
 
 # Text based functions-------------------------
@@ -78,12 +76,6 @@ __/_  /   \ ______/ ''   /'\_,__
 
 # Actual Cutscenes-------------------------------
 
-def unknown_scene():
-    os.system("cls;clear")
-    slow_print("All cutscenes are completed.")
-    time.sleep(1)
-    display_hub()
-
 def spawn():
     id_ = 1
     check(id_)
@@ -92,7 +84,12 @@ def spawn():
     time.sleep(1)
     slow_print("You woke up confused, empty... You don't remember anything.\n")
     time.sleep(1)
-    slow_print("Suddenly you multiple enemies attacking you!\n")
+    slow_print("Then you suddenly something... Is that a goblin?\n")
+    time.sleep(1)
+    slow_print("It looked in your way, and starting rushing to attack you!")
+    time.sleep(1)
+    slow_print("You ready what little guard you have.")
+    time.sleep(1)
     update(id_)
 
 def city_first():
