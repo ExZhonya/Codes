@@ -11,3 +11,4 @@ if __name__ == '__main__':
 
     current_monster = monster.goblin
     handle_single(current_monster)
+    m.start()
