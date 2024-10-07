@@ -8,6 +8,8 @@ Contributors: @Pilgrimir @ExZhonya
 if you want to play my Text-Based-RPG game, go to the [Games](https://github.com/ExZhonya/Codes/tree/main/Game).
 
 download everything and after that go run the [Run.exe.lnk](https://github.com/ExZhonya/Codes/blob/main/Game/Run.exe.lnk). this is just to run the game via .exe
+NOTE : RUN TGE RUN.EXE DIRECTLY FROM YOUR FOLDER!
+
 
 Contact:
 
