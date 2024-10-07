@@ -6,7 +6,7 @@ from quest_check import *
 fight = Fight()
 
 
-def handle_multiple(location):
+def handle(location):
 	if random.random() < 0.80 and location:
 		print("You found a few monsters lying around.")
 		time.sleep(1)
