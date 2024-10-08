@@ -30,6 +30,8 @@ class Fight:
 	def __init__(self):
 		self.player = player
 		self.current_monster = None
+		self.player_name = None
+		self.monster_name = None
 
 	def hp_bar(self, entity):
 		hp = entity.hp
@@ -45,7 +47,10 @@ class Fight:
 
 	def start(self, current_monster):
 		self.current_monster = current_monster
-		while self.player.hp > 0:
+		self.player_name = 'Test'
+		self.monster_name = self.current_monster.name
+
+		while True:
 			enemy_hp = self.hp_bar(self.current_monster)
 			player_hp = self.hp_bar(self.player)
 
@@ -66,90 +71,98 @@ class Fight:
 			print(f"{'[1]Fight, [2]Defend, [3]Run':<10}")
 			print(f"{'='*30}")
 
-			option = getch()
+			option = int(getch())
+
+			fleed = False
 
 			match option:
-				case '1':
-					monster_dead = self.enemy_response(self.attack())
-				case '2':
-					monster_dead = self.enemy_response(self.defend())
-				case '3':
-					monster_dead = self.enemy_response(self.flee())
-			
-			if monster_dead:
-				monster_dead = False
-				# reset player stats
-				self.player.hp = self.player.max_hp
-				self.player.hp = self.player.max_mp
+				case 1:
+					chance = random.randint(0, 100)
+					if chance >= 20:
+						# Enemy Retaliates
+						self.attack('player')
+						time.sleep(1)
+						self.attack('enemy')
+						time.sleep(1)
+					else:
+						# Enemy Deflect
+						self.attack('player (blocked)')
+						time.sleep(1)
+				
+				case 2:
+					self.block('player')
+					time.sleep(1)
+					self.attack('enemy (blocked)')
+					time.sleep(1)
+				
+				case 3:
+					fleed = self.flee()
+					time.sleep(1)
 
-				# give monster exp reward
-				self.player.get_exp(self.current_monster.exp)
+			if self.player.hp <= 0:
+				print('You died! Respawning...')
+				time.sleep(3)
+				self.reset()
+				return 'dead'
+
+			elif self.current_monster.hp <= 0:
+				print('You win!')
 				time.sleep(1)
-				return True
+				self.player.get_exp(self.current_monster.exp)
+				return 'win'
 
-		if self.player.hp < 0:
-			print("You died, and got nothing, you wake up in the nearest village...")
-			time.sleep(2)
-			return False
+			elif fleed:
+				print('You narrowly fled the scene...')
+				time.sleep(1)
+				self.reset()
+				return 'fled'
 
-	def attack(self):
-		damage = int(self.player.strength // 2)
-		return damage
+	def attack(self, turn):
+		if turn == 'player':
+			player = int(self.player.strength / 2)
+			self.current_monster.hp -= player
+			print(f'{self.player_name} attacked for {player} dmg!')
 
-	def defend(self):
-		print(f"You defend the next attack...")
-		time.sleep(1)
-		return -1
+		elif turn == 'player (blocked)':
+			player = int(self.player.strength / 4)
+			self.current_monster.hp -= player
+			print(f'{self.player_name} attacked,')
+			time.sleep(1)
+			print(f'but got deflected for only {player} dmg!')
+
+		elif turn == 'enemy':
+			monster = int(self.current_monster.dmg)
+			self.player.hp -= monster 
+			print(f'{self.monster_name} attacked for {monster} dmg!')
+
+		elif turn == 'enemy (blocked)':
+			monster = int(self.current_monster.dmg / 2)
+			self.player.hp -= monster 
+			print(f'And {self.monster_name} attacked for {monster} dmg')	
+
+		elif turn == 'enemy (fled)':
+			monster = int(self.current_monster.dmg)
+			self.player.hp -= monster 
+			print(f'{self.monster_name} caught up and dealt {monster} dmg!')
+
+	def block(self, turn):
+		if turn == 'player':
+			print(f'{self.player_name} anticipates the next attack')
 
 	def flee(self):
-		flee_chance = random.random()
-		evasion = 0.30
-		if flee_chance < evasion:
-			print("You successfully escaped!")
-			time.sleep(1)
+		flee = random.random()
+		print('You tried to flee...')
+		time.sleep(1)
+		if flee > 0.20:
 			return True
 		else:
-			print("You failed to escape.")
-			time.sleep(1)
-			enemy_response(0)
+			self.attack('enemy (fled)')
 
-			
-	def enemy_response(self, damage):
-		name = self.current_monster.name
+	def reset(self):
+		self.player.hp = self.player.max_hp
+		self.player.mp = self.player.max_mp
 
-		if damage >= self.current_monster.hp:
-			print(f"{name} took too much dmg, it cannot fight anymore.")
-			time.sleep(1)
-			return True
-
-		move = random.random()
-		if move >= 0.30 or damage < 0: # Attack
-
-			monster_dmg = self.current_monster.dmg
-
-			# checks if player is attacking (damage > 0)
-			if damage > 0: 
-				self.current_monster.hp -= damage
-				print(f"You dealt {damage} dmg!")
-				time.sleep(1)
-
-			# checks if player is defending (damage = -1)
-			if damage < 0: 
-				monster_dmg = monster_dmg // 3 # cuts the monster dmg by 3
-
-			final_dmg = random.randint(int(0.25 * self.current_monster.damage), self.current_monster.damage)
-			player.hp -= final_dmg
-			print(f"{name} dealt {final_dmg} dmg!")
-			time.sleep(1)
-
-		elif move <= 0.30: # Defense
-			
-			# checks if player is attacking ( damage > 0)
-			if damage > 0:
-				self.current_monster.hp -= damage // 2
-				print(f"{name} blocked and took {damage // 2} dmg!")
-				time.sleep(1)
-
+# debugging purposes
 if __name__ == '__main__':
 	fight = Fight()
 	monster = monster.rabbit

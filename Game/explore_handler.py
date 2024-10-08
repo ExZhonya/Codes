@@ -20,22 +20,23 @@ def handle(location):
 			current_monster.spawn()
 
 			# starting the fight
-			can_continue = fight.start(current_monster)
+			result = fight.start(current_monster)
 
 			# updating the quest once the fight is over
 			quest_updater(str(current_monster), location) # a function in this file
 
-			if can_continue:
+			if result == 'win':
 				print('You moved on to the next monster you saw.')
 				time.sleep(1)
 				repetition += 1
 				continue
 			else:
-				break
+				return
 
 		if repetition == 2:
 			repetition = 0
 			print("There was no more monsters, you left the area.")
+			fight.reset()
 			time.sleep(1)
 	else:
 		print("You found nothing.")
@@ -47,6 +48,7 @@ def handle_single(monster):
 	monster.spawn()
 	fight.current_monster = monster
 	fight.start(monster)
+	fight.reset()
 	return
 
 def quest_updater(mon, location):
@@ -61,4 +63,4 @@ def quest_updater(mon, location):
 
 
 if __name__ == '__main__':
-	handle_multiple(monster.grassland)
+	handle(monster.grassland)

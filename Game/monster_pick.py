@@ -83,20 +83,11 @@ grassland = [rabbit, deer]
 forest = [wolf, fox]
 deep_forest = [bear, wraith]
 forest_heart = [wraith_2, tree_treant]
-caves = [spider]
 caves_deep = [spider_2, poison_spider]
-caves_heart = [queen_spider]
 
-def randomize(location):
-	if len(location) == 2:
-		rng = random.randint(1,10)
-		if rng > 7:
-			current_monster = location[0]
-		elif rng < 7:
-			current_monster = location[1]
-		else:
-			current_monster = random.choice(location)
-	else:
-		current_monster = location[0]
 
-	return current_monster
+def randomize(group):
+	weight = [3, 1]
+	next_monster = random.choices(group, weights=weight, k=1)
+
+	return next_monster[0]

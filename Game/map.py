@@ -6,6 +6,10 @@ import sys
 #######################
 """ OUR FILE IMPORT"""
 import ascii_preset as ap
+import loading as l
+import explore_handler as explore
+import monster_pick as monster
+
 
 #=====================NO INPUT TECHNIQUE===============================
 if sys.platform == "win32":
@@ -193,10 +197,7 @@ class map1:
 			preset.area("You're in Grassland", "[1]Explore, [2]Village [3]Forest,")
 			choice = getch()
 			if choice == "1":
-				import loading as l
 				l.main_explore()
-				import explore_handler as explore
-				import monster_pick as monster
 				explore.handle(monster.grassland)
 			elif choice == "2":
 				map1.village()
@@ -208,10 +209,7 @@ class map1:
 			preset.area("You're in Forest", "[1]Explore, [2]Grassland, [3]Deep Forest")
 			choice = getch()
 			if choice == "1":
-				import loading as l
 				l.main_explore()
-				import explore_handler as explore
-				import monster_pick as monster
 				explore.handle(monster.forest)
 			elif choice == "2":
 				map1.grassland()
@@ -223,10 +221,7 @@ class map1:
 			preset.area("You're in Deep Forest", "[1]Explore, [2]Heart Forest [3]Go Back")
 			choice = getch()
 			if choice == "1":
-				import loading as l
-				l.main_explore()
-				import explore_handler as explore
-				import monster_pick as monster
+				l.main_explore()		
 				explore.handle(monster.deep_forest)
 			elif choice == "2":
 				map1.forest_heart()
@@ -240,10 +235,7 @@ class map1:
 			preset.area("You're in the Heart Forest.", "[1]Explore, [2]Cave [3]Go Back")
 			choice = getch()
 			if choice == "1":
-				import loading as l
 				l.main_explore()
-				import explore_handler as explore
-				import monster_pick as monster
 				explore.handle(monster.forest_heart)
 			elif choice == "2":
 				map1.cave()
@@ -255,11 +247,8 @@ class map1:
 			preset.area("You're in Cave", "[1]Explore, [2]Deep Cave, [3]Heart Forest")
 			choice = getch()
 			if choice == "1":
-				import loading as l
 				l.main_explore()
-				import explore_handler as explore
-				import monster_pick as monster
-				explore.handle(monster.caves)
+				explore.handle_single(monster.spider)
 			elif choice == "2":
 				map1.deep_cave()
 			elif choice == "3":
@@ -270,10 +259,7 @@ class map1:
 			preset.area("You're in Deep Cave", "[1]Explore, [2]Go Deeper, [3]Go Back")
 			choice = getch()
 			if choice == "1":
-				import loading as l
 				l.main_explore()
-				import explore_handler as explore
-				import monster_pick as monster
 				explore.handle(monster.caves_deep)
 			elif choice == "2":
 				map1.dungeon_den()
@@ -288,7 +274,7 @@ class map1:
 			)
 			choice = getch()
 			if choice == "1":
-				pass # Should put the spider queen boss here?
+				explore.handle_single(monster.queen_spider)
 			elif choice == "2":
 				map1.deep_cave()
 
