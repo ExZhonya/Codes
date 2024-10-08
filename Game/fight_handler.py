@@ -85,7 +85,7 @@ class Fight:
 						self.attack('enemy')
 						time.sleep(1)
 					else:
-						# Enemy Deflect
+						# Enemy Blocks
 						self.attack('player (blocked)')
 						time.sleep(1)
 				
@@ -162,7 +162,6 @@ class Fight:
 		self.player.hp = self.player.max_hp
 		self.player.mp = self.player.max_mp
 
-# debugging purposes
 if __name__ == '__main__':
 	fight = Fight()
 	monster = monster.rabbit

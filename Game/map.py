@@ -1,8 +1,8 @@
 # Creator: @ExZhonya
 # Co-Creator: @Pilgrimir
-import time
-import os
-import sys
+
+import time, os, sys
+
 #######################
 """ OUR FILE IMPORT"""
 import ascii_preset as ap

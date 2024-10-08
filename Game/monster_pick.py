@@ -69,8 +69,6 @@ tree_treant = Monster("Tree Treant", 50, 23, 25, 150, 0, 700)
 # Caves monsters
 spider = EvolvedMonster("Spiders", 25, 40, 25, 40, 0.30, 800, random.randint(1, 3))  # 1. Level; 2. Hp; 3. Evasion Rate; 4. Random Spawn amount
 
-# the deep cave are copy paste for test, modify them later
-
 # Deep caves monsters
 spider_2 = EvolvedMonster("Spiders", 25, 40, 25, 40, 0.30, 800, random.randint(1, 3)) 
 poison_spider = EvolvedMonster("Poisonous Spiders", 25, 40, 25, 40, 0.30, 800, random.randint(1, 3))
@@ -78,6 +76,7 @@ poison_spider = EvolvedMonster("Poisonous Spiders", 25, 40, 25, 40, 0.30, 800, r
 # Cave heart monsters
 queen_spider = Monster("Spider Queen", 25, 40, 25, 40, 0.30, 800)
 
+# Monster Lists
 spawn = [goblin]
 grassland = [rabbit, deer]
 forest = [wolf, fox]
@@ -89,5 +88,4 @@ caves_deep = [spider_2, poison_spider]
 def randomize(group):
 	weight = [3, 1]
 	next_monster = random.choices(group, weights=weight, k=1)
-
 	return next_monster[0]
