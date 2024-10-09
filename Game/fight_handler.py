@@ -82,8 +82,9 @@ class Fight:
 						# Enemy Retaliates
 						self.attack('player')
 						time.sleep(1)
-						self.attack('enemy')
-						time.sleep(1)
+						if self.current_monster.hp > 0:
+							self.attack('enemy')
+							time.sleep(1)
 					else:
 						# Enemy Blocks
 						self.attack('player (blocked)')

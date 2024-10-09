@@ -17,18 +17,20 @@ def handle(location):
 			result = fight.start(current_monster)
 			quest_updater(str(current_monster), location)
 
-			if result == 'win':
+			if result == 'win' and repetition < 2:
 				print('You moved on to the next monster you saw.')
 				time.sleep(1)
 				repetition += 1
 				continue
+			elif result in ('dead', 'fled'):
+				return
 			else: break
 
-		if repetition == 2:
-			repetition = 0
-			print("There was no more monsters, you left the area.")
-			fight.reset()
-			time.sleep(1)
+		repetition = 0
+		print("There was no more monsters, you left the area.")
+		fight.reset()
+		time.sleep(1)
+			
 	else:
 		print("You found nothing.")
 		time.sleep(1)
