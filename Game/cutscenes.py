@@ -17,21 +17,16 @@ display_scene = {
 }
 
 
-def check(scene_number):  # given scene no.
-    if scene_number in cutscenes_state:  # checks if the given scene no. is in the cutscenes_state dictionary 
-        if cutscenes_state[scene_number] == 'Incomplete':  # if it's incomplete, continue the scene
-            pass
-        else:
-            return False  # Scene is already completed, return False to stop the cutscene
+def check(scene_number):
+    if scene_number in cutscenes_state: 
+        if cutscenes_state[scene_number] == 'Incomplete':
+            return True
     else:
-        print("Scene does not exist.")  # if the scene doesn't exist, print a message
-        return False  # Return False to avoid running a non-existent scene
-
-    return True  # Return True to continue the cutscene
+        print("Scene does not exist.")
 
 
 def update(scene_number):
-    cutscenes_state[scene_number] = 'Completed' # just updates the dictionary to complete once the dialogue has completely finished.
+    cutscenes_state[scene_number] = 'Completed' 
 
 
 # Text based functions-------------------------

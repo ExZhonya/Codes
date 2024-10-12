@@ -7,46 +7,40 @@ fight = Fight()
 
 
 def handle(location):
-	if random.random() < 0.80 and location:
+	if random.random() < 0.80:
 		print("You found a few monsters lying around.")
 		time.sleep(1)
 		repetition = 0
 		while repetition in range(3):
-			
-			# randomizing their stats based on lvl
 			current_monster = monster.randomize(location)
-
-			# actually spawning then
 			current_monster.spawn()
+			result = fight.start(current_monster)
+			quest_updater(str(current_monster), location)
 
-			# starting the fight
-			can_continue = fight.start(current_monster)
-
-			# updating the quest once the fight is over
-			quest_updater(str(current_monster), location) # a function in this file
-
-			if can_continue:
+			if result == 'win' and repetition < 2:
 				print('You moved on to the next monster you saw.')
 				time.sleep(1)
 				repetition += 1
 				continue
-			else:
-				break
+			elif result in ('dead', 'fled'):
+				return
+			else: break
 
-		if repetition == 2:
-			repetition = 0
-			print("There was no more monsters, you left the area.")
-			time.sleep(1)
+		repetition = 0
+		print("There was no more monsters, you left the area.")
+		fight.reset()
+		time.sleep(1)
+			
 	else:
 		print("You found nothing.")
 		time.sleep(1)
-
 
 
 def handle_single(monster):
 	monster.spawn()
 	fight.current_monster = monster
 	fight.start(monster)
+	fight.reset()
 	return
 
 def quest_updater(mon, location):
@@ -61,4 +55,4 @@ def quest_updater(mon, location):
 
 
 if __name__ == '__main__':
-	handle_multiple(monster.grassland)
+	handle(monster.grassland)
