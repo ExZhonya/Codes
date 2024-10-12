@@ -4,33 +4,30 @@ class Bank:
     def __init__(self, name, money):
         self.name = name
         self.money = money
-        
-    def deposit(self):  # infinite money generator
-    	os.system("clear")
-    	try:
-	        print("How much do you want to deposit?\n")
-	        amount = int(input())
-	        self.money += amount
-	        print(f"You have deposited ${amount}")
-    	except ValueError:
-        	print("Enter a valid number!")
 
-	    	
+    def deposit(self):  # infinite money generator
+        os.system("clear")
+        try:
+            print("How much do you want to deposit?\n")
+            amount = int(input())
+            self.money += amount
+            print(f"You have deposited ${amount}")
+        except ValueError:
+            print("Enter a valid number!")
+
     def withdraw(self):
         os.system('clear')
         try:
-	        print("How much do you want to withdraw?\n")
-	        amount = int(input())
-	        if self.money > amount:
-	            self.money -= amount
-	            print(f"You has deposited ${amount}")
-	        elif self.money < amount:
-	            print("You don't have enough money")
+            print("How much do you want to withdraw?\n")
+            amount = int(input())
+            if self.money > amount:
+                self.money -= amount
+                print(f"You have withdrawn ${amount}")
+            elif self.money < amount:
+                print("You don't have enough money")
         except ValueError:
-        	print("Enter a valid number!")
-        	
-        	
-        
+            print("Enter a valid number!")
+
     def transfer(self):
         os.system('clear')
         try:
@@ -40,19 +37,17 @@ class Bank:
             amount = int(input())
             if self.money > amount:
                 self.money -= amount
-                print(f"You has transferred ${amount} to {user}")
-                return
+                print(f"You have transferred ${amount} to {user}")
             elif self.money < amount:
                 print("You don't have enough money")
-                
         except ValueError:
-        	print("Enter a valid number!")
-        
+            print("Enter a valid number!")
+
     def balance(self):
         os.system('clear')
         balance = self.money
         print(f"You have ${balance}")
-    
+
     def start(self):
         while True:
             print("""
@@ -72,8 +67,8 @@ class Bank:
                 self.transfer()
             elif choice == "4":
                 self.balance()
-        
-        
+
+
 account = Bank("Lua", 0)
 
 account.start()

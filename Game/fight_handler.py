@@ -119,8 +119,8 @@ class Fight:
 				return 'fled'
 
 	def attack(self, turn):
-		if turn == 'player':
-			player = int(self.player.strength / 2)
+		if turn == 'player': # player attack
+			player = int(self.player.strength / 1.5)
 			self.current_monster.hp -= player
 			print(f'{self.player_name} attacked for {player} dmg!')
 
@@ -131,7 +131,7 @@ class Fight:
 			time.sleep(1)
 			print(f'but got deflected for only {player} dmg!')
 
-		elif turn == 'enemy':
+		elif turn == 'enemy': #enemy attacked
 			monster = int(self.current_monster.dmg)
 			self.player.hp -= monster 
 			print(f'{self.monster_name} attacked for {monster} dmg!')

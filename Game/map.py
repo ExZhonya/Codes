@@ -312,7 +312,12 @@ class map2:
 			if choice == "1":
 				map2.city()
 			elif choice == "2":
-				pass
+				while True:
+					os.system("cls;clear")
+					print("Hello! is there anything i can help with?")
+					x = input("[1]Back")
+					if x == "1":
+						map2.city()
 			elif choice == "3":
 				pass
 

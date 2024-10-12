@@ -1,7 +1,7 @@
 import os, time
 
 class Player:
-	def __init__(self, name="", hp=20, mp=15, strength=5, _int=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=300):
+	def __init__(self, name="Player", hp=20, mp=15, strength=1, _int=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=300, gold=0):
 		self.name = name
 		self.hp = hp
 		self.max_hp = self.hp
@@ -14,6 +14,7 @@ class Player:
 		self.stat_points = stat_points
 		self.exp = exp
 		self.exp_needed = exp_needed
+		self.gold = gold
 
 	def display_stats(self): #FOR WHILE IN INN/HOUSE
 		os.system("cls" if os.name == "nt" else "clear")
@@ -60,31 +61,36 @@ class Player:
 			while self.stat_points > 0:
 				x = input()
 				if x == "1":
-					self.hp += 5
+					self.max_hp += 5
 					self.stat_points -= 1
+					print(f"You now have {self.max_hp} Max HP!")
 					print(f"You have {self.stat_points} stat points left.")
 				elif x == "2":
-					self.mp += 5
+					self.max_mp += 5
 					self.stat_points -= 1
+					print(f"You now have {self.max_mp}Max MP!")
 					print(f"You have {self.stat_points} stat points left.")
 				elif x == "3":
 					self.strength += 1
 					self.stat_points -= 1
+					print(f"You now have {self.strength} Strength!")
 					print(f"You have {self.stat_points} stat points left.")
 				elif x == "4":
 					self.int += 1
 					self.stat_points -= 1
+					print(f"You now have {self.int} Intelligence!")
 					print(f"You have {self.stat_points} stat points left.")
 				elif x == "5":
 					self.defense += 1
 					self.stat_points -= 1
+					print(f"You now have {self.defense} Defense!")
 					print(f"You have {self.stat_points} stat points left.")
 			if self.stat_points < 1:
 				self.display_stats()
 
 	def get_exp(self, exp):
 		self.exp += exp
-		print(f"You recieved {exp} exp!")
+		print(f"You have received {exp} exp!")
 		if self.exp >= self.exp_needed:
 			self.level_up()
 			self.display_stats()

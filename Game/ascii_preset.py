@@ -22,7 +22,7 @@ class Shop:
 class Weapons:
     def weapon(self):
         os.system("cls;clear")
-        print("-" * 30)
+        print("=" * 30)
         print(
             r"""
 __        __                               
@@ -33,11 +33,17 @@ __        __
                     |_|                    
                     """
         )
+        from player import Player
+        player = Player()
+        gold = player.gold
+        print("=" * 30)
         print(
-            """
-[1]Coming Soon
-[2]Coming Soon
-[3]Coming Soon
+            f"""
+You have {gold} gold coins.
+
+[-]Coming Soon
+[-]Coming Soon
+[-]Coming Soon
     """)
         print("[1]Back")
         print("-" * 30)
@@ -45,7 +51,7 @@ __        __
 class Armors:
     def armor(self):
         os.system("cls;clear")
-        print("-" * 30)
+        print("=" * 30)
         print(
             r"""    _                              
    / \   _ __ _ __ ___   ___  _ __ 
@@ -54,11 +60,17 @@ class Armors:
 /_/   \_\_|  |_| |_| |_|\___/|_|   
 """
         )
+        from player import Player
+        player = Player()
+        gold = player.gold
+        print("=" * 30)
         print(
-            """
-[1]Coming Soon
-[2]Coming Soon
-[3]Coming Soon
+            f"""
+You have {gold} gold coins.
+
+[-]Coming Soon
+[-]Coming Soon
+[-]Coming Soon
     """
         )
         print("[1]Back")
@@ -67,7 +79,7 @@ class Armors:
 class Potions:
     def potion(self):
         os.system("cls;clear")
-        print("-" * 30)
+        print("=" * 30)
         print(
             r"""
  ____       _   _                 
@@ -77,11 +89,17 @@ class Potions:
 |_|   \___/ \__|_|\___/|_| |_|___/
 """
         )
+        from player import Player
+        player = Player()
+        gold = player.gold
+        print("=" * 30)
         print(
-            """
-[1]Coming Soon
-[2]Coming Soon
-[3]Coming Soon
+            f"""
+You have {gold} gold coins.
+            
+[-]Coming Soon
+[-]Coming Soon
+[-]Coming Soon
     """
         )
         print("[1]Back")
