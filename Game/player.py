@@ -95,6 +95,9 @@ class Player:
 			self.level_up()
 			self.display_stats()
 
+
+player = Player()
+
 if __name__ == "__main__":
 	player = Player()
 	player.display_stats()

@@ -1,9 +1,7 @@
 import time, random
-from fight_handler import Fight
+from fight_handler import fight
 import monster_pick as monster
 from quest_check import *
-
-fight = Fight()
 
 
 def handle(location):
@@ -28,7 +26,6 @@ def handle(location):
 
 		repetition = 0
 		print("There was no more monsters, you left the area.")
-		fight.reset()
 		time.sleep(1)
 			
 	else:
@@ -55,4 +52,6 @@ def quest_updater(mon, location):
 
 
 if __name__ == '__main__':
+	from player import player
+	player.strength += 100
 	handle(monster.grassland)

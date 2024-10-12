@@ -1,8 +1,6 @@
 import time, os, random, sys
-from player import Player
 import monster_pick as monster
-
-player = Player()
+from player import player
 
 #=====================NO INPUT TECHNIQUE===============================
 if sys.platform == "win32":
@@ -49,6 +47,7 @@ class Fight:
 		self.current_monster = current_monster
 		self.player_name = 'Test'
 		self.monster_name = self.current_monster.name
+		self.fleed = False
 
 		while True:
 			enemy_hp = self.hp_bar(self.current_monster)
@@ -68,37 +67,10 @@ class Fight:
 			print(f"{'MP':<10}| {self.player.mp}/{self.player.max_mp}")
 			print(f"{'Level':<10}| {self.player.level}")
 			print(f"{'-'*30}")
-			print(f"{'[1]Fight, [2]Defend, [3]Run':<10}")
+			print(f"{'[1]Fight, [2]Defend, [3]Items(Coming soon) [4]Run':<10}")
 			print(f"{'='*30}")
 
-			option = int(getch())
-
-			fleed = False
-
-			match option:
-				case 1:
-					chance = random.randint(0, 100)
-					if chance >= 20:
-						# Enemy Retaliates
-						self.attack('player')
-						time.sleep(1)
-						if self.current_monster.hp > 0:
-							self.attack('enemy')
-							time.sleep(1)
-					else:
-						# Enemy Blocks
-						self.attack('player (blocked)')
-						time.sleep(1)
-				
-				case 2:
-					self.block('player')
-					time.sleep(1)
-					self.attack('enemy (blocked)')
-					time.sleep(1)
-				
-				case 3:
-					fleed = self.flee()
-					time.sleep(1)
+			self.input_process(int(getch()))
 
 			if self.player.hp <= 0:
 				print('You died! Respawning...')
@@ -112,59 +84,60 @@ class Fight:
 				self.player.get_exp(self.current_monster.exp)
 				return 'win'
 
-			elif fleed:
+			elif self.fleed:
 				print('You narrowly fled the scene...')
 				time.sleep(1)
-				self.reset()
 				return 'fled'
 
-	def attack(self, turn):
-		if turn == 'player': # player attack
-			player = int(self.player.strength / 1.5)
-			self.current_monster.hp -= player
-			print(f'{self.player_name} attacked for {player} dmg!')
-
-		elif turn == 'player (blocked)':
-			player = int(self.player.strength / 4)
-			self.current_monster.hp -= player
-			print(f'{self.player_name} attacked,')
+	def input_process(self, getch):
+		if getch == 1:
+			self.monster_retaliate('attacking')
+		elif getch == 2:
+			self.monster_retaliate('defending')
+		elif getch == 3:
+			# acesses items
+			pass
+		elif getch == 4:
+			fleed_chance = random.random()
+			print("You tried to leave the battle..")
 			time.sleep(1)
-			print(f'but got deflected for only {player} dmg!')
+			if fleed_chance <= 0.35:
+				self.fleed = True
+				return
+			else:
+				print("You failed.")
+				self.monster_retaliate('')
 
-		elif turn == 'enemy': #enemy attacked
-			monster = int(self.current_monster.dmg)
-			self.player.hp -= monster 
-			print(f'{self.monster_name} attacked for {monster} dmg!')
+	def monster_retaliate(self, type):
+		damage_fluctuation = random.uniform(self.current_monster.dmg * 0.25, self.current_monster.dmg)
+		if type == 'defending':
+			damage_reduction_fluctuation = random.uniform(0.50, 0.99)
+			damage = damage_fluctuation * damage_reduction_fluctuation
+			
+			print("You steeled your body..")
+			time.sleep(1)
+			print(f"Blocked! {self.monster_name} dealt {int(damage)} dmg")
+			self.player.hp -= int(damage)
+			time.sleep(1)
+			return
+		elif type == 'attacking':
+			player_damage = self.player.strength / 2 
+			print(f"Attacked for {int(player_damage)}.")
+			self.current_monster.hp -= player_damage
+			time.sleep(1)
 
-		elif turn == 'enemy (blocked)':
-			monster = int(self.current_monster.dmg / 2)
-			self.player.hp -= monster 
-			print(f'And {self.monster_name} attacked for {monster} dmg')	
-
-		elif turn == 'enemy (fled)':
-			monster = int(self.current_monster.dmg)
-			self.player.hp -= monster 
-			print(f'{self.monster_name} caught up and dealt {monster} dmg!')
-
-	def block(self, turn):
-		if turn == 'player':
-			print(f'{self.player_name} anticipates the next attack')
-
-	def flee(self):
-		flee = random.random()
-		print('You tried to flee...')
+		print(f"{self.monster_name} attacked for {int(damage_fluctuation)}.")
+		self.player.hp -= int(damage_fluctuation)
 		time.sleep(1)
-		if flee > 0.20:
-			return True
-		else:
-			self.attack('enemy (fled)')
 
 	def reset(self):
 		self.player.hp = self.player.max_hp
 		self.player.mp = self.player.max_mp
 
+fight = Fight()
+
 if __name__ == '__main__':
-	fight = Fight()
 	monster = monster.rabbit
+	player.strength += 100
 	monster.spawn()
 	fight.start(monster)
