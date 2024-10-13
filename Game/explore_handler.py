@@ -8,8 +8,7 @@ def handle(location):
 	if random.random() < 0.80:
 		print("You found a few monsters lying around.")
 		time.sleep(1)
-		repetition = 0
-		while repetition in range(3):
+		for repetition in range(3):
 			current_monster = monster.randomize(location)
 			current_monster.spawn()
 			result = fight.start(current_monster)
@@ -22,12 +21,9 @@ def handle(location):
 				continue
 			elif result in ('dead', 'fled'):
 				return
-			else: break
-
-		repetition = 0
-		print("There was no more monsters, you left the area.")
-		time.sleep(1)
-			
+			else:
+				print("There was no more monsters, you left the area.")
+				time.sleep(1)
 	else:
 		print("You found nothing.")
 		time.sleep(1)
@@ -40,15 +36,15 @@ def handle_single(monster):
 	fight.reset()
 	return
 
-def quest_updater(mon, location):
+def quest_updater(monster, location):
 	if 'Ongoing' in quest_states.values():
 		match location:
 			case monster.grassland:
-				if mon in grass_progress: grass_progress[mon] += 1
+				if monster in grass_progress: grass_progress[monster] += 1
 			case monster.forest:
-				if mon in grass_progress: forest_progress[mon] += 1
+				if monster in forest_progress: forest_progress[monster] += 1
 			case monster.caves:
-				if mon in grass_progress: cave_progress[mon] += 1
+				if monster in cave_progress: cave_progress[monster] += 1
 
 
 if __name__ == '__main__':
