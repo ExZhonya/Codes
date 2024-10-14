@@ -1,6 +1,4 @@
-import time
-import os
-import sys
+import time, os, sys
 #=====================NO INPUT TECHNIQUE===============================
 if sys.platform == "win32":
 	import msvcrt
@@ -22,161 +20,106 @@ else:
 			termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 		return ch
 #=====================================================================
-
-
-#========PROGRESS================
-grass_progress= {
-	"Rabbit": 4,
-	"Deer": 2
+quest_dataline = {
+	'names': {
+		1: 'Trouble in the tall grass',
+		2: 'Ambush behind the trees',
+		3: 'Something lurking on the caves'
+	},
+	'states': {
+		1: 'Incomplete',
+		2: 'Unavailable',
+		3: 'Unavailable'
+	},
+	'progress': {
+		1: {1: {'current': 5, 'final': 5}, 2: {'current': 3, 'final': 3}},
+		2: {1: {'current': 0, 'final': 5}, 2: {'current': 0, 'final': 5}},
+		3: {1: {'current': 0, 'final': 15}}
+	}
 }
 
-forest_progress= {
-	"Wolf": 0,
-	"Fox": 0
-}
+names = quest_dataline['names']
+states = quest_dataline['states']
+progress = quest_dataline['progress']
 
-cave_progress= {
-	"Spider": 0
-}
-
-#==========PRESETS================
-
-def grass_quest():
-	return f"""===============================
+grassland = f"""===============================
 Quest:
-Kill 5 rabbits ({grass_progress["Rabbit"]}/5)
-Kill 3 deers ({grass_progress["Deer"]}/3)
+Kill 5 rabbits ({quest_dataline['progress'][1][1]['current']}/{quest_dataline['progress'][1][1]['final']})
+Kill 3 deers ({quest_dataline['progress'][1][2]['current']}/{quest_dataline['progress'][1][2]['final']})
 Reward: 10 bronze coins, 30 exp
-===============================
-"""
+==============================="""
 
-def forest_quest():
-	return f"""===============================
+forest = f"""===============================
 Quest:
-Kill 5 wolves ({forest_progress["Wolf"]}/5)
-Kill 5 foxes ({forest_progress["Fox"]}/5)
+Kill 5 wolves ({quest_dataline['progress'][2][1]['current']}/{quest_dataline['progress'][2][1]['final']})
+Kill 5 foxes ({quest_dataline['progress'][2][1]['current']}/{quest_dataline['progress'][2][2]['final']})
 Reward: 80 bronze coins, 90 exp
-===============================
-"""
+==============================="""
 
-def cave_quest():
-	return f"""===============================
+caves = f"""===============================
 Quest:
-Kill 15 spiders ({cave_progress["Spider"]}/15)
+Kill 15 spiders ({quest_dataline['progress'][3][1]['current']}/{quest_dataline['progress'][3][1]['final']})
 Reward: 10 silver coins, 300 exp
-===============================
-"""
-
-#==========STATES==================
-quests = {
-	1: 'Trouble in the tall grass',
-	2: 'Ambush behind the trees',
-	3: 'Something lurking on the caves'
-}
-
-quest_states = {
-	1: 'Pending',
-	2: 'Unavailable',
-	3: 'Unavailable'
-}
-#===================================
+==============================="""
 
 def quest_handler():
 	os.system('cls;clear')
 	print("--------Quest:-------")
-	for key, value in quests.items():
-		state = quest_states[key]
-		if state == 'Ongoing':
-			print(f"[{key}] {value} (Ongoing)")
-		elif state == 'Pending':
-			print(f"[{key}] {value}")
-		elif state == 'Completed':
-			print(f"[{key}] {value} (Completed)")
+	for quest, name in names.items():
+		if states[quest] == 'Ongoing': print(f'[{quest}] (Ongoing){name}')
+		elif states[quest] == 'Unavailable': print(f'[{quest}] {name}')
+		elif states[quest] == 'Incomplete': print(f'[{quest}] {name}')
+		else: print(f'[{quest}] (Completed){name}')
 	print(f"[`]Back")
 	print("---------------------")
 	print("Which quest would you like to do, Traveler?\n")
-	confirm(getch())
-	return
 	
+	option = getch()
+	if option == '`': return
+	else: confirm(int(option))
 
 def confirm(option):
 	os.system('cls;clear')
-	if option == '1' and quest_states[int(option)] in {'Pending', 'Ongoing'}:
-		print(grass_quest())
-		match quest_states[int(option)]:
-			case 'Pending':
-				print("Take quest? [1]Yes [2]No")
-			case 'Ongoing':
-				print("[1]Submit Quest [2]Back")
-		update(getch(), 1)
-	elif option == '2' and quest_states[int(option)] in {'Pending', 'Ongoing'}:
-		print(forest_quest())
-		match quest_states[int(option)]:
-			case 'Pending':
-				print("Take quest? [1]Yes [2]No")
-			case 'Ongoing':
-				print("[1]Submit Quest [2]Back")
-		update(getch(), 2)
-	elif option == '3' and quest_states[int(option)] in {'Pending', 'Ongoing'}:
-		print(cave_quest())
-		match quest_states[int(option)]:
-			case 'Pending':
-				print("Take quest? [1]Yes [2]No")
-			case 'Ongoing':
-				print("[1]Submit Quest [2]Back")
-		update(getch(), 3)
-	elif option == '`':
-		return
+
+	process_display(option)
+	
+	if states[option] == 'Incomplete':
+		states[option] = 'Ongoing' if input('Take quest? [1]Yes [2]No ') == '1' else quest_handler()
+		print(f'Quest taken: {names[option]}!')
+		time.sleep(2)
+	elif states[option] == 'Ongoing': submit(option)
+	else: 
+		print('Quest Unavailable, please complete previous quests first.')
+		time.sleep(2)
+
+	quest_handler()
+
+def process_display(option):
+	if option == 1:
+		print(grassland)
+	elif option == 2:
+		print(forest)
+	elif option == 3:
+		print(caves)
+
+def submit(option):
+	submittable_quest = 0
+
+	for animal_id, animal_progress in progress[option].items():
+		if animal_progress['current'] == animal_progress['final']:
+			submittable_quest += 1
+
+	if submittable_quest == len(progress[option]):
+		if input('Submit quest? [1]Y [2]N ') == '1':
+			states[option] = 'Completed'
+			states[option+1] = 'Incomplete'
+			print(f'Quest [{names[option]}] Completed!')
+			time.sleep(2)
+		else:
+		 	quest_handler()
 	else:
-		quest_handler()
+		print('Not enough progress.')
+		time.sleep(1)
 
-			
-def update(value, index):
-	if value == '1' and 'Pending' in quest_states[index]:
-		if 'Ongoing' not in quest_states.values():
-			quest_states[index] = 'Ongoing'
-			print(f"({quests[index]}) quest added!")
-			time.sleep(1)
-		else:
-			print("Please complete the ongoing quest.")
-			time.sleep(1)
-	elif value == '1' and 'Ongoing' in quest_states[index]:
-		if detect_grassland():
-			print("Oh thank you adventurer! Here's what we can give you..")
-			time.sleep(1)
-			print("Given 10 bronze coins, also gaining an extra 30 exp.")
-			time.sleep(1)
-			quest_states[index] = 'Completed'
-			quest_states[index+1] = 'Pending'
-		elif detect_forest():
-			print("Oh thank you adventurer! Here's what we can give you..")
-			time.sleep(1)
-			print("Given 80 bronze coins, also gaining an extra 90 exp.")
-			time.sleep(1)
-			quest_states[index] = 'Completed'
-			quest_states[index+1] = 'Pending'
-		elif detect_caves():
-			print("Oh thank you adventurer! Here's what we can give you..")
-			time.sleep(1)
-			print("Given 10 silver coins, also gaining an extra 300 exp.")
-			time.sleep(1)
-			quest_states[index] = 'Completed'
-			quest_states[index+1] = 'Pending'
-		else:
-			print("Quota not reached yet.")
-			return
-	elif value == '2':
-		return
-
-
-def detect_grassland():
-	if grass_progress['Rabbit'] >= 5 and grass_progress['Deer'] >= 3:
-		return True
-	
-def detect_forest():
-	if forest_progress['Wolf'] >= 5 and forest_progress['Fox' ] >= 5:
-		return True
-	
-def detect_caves():
-	if cave_progress['Spider'] >= 15:
-		return True
+if __name__ == '__main__':
+	quest_handler()
