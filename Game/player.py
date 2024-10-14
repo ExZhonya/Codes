@@ -26,6 +26,7 @@ class Player:
 		print(f"{'Health (HP)':<10}| {self.max_hp:<5}")
 		print(f"{'Mana (MP)':<10} | {self.max_mp:<5}")
 		print(f"{'Strength':<10} | {self.strength:<5}")
+		print(f"{'Int':<10} | {self.intelligence:<5}")
 		print(f"{'Defense':<10} | {self.defense:<5}")
 		print(f"{'Level':<10} | {self.level:<5}")
 		print(f"{'Exp':<10} | {self.exp}/{self.exp_needed}")
@@ -43,7 +44,7 @@ class Player:
 			time.sleep(3)
 			self.level += 1
 			self.exp -= self.exp_needed
-			self.exp_needed = intelligence(self.exp_needed * 1.2)
+			self.exp_needed = int(self.exp_needed * 1.2)
 			self.exp = 0
 			self.stat_points += 2
 

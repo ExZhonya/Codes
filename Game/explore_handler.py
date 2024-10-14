@@ -1,7 +1,7 @@
 import time, random
 from fight_handler import fight
 import monster_pick as monster
-from quest_check import *
+import quest_check as quest
 
 
 def handle(location):
@@ -12,7 +12,7 @@ def handle(location):
 			current_monster = monster.randomize(location)
 			current_monster.spawn()
 			result = fight.start(current_monster)
-			quest_updater(str(current_monster), location)
+			quest_updater(current_monster, location)
 
 			if result == 'win' and repetition < 2:
 				print('You moved on to the next monster you saw.')
@@ -37,17 +37,13 @@ def handle_single(monster):
 	return
 
 def quest_updater(monster, location):
-	if 'Ongoing' in quest_states.values():
-		match location:
-			case monster.grassland:
-				if monster in grass_progress: grass_progress[monster] += 1
-			case monster.forest:
-				if monster in forest_progress: forest_progress[monster] += 1
-			case monster.caves:
-				if monster in cave_progress: cave_progress[monster] += 1
-
-
+	if 'Ongoing' in quest.states.values():
+		for key, value in quest.progress.items():
+			if str(monster) in value.keys():
+				monster_data = value[str(monster)]
+				monster_data['current'] += 1
 if __name__ == '__main__':
 	from player import player
 	player.strength += 100
+	quest.states[1] = 'Ongoing'
 	handle(monster.grassland)

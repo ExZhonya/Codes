@@ -32,9 +32,31 @@ quest_dataline = {
 		3: 'Unavailable'
 	},
 	'progress': {
-		1: {1: {'current': 5, 'final': 5}, 2: {'current': 3, 'final': 3}},
-		2: {1: {'current': 0, 'final': 5}, 2: {'current': 0, 'final': 5}},
-		3: {1: {'current': 0, 'final': 15}}
+		1: {
+			"Rabbit": {
+				'current': 0, 
+				'final': 5
+				}, 
+			"Deer": {
+				'current': 3, 
+				'final': 3
+				}
+			},
+		2: {
+			"Wolf": {
+				'current': 0, 
+				'final': 5}, 
+			"Fox": {
+				'current': 0, 
+				'final': 5
+				}
+			},
+		3: {
+			"Spider": {
+				'current': 0, 
+				'final': 15
+				}
+			}
 	}
 }
 
@@ -44,21 +66,21 @@ progress = quest_dataline['progress']
 
 grassland = f"""===============================
 Quest:
-Kill 5 rabbits ({quest_dataline['progress'][1][1]['current']}/{quest_dataline['progress'][1][1]['final']})
-Kill 3 deers ({quest_dataline['progress'][1][2]['current']}/{quest_dataline['progress'][1][2]['final']})
+Kill 5 rabbits ({quest_dataline['progress'][1]['Rabbit']['current']}/{quest_dataline['progress'][1]['Rabbit']['final']})
+Kill 3 deers ({quest_dataline['progress'][1]['Deer']['current']}/{quest_dataline['progress'][1]['Deer']['final']})
 Reward: 10 bronze coins, 30 exp
 ==============================="""
 
 forest = f"""===============================
 Quest:
-Kill 5 wolves ({quest_dataline['progress'][2][1]['current']}/{quest_dataline['progress'][2][1]['final']})
-Kill 5 foxes ({quest_dataline['progress'][2][1]['current']}/{quest_dataline['progress'][2][2]['final']})
+Kill 5 wolves ({quest_dataline['progress'][2]['Wolf']['current']}/{quest_dataline['progress'][2]['Wolf']['final']})
+Kill 5 foxes ({quest_dataline['progress'][2]['Fox']['current']}/{quest_dataline['progress'][2]['Fox']['final']})
 Reward: 80 bronze coins, 90 exp
 ==============================="""
 
 caves = f"""===============================
 Quest:
-Kill 15 spiders ({quest_dataline['progress'][3][1]['current']}/{quest_dataline['progress'][3][1]['final']})
+Kill 15 spiders ({quest_dataline['progress'][3]['Spider']['current']}/{quest_dataline['progress'][3]['Spider']['final']})
 Reward: 10 silver coins, 300 exp
 ==============================="""
 
