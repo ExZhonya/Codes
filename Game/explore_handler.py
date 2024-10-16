@@ -44,6 +44,6 @@ def quest_updater(monster, location):
 				monster_data['current'] += 1
 if __name__ == '__main__':
 	from player import player
-	player.strength += 100
+	player.strength += 5
 	quest.states[1] = 'Ongoing'
 	handle(monster.grassland)
