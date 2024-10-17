@@ -85,11 +85,13 @@ class Chest:
     def display(self) -> None:
         print("===Chest===")
         for slot, item_info in self.inventory.items():
-            print(f"Slot {slot}: {item_info['name']} x{item_info['quantity']}")
+            print(f"{slot}: {item_info['name']} x{item_info['quantity']}")
         print("===========")
 
 
-house_chest: Chest = Chest(10)
+house_chest: Chest = Chest(10) #10 is the capacity of the chest
+
+
 
 # Add new items here.
 wooden_sword = Weapon('Wooden Sword', 5)
@@ -99,5 +101,6 @@ leather_armor = Armor('Leather Armor', 2)
 
 if __name__ == '__main__':
     print(house_chest.add(wooden_sword, 1))
+    print(house_chest.add(leather_armor, 3))
     house_chest.display()
     print(house_chest.remove())
