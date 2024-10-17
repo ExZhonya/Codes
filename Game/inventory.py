@@ -1,44 +1,103 @@
-class Weapon:
-    def __init__(self, name):
+from typing import List, Dict, Tuple
+from no_input import getch
+
+class Item:
+    def __init__(self, name: str, type: str) -> None:
         self.name = name
+        self.type = type
 
-weap_1 = Weapon("Wooden Sword")
-weap_2 = Weapon("Iron Sword")
-weap_3 = Weapon("Steel Sword")
-weap_4 = Weapon("Enchanted Sword")
+    def __str__(self) -> str:
+        return f'{self.name} (Type: {self.type})'
 
-weap_id = (weap_1, weap_2, weap_3, weap_4)
+class Weapon(Item):
+    def __init__(self, name: str, base_attack: int, type:str = 'Weapon', element= None) -> None:
+        super().__init__(name, type)
+        self.base_attack = base_attack
+        self.element = element
 
-class Armor:
-    def __init__(self, name):
-        self.name = name
+    def use(self) -> str:
+        return f"Used {self.name} for {self.base_attack}!"
 
-arm_1 = Armor("Leather Armor")
-arm_2 = Armor("Iron Armor")
-arm_3 = Armor("Steel Armor")
-arm_4 = Armor("Enchanted Armor")
+class Armor(Item):
+    def __init__(self, name:str, base_defense:int,  type:str = 'Armor',) -> None:
+        super().__init__(name, type)
+        self.base_defense = base_defense
 
-arm_id = (arm_1, arm_2, arm_3, arm_4)
-
-class Potion:
-    def __init__(self, name):
-        self.name = name
-
-id_1 = Potion("HP Potion")
-id_2 = Potion("MP Potion")
-
-pot_id = (id_1, id_2)
+    def use(self) -> str:
+        return f"Equipped {self.name} (+{self.base_defense})"
 
 
-class chest:
-    def show_chest():
-        print("="*30)
-        print(weap_1) 
-        """
-        weapons are stored in weap_n, n = id of the weapons, e.g wood sword = 1. weap_1 is wooden sword
-        """
-        print(arm_2) #same as weapons
-        print(id_1) #HP potions are id_1
-        print(id_2) #MP potions are id_2
-        print("="*30)
+class Chest:
+    def __init__(self, capacity: int) -> None:
+        self.capacity = capacity
+        self.inventory: Dict[int: Dict[str: int]] = {}
 
+    def add(self, item, quantity: int) -> str:
+        if len(self.inventory) >= self.capacity:
+            return f"Chest is full"
+        
+        slot = len(self.inventory) + 1
+
+        for existing_slot, item_info in self.inventory.items():
+            if item_info['name'] == item.name:
+                item_info['quantity'] += quantity
+                return f"Added x{quantity} of {item.name} in slot {existing_slot}."
+        
+        self.inventory[slot] = {'name': item.name, 'quantity': quantity}
+        return f"Added {item.name} x{quantity} in slot {slot}."
+
+    def remove(self) -> str:
+        print("Select a slot to remove items from:")
+        while True:
+            try:
+                picked_slot = int(getch())  # getch() should return the user's input
+                break
+            except ValueError:
+                print("Please enter a valid number.")
+        
+        if picked_slot not in self.inventory.keys():
+            return f"There is nothing in that slot."
+        
+        item_info = self.inventory[picked_slot]
+        item_name = item_info['name']
+        current_quantity = item_info['quantity']
+        
+        print(f"Enter quantity to remove for {item_name} (max {current_quantity}):")
+        while True:
+            try:
+                remove_quantity = int(getch())  # getch() should capture user input
+                break
+            except ValueError:
+                print("Please enter a valid number.")
+        
+        if remove_quantity > current_quantity:
+            return f"Cannot remove {remove_quantity}, only {current_quantity} available."
+        
+        self.inventory[picked_slot]['quantity'] -= remove_quantity
+        
+        if self.inventory[picked_slot]['quantity'] <= 0:
+            del self.inventory[picked_slot]
+            return f"Removed {item_name} from chest."
+
+        return f"Removed {remove_quantity} of {item_name} from slot {picked_slot}."
+
+
+    def display(self) -> None:
+        print("===Chest===")
+        for slot, item_info in self.inventory.items():
+            print(f"Slot {slot}: {item_info['name']} x{item_info['quantity']}")
+        print("===========")
+
+
+house_chest: Chest = Chest(10)
+
+# Add new items here.
+wooden_sword = Weapon('Wooden Sword', 5)
+leather_armor = Armor('Leather Armor', 2)
+
+
+
+if __name__ == '__main__':
+    print(house_chest.add(wooden_sword, 1))
+    house_chest.display()
+    print(house_chest.remove())
