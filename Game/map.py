@@ -5,9 +5,9 @@ import time, os, sys
 
 #######################
 """ OUR FILE IMPORT"""
-import ascii_preset as ap
-import loading as l
-import explore_handler as explore
+from presets import ascii_preset as ap
+from presets import loading as l
+from handlers import explore_handler as explore
 import monster_pick as monster
 
 
