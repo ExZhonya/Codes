@@ -119,7 +119,7 @@ class Fight:
 		else:
 			base_dmg = 3
 			player_damage = base_dmg + self.player.strength // 2
-			damage_fluctuation = random.choice([-2, -1, 0, 1, 2])
+			damage_fluctuation = random.randint(-2, 2)
 			player_damage += damage_fluctuation
 			print(f"Attacked for {int(player_damage)}.")
 			self.current_monster.hp -= player_damage
