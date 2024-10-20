@@ -1,4 +1,5 @@
 import os, time
+from no_input import getch
 
 class Player:
 	def __init__(self, name="Player", hp=20, mp=15, strength=1, intelligence=1, defense=1, level=1, stat_points=0, exp=0, exp_needed=300, gold=0):
@@ -35,7 +36,8 @@ class Player:
 		
 		if self.stat_points:
 			print("[1] Allocate Stats")
-			if input() == "1":
+			a = getch()
+			if a == "1":
 				self.stats_up()
 
 	def level_up(self):
@@ -59,7 +61,7 @@ class Player:
 			"""
 		for point in range(self.stat_points):
 			print(choice_display)
-			x = input()
+			x = getch()
 			if x == "1":
 				self.max_hp += 5
 				print(f"You now have {self.max_hp} Max HP!")

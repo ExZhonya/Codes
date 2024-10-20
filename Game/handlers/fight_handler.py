@@ -117,7 +117,10 @@ class Fight:
 			time.sleep(1)
 			print(f"Blocked! {self.current_monster.name} dealt {int(damage_taken)} dmg")
 		else:
-			player_damage = self.player.strength / 2
+			base_dmg = 3
+			player_damage = base_dmg + self.player.strength // 2
+			damage_fluctuation = random.randint(-2, 2)
+			player_damage += damage_fluctuation
 			print(f"Attacked for {int(player_damage)}.")
 			self.current_monster.hp -= player_damage
 
