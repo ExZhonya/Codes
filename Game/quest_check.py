@@ -84,7 +84,7 @@ Kill 15 spiders ({quest_dataline['progress'][3]['Spider']['current']}/{quest_dat
 Reward: 10 silver coins, 300 exp
 ==============================="""
 
-def quest_handler():
+def quest_handler() ->None:
 	os.system('cls;clear')
 	print("--------Quest:-------")
 	for quest, name in names.items():
@@ -100,7 +100,7 @@ def quest_handler():
 	if option == '`': return
 	else: confirm(int(option))
 
-def confirm(option):
+def confirm(option) ->None:
 	os.system('cls;clear')
 
 	process_display(option)
@@ -116,7 +116,7 @@ def confirm(option):
 
 	quest_handler()
 
-def process_display(option):
+def process_display(option)->None:
 	if option == 1:
 		print(grassland)
 	elif option == 2:
@@ -124,8 +124,8 @@ def process_display(option):
 	elif option == 3:
 		print(caves)
 
-def submit(option):
-	submittable_quest = 0
+def submit(option) ->None:
+	submittable_quest:int = 0
 
 	for animal_id, animal_progress in progress[option].items():
 		if animal_progress['current'] == animal_progress['final']:
@@ -138,7 +138,7 @@ def submit(option):
 			print(f'Quest [{names[option]}] Completed!')
 			time.sleep(2)
 		else:
-		 	quest_handler()
+			 quest_handler()
 	else:
 		print('Not enough progress.')
 		time.sleep(1)
