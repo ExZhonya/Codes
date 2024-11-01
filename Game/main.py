@@ -11,10 +11,10 @@ if __name__ == '__main__':
 
     current_monster = monster.goblin
 
-    # Loop until the player wins
+
     while True:
         result = handle_single(current_monster)
         if result == 'win':
-            break  # Exit the loop if the player wins
+            break
 
     m.start()
