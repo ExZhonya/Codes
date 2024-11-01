@@ -7,6 +7,7 @@ import time, os, sys
 """ OUR FILE IMPORT"""
 from presets import ascii_preset as ap
 from presets import loading as l
+from presets import cutscenes as c
 from handlers import explore_handler as explore
 import monster_pick as monster
 
@@ -67,7 +68,6 @@ class map1:
 			choice = getch()
 			if choice == "1":
 				os.system("cls;clear")
-				import loading as l
 				l.main() #loading animation
 				map1.grassland() #teleports
 			elif choice == "2":
@@ -80,7 +80,6 @@ class map1:
 				map1.blacksmith()
 			elif choice == "6":
 				os.system("cls;clear")
-				import loading as l
 				l.main() #loading animation
 				map2.city() #teleports
 
@@ -229,8 +228,7 @@ class map1:
 				map1.forest()
 
 	def forest_heart():
-		from cutscenes import forest
-		forest()
+		c.forest()
 		while True:
 			preset.area("You're in the Heart Forest.", "[1]Explore, [2]Cave [3]Go Back")
 			choice = getch()
@@ -281,8 +279,7 @@ class map1:
 
 class map2:
 	def city():
-		from cutscenes import city_first
-		city_first()
+		c.city_first()
 		while True:
 			preset.area(
 				"You're in City",
@@ -399,7 +396,6 @@ class map2:
 			preset.area("You're in Sewer", "[1]Explore, [2]Go Deeper [3]Go Back")
 			choice = getch()
 			if choice == "1":
-				import loading as l
 				l.main_explore()
 			elif choice == "2":
 				pass

@@ -26,7 +26,6 @@ class Armor(Item):
     def use(self) -> str:
         return f"Equipped {self.name} (+{self.base_defense})"
 
-
 class Chest:
     def __init__(self, capacity: int) -> None:
         self.capacity = capacity
@@ -88,16 +87,11 @@ class Chest:
             print(f"{slot}: {item_info['name']} x{item_info['quantity']}")
         print("===========")
 
-
 house_chest: Chest = Chest(10) #10 is the capacity of the chest
-
-
 
 # Add new items here.
 wooden_sword = Weapon('Wooden Sword', 5)
 leather_armor = Armor('Leather Armor', 2)
-
-
 
 if __name__ == '__main__':
     print(house_chest.add(wooden_sword, 1))
