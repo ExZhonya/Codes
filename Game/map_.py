@@ -10,8 +10,7 @@ from presets import loading as l
 from presets import cutscenes as c
 from handlers import explore_handler as explore
 import monster_pick as monster
-from Game import save_point as s
-
+from save_point import update_save_point, respawn_player
 
 #=====================NO INPUT TECHNIQUE===============================
 if sys.platform == "win32":
@@ -61,7 +60,7 @@ class preset:
 
 class map1:
 	def village():
-		s.update_save_point(1)
+		update_save_point(1)
 		while True:
 			preset.area(
 				"You're in the Village",
@@ -216,7 +215,7 @@ class map1:
 				l.main_explore()
 				result = explore.handle(monster.grassland)
 				if result == 'dead':
-					s.respawn_player()
+					respawn_player()
 			elif choice == "2":
 				map1.village()
 			elif choice == "3":
@@ -230,7 +229,7 @@ class map1:
 				l.main_explore()
 				result = explore.handle(monster.forest)
 				if result == 'dead':
-					s.respawn_player()
+					respawn_player()
 			elif choice == "2":
 				map1.grassland()
 			elif choice == "3":
@@ -244,7 +243,7 @@ class map1:
 				l.main_explore()		
 				result = explore.handle(monster.deep_forest)
 				if result == 'dead':
-					s.respawn_player()
+					respawn_player()
 			elif choice == "2":
 				map1.forest_heart()
 			elif choice == "3":
@@ -259,7 +258,7 @@ class map1:
 				l.main_explore()
 				result = explore.handle(monster.forest_heart)
 				if result == 'dead':
-					s.respawn_player()
+					respawn_player()
 			elif choice == "2":
 				map1.cave()
 			elif choice == "3":
@@ -273,7 +272,7 @@ class map1:
 				l.main_explore()
 				result = explore.handle_single(monster.spider)
 				if result == 'dead':
-					s.respawn_player()
+					respawn_player()
 			elif choice == "2":
 				map1.deep_cave()
 			elif choice == "3":
@@ -287,7 +286,7 @@ class map1:
 				l.main_explore()
 				result = explore.handle(monster.caves_deep)
 				if result == 'dead':
-					s.respawn_player()
+					respawn_player()
 			elif choice == "2":
 				map1.dungeon_den()
 			elif choice == "3":
@@ -304,13 +303,13 @@ class map1:
 				l.main_explore()
 				result = explore.handle_single(monster.queen_spider)
 				if result == 'dead':
-					s.respawn_player()
+					respawn_player()
 			elif choice == "2":
 				map1.deep_cave()
 
 
 class map2:
-	s.update_save_point(2)
+	update_save_point(2)
 	def city():
 		c.city_first()
 		while True:
@@ -455,7 +454,7 @@ class map2:
 
 
 class map3:
-	s.update_save_point(3)
+	update_save_point(3)
 	def castle():
 		while True:
 			preset.area(

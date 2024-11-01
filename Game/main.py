@@ -1,5 +1,5 @@
 from presets import welcome as w
-import map as m
+import Game.map_ as m
 from presets import cutscenes as c
 import monster_pick as monster
 from handlers.explore_handler import handle_single

@@ -138,7 +138,7 @@ fight = Fight(player)
 
 if __name__ == '__main__':
 	monster = monster.rabbit
-	player.name: str = "Joe"
+	player.name = "Joe"
 	player.strength += 100
 	monster.spawn()
 	fight.start(monster)
