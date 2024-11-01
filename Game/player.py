@@ -35,13 +35,16 @@ class Player:
         print(f"Stat Points Available: {self.stat_points}")
         print(f"{'=' * 30}")
         
-        if self.stat_points:
+	
+
+        if self.stat_points >0:
             print("[1] Allocate Stats")
             a = getch()
             if a == "1":
                 self.stats_up()
             else:
                 self.stats_up()
+                
 
     def level_up(self):
         if self.exp >= self.exp_needed:
@@ -54,7 +57,7 @@ class Player:
             self.stat_points += 2
 
     def stats_up(self):
-        choice_display = """
+        self.choice_display = """
             Choose a stat to increase:
             [1] HP(+5)
             [2] MP(+5)
@@ -64,45 +67,45 @@ class Player:
         """
         
         while self.stat_points > 0:
-            print(choice_display)
+            print(self.choice_display)
             x = getch()
             
             if x == "1":
                 os.system("cls" if os.name == "nt" else "clear")
                 self.max_hp += 5
-                print(f"You now have {self.max_hp} Max HP!")
-                print(f"[-]Stat Points: {self.stat_points}")
                 self.stat_points -= 1
+                print(f"You now have {self.max_hp} Max HP!")
+                print(f"[-] Stat Points: {self.stat_points}")
             elif x == "2":
                 os.system("cls" if os.name == "nt" else "clear")
                 self.max_mp += 5
-                print(f"You now have {self.max_mp} Max MP!")
-                print(f"[-]Stat Points: {self.stat_points}")
                 self.stat_points -= 1
+                print(f"You now have {self.max_mp} Max MP!")
+                print(f"[-] Stat Points: {self.stat_points}")
             elif x == "3":
                 os.system("cls" if os.name == "nt" else "clear")
                 self.strength += 1
-                print(f"You now have {self.strength} Strength!")
-                print(f"[-]Stat Points: {self.stat_points}")
                 self.stat_points -= 1
+                print(f"You now have {self.strength} Strength!")
+                print(f"[-] Stat Points: {self.stat_points}")
             elif x == "4":
                 os.system("cls" if os.name == "nt" else "clear")
                 self.intelligence += 1
-                print(f"You now have {self.intelligence} Intelligence!")
-                print(f"[-]Stat Points: {self.stat_points}")
                 self.stat_points -= 1
+                print(f"You now have {self.intelligence} Intelligence!")
+                print(f"[-] Stat Points: {self.stat_points}")
             elif x == "5":
                 os.system("cls" if os.name == "nt" else "clear")
                 self.defense += 1
-                print(f"You now have {self.defense} Defense!")
-                print(f"[-]Stat Points: {self.stat_points}")
                 self.stat_points -= 1
+                print(f"You now have {self.defense} Defense!")
+                print(f"[-] Stat Points: {self.stat_points}")
             else:
                 os.system("cls" if os.name == "nt" else "clear")
                 print("Invalid input.")
-                print(f"[-]Stat Points: {self.stat_points}")
-        
-        input("You have no more points left.\nEnter any to continue")
+                print(f"[-] Stat Points: {self.stat_points}")
+
+        input("You have no more points left.\nEnter any key to continue")
         self.display_stats()
 
     def get_exp(self, exp):
@@ -111,7 +114,6 @@ class Player:
         if self.exp >= self.exp_needed:
             self.level_up()
             self.display_stats()
-
 
 player = Player()
 

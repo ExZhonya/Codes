@@ -102,11 +102,24 @@ class map1:
 				map1.village()
 
 #========village neccesity=======
+
+	def show_stats():
+		while True:
+			from player import player
+			player.display_stats()
+			print("\n[-]Back")
+			x = getch()
+			if x == "":
+				map1.vil_inn()
+			else:
+				map1.vil_inn()
+
+				
 	def vil_inn():
 		while True:
 			preset.area(
 				"You're in the Inn",
-				"[1]Rest, [2]Chest, [3]Back",
+				"[1]Rest, [2]Chest, [3]Show Stats, [4]Back",
 			)
 			choice = getch()
 			if choice == "1":
@@ -123,6 +136,8 @@ class map1:
 			elif choice == "2":
 				pass
 			elif choice == "3":
+				map1.show_stats()
+			elif choice == "4":
 				map1.village()
 			elif choice == ".":
 				ap.secret.secret()

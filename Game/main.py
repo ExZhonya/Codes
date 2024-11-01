@@ -10,8 +10,6 @@ if __name__ == '__main__':
     #c.spawn()
 
     current_monster = monster.goblin
-
-
     while True:
         result = handle_single(current_monster)
         if result == 'win':
