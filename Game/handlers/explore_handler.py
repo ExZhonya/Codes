@@ -30,11 +30,18 @@ def handle(location):
 
 
 def handle_single(monster):
-	monster.spawn()
-	fight.current_monster = monster
-	fight.start(monster)
-	fight.reset()
-	return
+    while True:  # Loop until the player wins
+        monster.spawn()
+        fight.current_monster = monster
+        result = fight.start(monster)
+        fight.reset()
+
+        if result == 'win':
+            return 'win'
+        elif result in ('dead', 'fled'):
+            print("You have been defeated. Try again!")
+            return 'dead'
+
 
 def quest_updater(monster, location):
 	if 'Ongoing' in quest.states.values():
