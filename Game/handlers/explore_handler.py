@@ -20,7 +20,7 @@ def handle(location):
 				repetition += 1
 				continue
 			elif result in ('dead', 'fled'):
-				return
+				return 'dead'
 			else:
 				print("There was no more monsters, you left the area.")
 				time.sleep(1)

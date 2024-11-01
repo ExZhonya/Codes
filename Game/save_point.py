@@ -1,3 +1,5 @@
+import map as m
+
 last_save_point = None
 
 def update_save_point(location):
