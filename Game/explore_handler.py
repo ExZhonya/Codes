@@ -1,5 +1,5 @@
 import time, random
-from .fight_handler import fight
+from fight_handler import fight
 import monster_pick as monster
 import quest_check as quest
 

@@ -18,7 +18,7 @@ class Player:
         self.exp_needed = exp_needed
         self.gold = gold
         self.inventory = []
-        #self.weapon = shop.weapon()
+        self.weapon = None
 
     def display_stats(self):  # FOR WHILE IN INN/HOUSE
         os.system("cls" if os.name == "nt" else "clear")

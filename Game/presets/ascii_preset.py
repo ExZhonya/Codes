@@ -1,4 +1,4 @@
-import os
+import os, random
 
 #===============BUY MECHANISM==============
 import inventory as inv
@@ -51,12 +51,11 @@ __        __
         print("=" * 30)
         print(
             f"""
-You have {gold} gold coins.
+You have {gold} gold coins.""")
 
-[1]{item1.name}
-[2]{item2.name}
-[3]{item3.name}
-    """)
+        print(f"[1]{item1["item"].name}({item1["item"].price})")
+        print(f"[2]{item2["item"].name}({item2["item"].price})")
+        print(f"[3]{item3["item"].name}({item3["item"].price})")
         print("[`]Back")
         print("-" * 30)
         
