@@ -18,6 +18,7 @@ class Player:
         self.exp_needed = exp_needed
         self.gold = gold
         self.inventory = []
+        #self.weapon = shop.weapon()
 
     def display_stats(self):  # FOR WHILE IN INN/HOUSE
         os.system("cls" if os.name == "nt" else "clear")
@@ -108,13 +109,6 @@ class Player:
 
         input("You have no more points left.\nEnter any key to continue")
         self.display_stats()
-
-    def get_exp(self, exp):
-        self.exp += exp
-        print(f"You have received {exp} exp!")
-        if self.exp >= self.exp_needed:
-            self.level_up()
-            self.display_stats()
 
 player = Player()
 

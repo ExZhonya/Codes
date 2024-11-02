@@ -116,7 +116,7 @@ class Fight:
 			print("You steeled your body..")
 			time.sleep(1)
 			print(f"Blocked! {self.current_monster.name} dealt {int(damage_taken)} dmg")
-		else:
+		else: #PLAYER ATTACK
 			base_dmg = 3
 			player_damage = base_dmg + self.player.strength // 2
 			damage_fluctuation = random.randint(-2, 2)
