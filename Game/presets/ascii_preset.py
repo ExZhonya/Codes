@@ -1,5 +1,20 @@
 import os
 
+#===============BUY MECHANISM==============
+import inventory as inv
+from player import player as p
+from no_input import getch
+
+
+def show_weapon_to_sell():
+    items_to_sell = [inv.wooden_sword, inv.stone_sword, inv.iron_sword]
+    weapon_v.weapon(p.gold, items_to_sell[0], items_to_sell[1], items_to_sell[2])
+    choice = getch()
+
+#===========================================
+
+
+
 class Shop:
     def shop(self):
         os.system("cls;clear")
@@ -20,7 +35,7 @@ class Shop:
 
 
 class Weapons:
-    def weapon(self):
+    def weapon(self, gold, item1, item2, item3):
         os.system("cls;clear")
         print("=" * 30)
         print(
@@ -33,19 +48,16 @@ __        __
                     |_|                    
                     """
         )
-        from player import Player
-        player = Player()
-        gold = player.gold
         print("=" * 30)
         print(
             f"""
 You have {gold} gold coins.
 
-[-]Coming Soon
-[-]Coming Soon
-[-]Coming Soon
+[1]{item1.name}
+[2]{item2.name}
+[3]{item3.name}
     """)
-        print("[1]Back")
+        print("[`]Back")
         print("-" * 30)
         
 class Armors:
