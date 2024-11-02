@@ -24,8 +24,8 @@ def buy(chosen_index, item_list, player_gold):
             p.weapon = selected_item["item"]    # TASK NO. 2 PT 1   
             print(f"\nYou have purchased {selected_item["item"].name}!")
             print("[-]Back")
-            if getch() == '-':
-                return True
+            getch()
+            return True
         elif player_gold < selected_item.price:
             print("\nYou do not have enough to buy it!")
             time.sleep(1)
@@ -50,7 +50,6 @@ def show_weapon_to_sell():
                                 "item": inv.iron_sword,
                                 "bought": False
                             }}
-        items_prices = []
         ap.weapon_v.weapon(p.gold, items_to_sell[1], items_to_sell[2], items_to_sell[3])
         choice = getch()
         match choice:
