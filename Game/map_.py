@@ -10,11 +10,6 @@ from presets import loading as l
 from presets import cutscenes as c
 from handlers import explore_handler as explore
 import monster_pick as monster
-<<<<<<< Updated upstream:Game/map_.py
-from save_point import update_save_point, respawn_player
-=======
-
->>>>>>> Stashed changes:Game/map.py
 
 #=====================NO INPUT TECHNIQUE===============================
 if sys.platform == "win32":
@@ -36,10 +31,8 @@ else:
 		finally:
 			termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 		return ch
-#=====================================================================
+#=========================================================================
 #=============================SAVE POINT==================================
-import map as m
-
 last_save_point = None
 
 def update_save_point(location):
@@ -48,9 +41,11 @@ def update_save_point(location):
 
 def respawn_player():
     if last_save_point == 1:
+        print("Your soul has miraculously transferred to the Village...")
         map1.village()
     elif last_save_point == 2:
         map2.city()
+
 #=====================================================================
 
 def start():
