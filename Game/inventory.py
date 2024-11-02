@@ -1,5 +1,6 @@
-from typing import List, Dict, Tuple
-from no_input import getch
+from typing import List, Dict
+from player import player
+
 
 class Item:
     def __init__(self, name: str, type: str) -> None:
@@ -45,12 +46,22 @@ class Inventory:
 
 # Add new items here.
 wooden_sword = Weapon('Wooden Sword', 5)
-leather_armor = Armor('Leather Armor', 2)
+stone_sword = Weapon('Stone Sword', 10)
+iron_sword = Weapon('Iron Sword', 20)
+tungsten_sword = Weapon('Tungsten Sword', 50)
 
+leather_armor = Armor('Leather Armor', 2)
+chainmain_armor = Armor('Chainmail', 10)
+steel_armor = Armor('Steel Armor', 25)
+
+inventory = Inventory(player.inventory)
+
+# debugging area
 if __name__ == '__main__':
-    # debugging area
-    from player import player
-    player.inventory.append(wooden_sword) # adds a new item to the list
-    player.inventory.append(leather_armor) 
-    inventory = Inventory(player.inventory)
+    
+    # adds a new item to the player inventory
+    player.inventory.append(wooden_sword) 
+    player.inventory.append(leather_armor)
+
+    # show chest items
     inventory.show_chest_items()
