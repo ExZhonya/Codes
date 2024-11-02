@@ -46,8 +46,7 @@ class Inventory:
         print("====================================")
     
 
-# Add new items here.
-wooden_sword = Weapon('Wooden Sword', 3, 1) # TASK 3
+wooden_sword = Weapon('Wooden Sword', 3, 1) # 'Name', Basic_Attack, Price
 stone_sword = Weapon('Stone Sword', 5, 5)
 iron_sword = Weapon('Iron Sword', 8, 10)
 tungsten_sword = Weapon('Tungsten Sword', 50, 25)
@@ -58,12 +57,9 @@ steel_armor = Armor('Steel Armor', 25, 50)
 
 inventory = Inventory(player.inventory)
 
-# debugging area
 if __name__ == '__main__':
     
-    # adds a new item to the player inventory
     player.inventory.append(wooden_sword) 
     player.inventory.append(leather_armor)
-
-    # show chest items
+    
     inventory.show_chest_items()

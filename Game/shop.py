@@ -19,9 +19,9 @@ def buy(chosen_index, item_list, player_gold):
     print("[1]Yes [2]No", end=" ")
     choice = getch()
     if choice == '1':
-        if player_gold >= selected_item["item"].price: # TASK NO. 1
+        if player_gold >= selected_item["item"].price:
             selected_item["item"].price = "Bought"
-            p.weapon = selected_item["item"]    # TASK NO. 2 PT 1   
+            p.weapon = selected_item["item"]
             print(f"\nYou have purchased {selected_item["item"].name}!")
             print("[-]Back")
             getch()
