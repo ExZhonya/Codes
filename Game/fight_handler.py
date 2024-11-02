@@ -117,7 +117,7 @@ class Fight:
 			time.sleep(1)
 			print(f"Blocked! {self.current_monster.name} dealt {int(damage_taken)} dmg")
 		else: #PLAYER ATTACK
-			base_dmg = player.weapon.base_attack # TASK NO.2 PT 2
+			base_dmg = self.player.weapon.base_attack
 			player_damage = base_dmg + self.player.strength // 2
 			damage_fluctuation = random.randint(-2, 2)
 			player_damage += damage_fluctuation
@@ -133,14 +133,13 @@ class Fight:
 		self.player.hp = self.player.max_hp
 		self.player.mp = self.player.max_mp
 
-
+# ONLY FOR DEBUGGING. REMOVE THE IMPORT AND THE PLAYER.WEAPON IN THE FUTURE.
 fight = Fight(player)
+from inventory import wooden_sword
+player.weapon = wooden_sword
 
 if __name__ == '__main__':
 	player.name = "Joe"
-	from inventory import wooden_sword
-	player.weapon = wooden_sword
-
 	monster = monster.rabbit
 	monster.spawn()
 	fight.start(monster)

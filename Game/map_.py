@@ -8,7 +8,7 @@ import time, os, sys
 from presets import ascii_preset as ap
 from presets import loading as l
 from presets import cutscenes as c
-from handlers import explore_handler as explore
+import explore_handler as explore
 import monster_pick as monster
 
 #=====================NO INPUT TECHNIQUE===============================

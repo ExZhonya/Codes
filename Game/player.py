@@ -109,6 +109,10 @@ class Player:
 
         input("You have no more points left.\nEnter any key to continue")
         self.display_stats()
+    
+    def get_exp(self, exp_amount):
+        self.exp += exp_amount
+        print(f"Got {exp_amount} exp!")
 
 player = Player()
 
