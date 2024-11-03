@@ -115,6 +115,10 @@ class Player:
         if self.exp >= self.exp_needed:
             self.level_up()
 
+    def get_gold(self, gold_amount):
+        self.gold += gold_amount
+        print(f"Got {gold_amount} gold!")
+
 player = Player()
 
 if __name__ == "__main__":

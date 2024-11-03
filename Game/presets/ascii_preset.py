@@ -102,7 +102,7 @@ class Potions:
         )
         from player import Player
         player = Player()
-        gold = player.gold
+        gold = player.self.gold
         print("=" * 30)
         print(
             f"""

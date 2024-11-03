@@ -50,6 +50,7 @@ class Monster:
 #        return super().__str__()
 
 
+
 """# 1. Level, 2.Attack, 3.Defense, 4. Hp, 5. Evasion Rate, 6. Exp, 7. Gold"""
 #Spawn Monster
 goblin = Monster("Goblin", 1, 2, 1, 10, 0.50, 301, 5)

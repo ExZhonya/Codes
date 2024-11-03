@@ -77,12 +77,14 @@ class Fight:
 			elif self.current_monster.hp <= 0:
 				print('You win!')
 				time.sleep(1)
+				self.player.get_gold(self.current_monster.gold)
 				self.player.get_exp(self.current_monster.exp)
 				return 'win'
 			elif self.fleed:
 				print('You narrowly fled the scene...')
 				time.sleep(1)
 				return 'fled'
+
 
 	def process_input(self, action: int) -> None:
 		""" Process player input during fight """
