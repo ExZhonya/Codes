@@ -1,7 +1,8 @@
-from presets import welcome as w
 import map_ as m
-from presets import cutscenes as c
 import monster_pick as monster
+from no_input import getch
+from presets import welcome as w
+from presets import cutscenes as c
 from explore_handler import handle_single
 
 if __name__ == '__main__':
@@ -9,10 +10,11 @@ if __name__ == '__main__':
     #w.confirm()
     #c.spawn()
 
-    current_monster = monster.goblin
     while True:
-        result = handle_single(current_monster)
-        if result == 'win':
-            break
-
-    m.start()
+        result = handle_single(monster.goblin)
+        if result != 'win':
+            print("You had died. Respawn or Skip?[1]Respawn [2]Skip\n")
+            match getch():
+                case "1": continue
+                case "2": result = 'win'
+        elif result == 'win': m.start()
