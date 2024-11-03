@@ -42,10 +42,10 @@ def update_save_point(location):
 def respawn_player():
     if last_save_point == 1:
         print("Your soul has miraculously transferred to the Village...")
+        time.sleep(2.5)
         map1.village()
     elif last_save_point == 2:
         map2.city()
-
 #=====================================================================
 
 def start():

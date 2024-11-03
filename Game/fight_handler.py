@@ -133,7 +133,8 @@ class Fight:
 		self.player.hp = self.player.max_hp
 		self.player.mp = self.player.max_mp
 
-# ONLY FOR DEBUGGING. REMOVE THE IMPORT AND THE PLAYER.WEAPON IN THE FUTURE.
+# ONLY FOR DEBUGGING. REMOVE THE IMPORT AND THE PLAYER.WEAPON IN THE FUTURE. 
+# Lua : OK. 03/11/2024
 fight = Fight(player)
 from inventory import wooden_sword
 player.weapon = wooden_sword

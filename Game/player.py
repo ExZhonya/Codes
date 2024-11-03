@@ -37,8 +37,6 @@ class Player:
         print(f"Stat Points Available: {self.stat_points}")
         print(f"{'=' * 30}")
         
-	
-
         if self.stat_points >0:
             print("[1] Allocate Stats")
             a = getch()
@@ -57,6 +55,7 @@ class Player:
             self.exp_needed = int(self.exp_needed * 1.2)
             self.exp = 0
             self.stat_points += 2
+            self.display_stats()
 
     def stats_up(self):
         self.choice_display = """
@@ -113,6 +112,8 @@ class Player:
     def get_exp(self, exp_amount):
         self.exp += exp_amount
         print(f"Got {exp_amount} exp!")
+        if self.exp >= self.exp_needed:
+            self.level_up()
 
 player = Player()
 

@@ -1,8 +1,8 @@
 from presets import welcome as w
-import Game.map_ as m
+import map_ as m
 from presets import cutscenes as c
 import monster_pick as monster
-from handlers.explore_handler import handle_single
+from explore_handler import handle_single
 
 if __name__ == '__main__':
     #w.welc_ascii()
